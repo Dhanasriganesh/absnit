@@ -415,7 +415,7 @@ app.post('/api/careers/apply', upload.single('file'), async (req, res) => {
     // Email options
     const mailOptions = {
       from: `"Nexus AI Careers" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'info@nexusaisol.com',
+      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
       subject: `New Career Application: ${role} - ${name}`,
       html: createApplicationEmailTemplate({
         name,
@@ -489,7 +489,7 @@ app.post('/api/careers', async (req, res) => {
     // Email options
     const mailOptions = {
       from: `"Nexus AI Careers" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'info@nexusaisol.com',
+      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
       subject: `New Career Application: ${subject} - ${firstName} ${lastName}`,
       html: createEmailTemplate({
         firstName,
@@ -560,7 +560,7 @@ app.post('/api/contact', upload.single('file'), async (req, res) => {
     // Email options
     const mailOptions = {
       from: `"Nexus AI Contact" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'info@nexusaisol.com',
+      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
       subject: `New Contact Form: ${topic} - ${name}`,
       html: createContactEmailTemplate({
         name,
@@ -623,7 +623,7 @@ app.get('/api/health', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📧 Email will be sent to: ${process.env.MAIL_TO || 'info@nexusaisol.com'}`);
+  console.log(`📧 Email will be sent to: ${process.env.MAIL_TO || 'careers@nexusaisol.com'}`);
   
   // Check configuration
   console.log('\n📋 Environment Variables Check:');

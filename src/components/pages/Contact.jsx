@@ -8,9 +8,11 @@ const Contact = () => {
   return (
     <div className="bg-gray-50">
       <ContactHero />
-      <ContactInfoSection />
-      <SupportChannelsSection />
       <ContactFormSection />
+      <ContactInfoSection />
+      
+      
+      <SupportChannelsSection />
     </div>
   );
 };

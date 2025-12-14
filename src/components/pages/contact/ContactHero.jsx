@@ -35,7 +35,12 @@ const ContactHero = () => (
           Strategy, design, and engineering teams ready to collaborate and ship outcomes.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <button className="rounded-full bg-white/90 px-6 py-3 text-xs font-semibold text-blue-900 shadow-xl hover:shadow-2xl transition">Schedule a call</button>
+          <a 
+            href="tel:+917793992217" 
+            className="rounded-full bg-white/90 px-6 py-3 text-xs font-semibold text-blue-900 shadow-xl hover:shadow-2xl transition inline-block"
+          >
+            Schedule a call
+          </a>
         </div>
       </motion.div>
     </div>

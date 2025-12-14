@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import joinImage from '../../../assets/about-section/join.png';
 
 const ApplicationFormSection = () => {
   const [formData, setFormData] = useState({
@@ -80,16 +81,33 @@ const ApplicationFormSection = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-blue-50 py-20">
-      <div className="container mx-auto px-4 lg:px-12">
-        <div className="text-center">
+    <section className="relative bg-gradient-to-br from-blue-100 via-white to-red-100 py-20 overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-400 rounded-full blur-3xl"></div>
+      </div>
+      <div className="container relative mx-auto px-4 lg:px-12">
+        <div className="text-center mb-8">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Apply</p>
           <h2 className="mt-4 text-4xl font-bold text-gray-900">Tell us about yourself</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
             Share your experience, links, and a resume or portfolio file. We review every submission and typically respond within a week.
           </p>
         </div>
-        <form onSubmit={handleSubmit} className="mx-auto mt-12 max-w-3xl rounded-[32px] border border-blue-100 bg-white p-8 shadow-2xl">
+        <div className="grid gap-8 lg:grid-cols-2 items-stretch">
+          {/* Left side - Image */}
+          <div className="order-2 lg:order-1 h-full">
+            <img 
+              src={joinImage} 
+              alt="Join us"
+              className="w-full h-full object-cover rounded-3xl"
+            />
+          </div>
+          
+          {/* Right side - Form */}
+          <form onSubmit={handleSubmit} className="order-1 lg:order-2 h-full flex flex-col rounded-3xl border border-blue-100 bg-white p-8 shadow-2xl">
+          <div className="flex-grow">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <label className="text-sm font-semibold text-gray-700" htmlFor="name">Full name</label>
@@ -164,7 +182,8 @@ const ApplicationFormSection = () => {
               className="mt-2 w-full rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-600"
             />
           </div>
-          <div className="mt-6 space-y-3">
+          </div>
+          <div className="mt-auto space-y-3">
             {submitStatus.message && (
               <div
                 className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${
@@ -191,7 +210,8 @@ const ApplicationFormSection = () => {
               )}
             </div>
           </div>
-        </form>
+          </form>
+        </div>
       </div>
     </section>
   );

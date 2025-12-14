@@ -178,7 +178,7 @@ export default async function handler(req, res) {
     // Email options
     const mailOptions = {
       from: `"Nexus AI Careers" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'info@nexusaisol.com',
+      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
       subject: `New Career Application: ${role} - ${name}`,
       html: createApplicationEmailTemplate({
         name,

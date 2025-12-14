@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-
+import { Link } from 'react-router-dom';
 const commitments = [
   'Stand up an industry discovery sprint in 14 days',
   'Launch a pilot with measurable KPIs in 8 weeks',
@@ -35,8 +35,7 @@ const IndustriesCTASection = () => (
               ))}
             </ul>
             <div className="mt-6 flex flex-wrap gap-3">
-              <button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-800 shadow-lg">Schedule briefing</button>
-              <button className="rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white">View industry cases</button>
+              <Link to="/contact"><button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-800 shadow-lg">Schedule briefing</button></Link>
             </div>
           </div>
         </div>
