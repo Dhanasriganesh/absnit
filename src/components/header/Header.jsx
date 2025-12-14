@@ -145,28 +145,17 @@ function Header() {
     };
   }, [location.pathname]);
 
-  // Determine header classes; hero stays transparent/light, others use normal/light bg
+  // Header always uses white background with dark text
   const getHeaderClasses = () => {
-    const isHero = headerTheme === 'gradient' || headerTheme === 'hero';
-
-    // Hero sections: transparent/light text for visibility over video/background
-    if (isHero) {
-      return {
-        bg: 'bg-transparent',
-        text: true, // light text over hero
-        shadow: '',
-      };
-    }
-
     return {
       bg: 'bg-white',
-      text: false, // dark text elsewhere
+      text: false, // dark text
       shadow: 'shadow-md border-b border-gray-200',
     };
   };
 
   const headerClasses = getHeaderClasses();
-  const isTextWhite = headerClasses.text;
+  const isTextWhite = false; // Always use dark text
 
   return (
     <motion.header

@@ -7,7 +7,7 @@ const locations = [
   {
     title: 'Nexus AI Headquarters',
     location: 'USA',
-    address: '11020 David Taylor Dr #100, Charlotte, NC 28262, USA',
+    address: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
     phone: '+1 (980) 781-9639',
     phoneLink: '+19807819639',
     email: 'careers@nexusaisol.com',
