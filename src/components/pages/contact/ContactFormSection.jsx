@@ -115,7 +115,7 @@ const ContactFormSection = () => {
                 onChange={handleChange}
                 required
                 className="mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder="Alex Morgan"
+                placeholder=""
               />
             </div>
             <div>
@@ -126,7 +126,7 @@ const ContactFormSection = () => {
                 value={formData.company}
                 onChange={handleChange}
                 className="mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder="Nexus AI"
+                placeholder=""
               />
             </div>
             <div>
@@ -139,7 +139,7 @@ const ContactFormSection = () => {
                 onChange={handleChange}
                 required
                 className="mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder="you@company.com"
+                placeholder=""
               />
             </div>
             <div>
@@ -152,7 +152,7 @@ const ContactFormSection = () => {
                 onChange={handleChange}
                 required
                 className="mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder="+1 234 567 8900"
+                placeholder=""
               />
             </div>
             <div className="md:col-span-2">
@@ -183,7 +183,7 @@ const ContactFormSection = () => {
               onChange={handleChange}
               rows="4"
               className="mt-1.5 w-full rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none resize-y"
-              placeholder="Share context, goals, and timelines."
+              placeholder=""
             ></textarea>
           </div>
           <div className="mt-4">

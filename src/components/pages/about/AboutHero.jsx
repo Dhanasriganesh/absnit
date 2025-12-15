@@ -1,17 +1,11 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import backgroundImage from '../../../assets/vectors/4703133.jpg';
+import backgroundImage from '../../../assets/about-section/abt-hero.png';
 
 const stats = [
   { label: 'AI launches', value: '320+' },
   { label: 'Median ship', value: '6 weeks' },
   { label: 'Uptime seen', value: '99.9%' },
-];
-
-const signals = [
-  'E-Verified, enterprise-ready',
-  'Design + data + engineering, embedded',
-  
 ];
 
 const floaters = [
@@ -39,8 +33,6 @@ const AboutHero = () => {
       backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-blue-900/60 to-purple-900/65"></div>
       <div className="absolute inset-0 opacity-30 pointer-events-none z-0">
         <motion.div 
           animate={{ 
@@ -107,36 +99,27 @@ const AboutHero = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 items-center py-6 sm:py-8 md:py-10">
+        <div className="relative grid lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 items-center py-6 sm:py-8 md:py-10">
+          {/* Heading positioned exactly in the middle top between left and right sections */}
+          <div className="absolute top-8 left-[50%] -translate-x-1/2 z-20 hidden lg:block">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="inline-flex items-center rounded-full border border-gray-300/50 bg-white/95 backdrop-blur-sm px-3 sm:px-4 md:px-4 py-1.5 sm:py-1.5 md:py-2 shadow-md"
+            >
+              <h1 className="text-sm sm:text-base md:text-lg lg:text-xl font-light text-gray-900 uppercase tracking-[0.25em] whitespace-nowrap">
+                About Nexus AI
+              </h1>
+            </motion.div>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="lg:col-span-2 space-y-5 sm:space-y-6 md:space-y-8"
           >
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3.5 text-xs sm:text-sm md:text-base uppercase tracking-[0.2em] sm:tracking-[0.28em] md:tracking-[0.32em] text-white/90 shadow-sm font-semibold">
-              About Nexus AI
-            </div>
-            <div className="space-y-3 sm:space-y-4 max-w-4xl">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white px-1 sm:px-0">
-                AI that survives real users.
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg text-white/85 leading-relaxed">
-                We build, launch, and babysit your AI in production. One embedded crew—product, design, data, and engineering—owning outcomes, not presentations.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-2 sm:gap-3">
-              {signals.map((item) => (
-                <div
-                  key={item}
-                  className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full border border-white/20 bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-white/90 backdrop-blur-sm shadow-sm w-fit"
-                >
-                  <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 shadow-[0_0_0_4px_rgba(96,165,250,0.15)] sm:shadow-[0_0_0_6px_rgba(96,165,250,0.15)] flex-shrink-0"></span>
-                  <span className="whitespace-nowrap sm:whitespace-normal">{item}</span>
-                </div>
-              ))}
-            </div>
+          
 
           </motion.div>
 
@@ -147,21 +130,21 @@ const AboutHero = () => {
             className="lg:col-span-1"
           >
             <div className="space-y-3 sm:space-y-4">
-              <div className="rounded-2xl sm:rounded-3xl border border-white/25 bg-white/10 backdrop-blur-sm p-4 sm:p-5 md:p-6 shadow-sm">
-                <p className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/70 mb-2 sm:mb-3">Proof, not promises</p>
+              <div className="rounded-2xl sm:rounded-3xl border border-gray-300/50 bg-white/80 backdrop-blur-sm p-4 sm:p-5 md:p-6 shadow-sm">
+                <p className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-700 mb-2 sm:mb-3">Proof, not promises</p>
                 <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-1 gap-2 sm:gap-3">
                   {stats.map((stat) => (
                     <div
                       key={stat.label}
-                      className="rounded-xl sm:rounded-2xl border border-white/10 bg-white/5 px-2 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 text-center"
+                      className="rounded-xl sm:rounded-2xl border border-gray-300/30 bg-white/60 px-2 sm:px-3 md:px-4 py-2.5 sm:py-3 md:py-4 text-center"
                     >
-                      <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
-                      <p className="mt-0.5 sm:mt-1 text-[9px] sm:text-[10px] md:text-[11px] font-semibold uppercase tracking-wide text-white/70 leading-tight">{stat.label}</p>
+                      <p className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{stat.value}</p>
+                      <p className="mt-0.5 sm:mt-1 text-[9px] sm:text-[10px] md:text-[11px] font-semibold uppercase tracking-wide text-gray-700 leading-tight">{stat.label}</p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-3 sm:p-4 text-white/80 text-xs sm:text-sm leading-relaxed">
+              <div className="rounded-2xl sm:rounded-3xl border border-gray-300/50 bg-white/80 backdrop-blur-sm p-3 sm:p-4 text-gray-800 text-xs sm:text-sm leading-relaxed">
                 "We stay on after launch—observability, drift checks, human-in-the-loop. Stable AI is a practice, not a handoff."
               </div>
             </div>

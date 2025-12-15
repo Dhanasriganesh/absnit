@@ -1,7 +1,6 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import mapImage from '../../assets/mapp.png';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,13 +26,25 @@ function Footer() {
 
   const industriesLinks = [
     { name: 'Financial Services', path: '/industries' },
+    { name: 'Banking & Financial', path: '/industries' },
     { name: 'Healthcare', path: '/industries' },
+    { name: 'Healthcare & Life Science', path: '/industries' },
     { name: 'Media, Entertainment & Gaming', path: '/industries' },
+    { name: 'Telecom & Media', path: '/industries' },
     { name: 'Technology Enablement', path: '/industries' },
     { name: 'Telecommunications', path: '/industries' },
     { name: 'Energy', path: '/industries' },
+    { name: 'Energy & Utility', path: '/industries' },
+    { name: 'Oil & Gas', path: '/industries' },
     { name: 'Consumer & Industrial Products', path: '/industries' },
+    { name: 'Retail & Consumer Goods', path: '/industries' },
     { name: 'Transportation & Travel', path: '/industries' },
+    { name: 'Travel & Hospitality', path: '/industries' },
+    { name: 'Automotive & Mobility', path: '/industries' },
+    { name: 'Education', path: '/industries' },
+    { name: 'Government', path: '/industries' },
+    { name: 'Insurance', path: '/industries' },
+    { name: 'Logistics & Warehousing', path: '/industries' },
   ];
 
   const locations = [
@@ -364,10 +375,16 @@ function Footer() {
                     </div>
                   </div>
                   <div className="w-full sm:w-24 md:w-32 lg:w-36 h-32 sm:h-auto rounded-lg overflow-hidden border border-gray-100 shadow-sm self-center sm:self-auto">
-                    <img
-                      src={mapImage}
-                      alt="Map preview"
-                      className="h-full w-full object-cover"
+                    <iframe
+                      src={`https://maps.google.com/maps?q=${encodeURIComponent(location.address)}&output=embed&z=15`}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen=""
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`Map for ${location.title}`}
+                      className="w-full h-full"
                     />
                   </div>
                 </div>

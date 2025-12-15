@@ -16,6 +16,7 @@ export const menuItems = [
       { name: 'Staffing', path: '/services/staffing' },
       { name: 'Training', path: '/services/training' },
       { name: 'IT Solutions', path: '/services/it-solutions' },
+      { name: 'Visa Sponsorship', path: '/services/visa-sponsorship' },
     ],
   },
   {

@@ -1,17 +1,11 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import backgroundImage from '../../../assets/vectors/ind.jpg';
+import backgroundImage from '../../../assets/about-section/11.png';
 
 const stats = [
   { label: 'Industry pods shipped', value: '120+' },
   { label: 'Markets covered', value: '18' },
   { label: 'Avg. uplift', value: '24%' },
-];
-
-const signals = [
-  'Regulated markets: finance, health, energy, automotive',
-  'Domain squads: strategy, design, data, engineering',
-  'Governance-first: safety, privacy, compliance',
 ];
 
 const floaters = [
@@ -28,7 +22,7 @@ const floaters = [
 const IndustriesHero = () => (
   <section
     data-header-theme="hero"
-    className="relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24 text-white min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh]"
+    className="relative overflow-hidden py-16"
     style={{
       backgroundImage: `url(${backgroundImage})`,
       backgroundSize: 'cover',
@@ -36,14 +30,11 @@ const IndustriesHero = () => (
       backgroundRepeat: 'no-repeat',
     }}
   >
-    {/* Overlay for readability */}
-    <div className="absolute inset-0 bg-gradient-to-br from-slate-950/70 via-blue-900/60 to-purple-900/65"></div>
-
     {/* Accent glows and floating elements */}
     <div className="absolute inset-0 opacity-35 pointer-events-none z-0">
-      <div className="absolute -left-8 sm:-left-12 md:-left-16 top-10 h-32 w-32 sm:h-48 sm:w-48 md:h-64 md:w-64 rounded-full bg-blue-500 blur-3xl"></div>
-      <div className="absolute right-0 bottom-0 h-40 w-40 sm:h-60 sm:w-60 md:h-80 md:w-80 rounded-full bg-purple-500 blur-[140px]"></div>
-      <div className="absolute top-1/2 left-1/3 h-36 w-36 sm:h-56 sm:w-56 md:h-72 md:w-72 rounded-full bg-blue-300 blur-[120px]"></div>
+      <div className="absolute -left-16 top-10 h-64 w-64 rounded-full bg-blue-500 blur-3xl"></div>
+      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-purple-500 blur-[140px]"></div>
+      <div className="absolute top-1/2 left-1/3 h-72 w-72 rounded-full bg-blue-300 blur-[120px]"></div>
 
       {floaters.map((item, idx) => (
         <motion.span
@@ -71,56 +62,36 @@ const IndustriesHero = () => (
       ))}
     </div>
 
-    <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-      <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10 items-center py-8 sm:py-10 md:py-12">
+    <div className="container relative z-10 mx-auto px-4 lg:px-12">
+      <div className="grid lg:grid-cols-3 gap-10 items-center py-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="lg:col-span-2 space-y-6 sm:space-y-8"
+          className="lg:col-span-2 space-y-8"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 backdrop-blur-sm px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base uppercase tracking-[0.2em] sm:tracking-[0.28em] md:tracking-[0.32em] text-white/90 shadow-sm font-semibold">
-            Industries
-          </div>
-          <div className="space-y-3 sm:space-y-4 max-w-4xl">
-            <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold leading-tight text-white px-1">
-              Industry pods built for complex, regulated markets.
-            </h1>
-            <p className="text-base sm:text-lg text-white/85 leading-relaxed px-1">
-              Embedded squads that know your domain. We design, build, and operate with compliance, observability, and resilience from day one.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-2 sm:gap-3">
-            {signals.map((item) => (
-              <div
-                key={item}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm text-white/90 backdrop-blur-sm shadow-sm w-fit"
-              >
-                <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 shadow-[0_0_0_4px_rgba(96,165,250,0.15)] sm:shadow-[0_0_0_6px_rgba(96,165,250,0.15)]"></span>
-                {item}
-              </div>
-            ))}
-          </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="lg:col-span-1 mt-8 lg:mt-0"
+          className="lg:col-span-1"
         >
           <div className="space-y-4">
-            <div className="rounded-2xl sm:rounded-3xl border border-white/25 bg-white/10 backdrop-blur-sm p-4 sm:p-5 md:p-6 shadow-sm">
-              <p className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/70 mb-2 sm:mb-3">Proof, not promises</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2 sm:gap-3">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gray-300/50 bg-white/80 backdrop-blur-sm px-8 py-3.5 text-sm md:text-base uppercase tracking-[0.32em] text-gray-900 shadow-sm font-semibold">
+              Industries
+            </div>
+            <div className="rounded-3xl border border-gray-300/50 bg-white/80 backdrop-blur-sm p-6 shadow-sm">
+              <p className="text-sm uppercase tracking-[0.3em] text-gray-700 mb-3">Proof, not promises</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-2xl border border-white/10 bg-white/5 px-3 sm:px-4 py-3 sm:py-4 text-center"
+                    className="rounded-2xl border border-gray-300/30 bg-white/60 px-4 py-4 text-center"
                   >
-                    <p className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</p>
-                    <p className="mt-1 text-[10px] sm:text-[11px] font-semibold uppercase tracking-wide text-white/70">{stat.label}</p>
+                    <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
+                    <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-gray-700">{stat.label}</p>
                   </div>
                 ))}
               </div>

@@ -118,7 +118,7 @@ const ApplicationFormSection = () => {
                 onChange={handleChange}
                 required
                 className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder="Alex Morgan"
+                placeholder=""
               />
             </div>
             <div>
@@ -131,7 +131,7 @@ const ApplicationFormSection = () => {
                 onChange={handleChange}
                 required
                 className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder="alex@nexusai.com"
+                placeholder=""
               />
             </div>
             <div>
@@ -144,7 +144,7 @@ const ApplicationFormSection = () => {
                 onChange={handleChange}
                 required
                 className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder="+1 234 567 8900"
+                placeholder=""
               />
             </div>
           </div>
@@ -157,7 +157,7 @@ const ApplicationFormSection = () => {
               onChange={handleChange}
               required
               className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-              placeholder="e.g., Senior Product Designer"
+              placeholder=""
             />
           </div>
           <div className="mt-4 sm:mt-5 md:mt-6">
@@ -169,7 +169,7 @@ const ApplicationFormSection = () => {
               onChange={handleChange}
               rows="4"
               className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none resize-y"
-              placeholder="Share highlights, links, or what motivates you."
+              placeholder=""
             ></textarea>
           </div>
           <div className="mt-4 sm:mt-5 md:mt-6">

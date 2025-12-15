@@ -1,8 +1,8 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import cultureImage from '../../../assets/about-section/culture.jpg';
+import cultureImage from '../../../assets/about-section/13.png';
 import impactImage from '../../../assets/banners/transportbanner.png';
-import commit from '../../../assets/about-section/commit.png';
+import commit from '../../../assets/about-section/12.png';
 const commitments = [
   'Diversity, equity, and inclusion targets tied to leadership OKRs',
   'Pro-bono innovation programs for nonprofits driving social impact',

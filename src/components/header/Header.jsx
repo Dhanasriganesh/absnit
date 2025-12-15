@@ -10,10 +10,7 @@ import logonImage from '../../assets/logoob.png';
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  // Initialize theme as 'hero' if on home page (where hero section is), otherwise 'light'
-  const [headerTheme, setHeaderTheme] = useState(location.pathname === '/' ? 'hero' : 'light');
   const [isVisible, setIsVisible] = useState(true);
-  const tickingRef = useRef(false);
   const lastScrollY = useRef(0);
   const scrollThreshold = 3; // minimum scroll distance to trigger hide/show
 
@@ -57,106 +54,6 @@ function Header() {
     };
   }, []);
 
-  // Observe sections to change header theme
-  useEffect(() => {
-    const sections = document.querySelectorAll('[data-header-theme]');
-    
-    const updateTheme = () => {
-      if (tickingRef.current) return;
-      tickingRef.current = true;
-
-      requestAnimationFrame(() => {
-        // Check which section is in view
-        let currentTheme = 'light';
-        const scrollY = window.scrollY;
-        
-        // If we're at the very top of the page, check for hero section
-        if (scrollY < 100) {
-          sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            const sectionTop = rect.top;
-            const sectionBottom = rect.bottom;
-            
-            // If section starts at or near the top, use its theme
-            if (sectionTop <= 150 && sectionBottom >= 0) {
-              const theme = section.getAttribute('data-header-theme');
-              if (theme) {
-                currentTheme = theme;
-              }
-            }
-          });
-        } else {
-          // When scrolled, check which section is in view
-          sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            const sectionTop = rect.top;
-            const sectionBottom = rect.bottom;
-            
-            // If section is in view (with some threshold)
-            if (sectionTop <= 100 && sectionBottom >= 100) {
-              const theme = section.getAttribute('data-header-theme');
-              if (theme) {
-                currentTheme = theme;
-              }
-            }
-          });
-        }
-
-        setHeaderTheme(currentTheme);
-        tickingRef.current = false;
-      });
-    };
-
-    // Initial check - run immediately and after a short delay to catch DOM ready
-    updateTheme();
-    const initialTimeout = setTimeout(updateTheme, 100);
-
-    // Use Intersection Observer for better performance
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const theme = entry.target.getAttribute('data-header-theme');
-            if (theme) {
-              setHeaderTheme(theme);
-            }
-          }
-        });
-      },
-      {
-        threshold: [0, 0.1, 0.3, 0.5],
-        rootMargin: '0px 0px 0px 0px',
-      }
-    );
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
-    // Also listen to scroll for theme detection
-    window.addEventListener('scroll', updateTheme, { passive: true });
-
-    return () => {
-      clearTimeout(initialTimeout);
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
-      window.removeEventListener('scroll', updateTheme);
-    };
-  }, [location.pathname]);
-
-  // Header always uses white background with dark text
-  const getHeaderClasses = () => {
-    return {
-      bg: 'bg-white',
-      text: false, // dark text
-      shadow: 'shadow-md border-b border-gray-200',
-    };
-  };
-
-  const headerClasses = getHeaderClasses();
-  const isTextWhite = false; // Always use dark text
-
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -166,7 +63,7 @@ function Header() {
         ease: [0.4, 0, 0.2, 1],
         type: "tween"
       }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${headerClasses.bg} ${headerClasses.shadow}`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white shadow-md border-b border-gray-200"
     >
       <nav className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between h-14 sm:h-16 md:h-16 lg:h-20 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
@@ -183,7 +80,7 @@ function Header() {
 
           {/* Desktop Navigation */}
           <div className="flex-1 flex justify-center hidden lg:block">
-            <DesktopNavigation isTextWhite={isTextWhite} />
+            <DesktopNavigation isTextWhite={false} />
           </div>
 
           {/* Get Started Button - Desktop Only */}
@@ -225,7 +122,7 @@ function Header() {
             <MobileMenuButton
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              isTextWhite={isTextWhite}
+              isTextWhite={false}
             />
           </div>
         </div>

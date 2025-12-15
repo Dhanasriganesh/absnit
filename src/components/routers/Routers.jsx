@@ -6,6 +6,7 @@ import Consulting from '../pages/services/Consulting'
 import Staffing from '../pages/services/Staffing'
 import Training from '../pages/services/Training'
 import ITSolutions from '../pages/services/ITSolutions'
+import VisaSponsorship from '../pages/services/VisaSponsorship'
 import Industries from '../pages/Industries'
 import Clients from '../pages/Clients'
 import Careers from '../pages/Careers'
@@ -24,6 +25,7 @@ function Routers() {
             <Route path='/services/staffing' element={<Staffing />} />
             <Route path='/services/training' element={<Training />} />
             <Route path='/services/it-solutions' element={<ITSolutions />} />
+            <Route path='/services/visa-sponsorship' element={<VisaSponsorship />} />
             <Route path='/industries' element={<Industries />} />
             <Route path='/clients' element={<Clients />} />
             <Route path='/careers' element={<Careers />} />

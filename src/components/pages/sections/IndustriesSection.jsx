@@ -59,6 +59,50 @@ const IndustriesSection = () => {
       title: 'Transportation & Travel',
       icon: '✈️',
     },
+    {
+      title: 'Banking & Financial',
+      icon: '🏦',
+    },
+    {
+      title: 'Education',
+      icon: '🎓',
+    },
+    {
+      title: 'Energy & Utility',
+      icon: '⚡',
+    },
+    {
+      title: 'Government',
+      icon: '🏛️',
+    },
+    {
+      title: 'Healthcare & Life Science',
+      icon: '🧬',
+    },
+    {
+      title: 'Insurance',
+      icon: '🛡️',
+    },
+    {
+      title: 'Logistics & Warehousing',
+      icon: '📦',
+    },
+    {
+      title: 'Retail & Consumer Goods',
+      icon: '🛒',
+    },
+    {
+      title: 'Telecom & Media',
+      icon: '📡',
+    },
+    {
+      title: 'Oil & Gas',
+      icon: '🛢️',
+    },
+    {
+      title: 'Travel & Hospitality',
+      icon: '🏨',
+    },
   ];
 
   return (

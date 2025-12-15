@@ -66,6 +66,22 @@ const offerings = [
       { label: 'Release acceleration', value: '5 times' },
     ],
   },
+  {
+    id: 'visa-sponsorship',
+    title: 'Visa Sponsorship',
+    headline: 'Move global talent where they create the most value.',
+    description:
+      'We help employers and skilled professionals navigate work visa sponsorship—aligning the right roles, locations, and timelines while staying compliant with evolving regulations.',
+    pillars: [
+      'Eligibility assessments and sponsorship strategy',
+      'Document preparation and petition coordination',
+      'End-to-end guidance from filing to post-approval compliance',
+    ],
+    metrics: [
+      { label: 'Countries supported', value: '10+' },
+      { label: 'End-to-end engagements', value: '200+' },
+    ],
+  },
 ];
 
 const ServiceDetailSections = () => {

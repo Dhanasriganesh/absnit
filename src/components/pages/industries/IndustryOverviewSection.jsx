@@ -9,6 +9,12 @@ import energyImg from '../../../assets/about-section/energy.png';
 import consumerImg from '../../../assets/about-section/consumer.png';
 import transportImg from '../../../assets/about-section/transport.png';
 import automobileImg from '../../../assets/about-section/automobile.png';
+// Additional industry images - using available images as placeholders
+import educationImg from '../../../assets/about-section/technology.png';
+import governmentImg from '../../../assets/about-section/technology.png';
+import insuranceImg from '../../../assets/about-section/financial.png';
+import logisticsImg from '../../../assets/about-section/transport.png';
+import oilGasImg from '../../../assets/about-section/energy.png';
 
 const industries = [
   {
@@ -74,31 +80,108 @@ const industries = [
       'Software-defined vehicles, connected services, and in-cabin experiences backed by telemetry and safety-grade platforms.',
     strengths: ['Connected vehicle platforms', 'Predictive maintenance & telematics', 'In-vehicle UX & infotainment'],
   },
+  {
+    name: 'Banking & Financial',
+    image: financialImg,
+    summary:
+      'Modern banking platforms, digital transformation, and financial technology solutions that enhance customer experience and operational efficiency.',
+    strengths: ['Digital banking platforms', 'Payment processing systems', 'Risk management & compliance'],
+  },
+  {
+    name: 'Education',
+    image: educationImg,
+    summary:
+      'EdTech solutions, learning management systems, and educational platforms that transform teaching and learning experiences.',
+    strengths: ['Learning management systems', 'Student information systems', 'Online education platforms'],
+  },
+  {
+    name: 'Energy & Utility',
+    image: energyImg,
+    summary:
+      'Smart grid technologies, utility management systems, and energy efficiency solutions for modern power infrastructure.',
+    strengths: ['Smart grid solutions', 'Utility management platforms', 'Energy efficiency systems'],
+  },
+  {
+    name: 'Government',
+    image: governmentImg,
+    summary:
+      'Digital government services, public sector transformation, and citizen engagement platforms that improve governance and accessibility.',
+    strengths: ['Digital government platforms', 'Citizen services portals', 'Public sector modernization'],
+  },
+  {
+    name: 'Healthcare & Life Science',
+    image: healthcareImg,
+    summary:
+      'Advanced healthcare systems, life sciences platforms, and biomedical solutions that improve patient outcomes and research capabilities.',
+    strengths: ['Clinical information systems', 'Research data platforms', 'Patient care management'],
+  },
+  {
+    name: 'Insurance',
+    image: insuranceImg,
+    summary:
+      'Insurance technology platforms, claims processing systems, and risk assessment tools that streamline operations and customer service.',
+    strengths: ['Claims management systems', 'Policy administration platforms', 'Risk analytics & underwriting'],
+  },
+  {
+    name: 'Logistics & Warehousing',
+    image: logisticsImg,
+    summary:
+      'Supply chain optimization, warehouse management systems, and logistics platforms that improve efficiency and visibility.',
+    strengths: ['Warehouse management systems', 'Supply chain visibility', 'Fleet & route optimization'],
+  },
+  {
+    name: 'Retail & Consumer Goods',
+    image: consumerImg,
+    summary:
+      'E-commerce platforms, retail management systems, and consumer engagement solutions that drive sales and customer loyalty.',
+    strengths: ['E-commerce platforms', 'Inventory management', 'Customer experience solutions'],
+  },
+  {
+    name: 'Telecom & Media',
+    image: telecommunicationImg,
+    summary:
+      'Telecommunications infrastructure, media distribution platforms, and communication solutions for the digital age.',
+    strengths: ['Network infrastructure', 'Content distribution', 'Communication platforms'],
+  },
+  {
+    name: 'Oil & Gas',
+    image: oilGasImg,
+    summary:
+      'Upstream and downstream solutions, exploration technologies, and operational systems for the oil and gas industry.',
+    strengths: ['Exploration & production systems', 'Pipeline management', 'Refining operations'],
+  },
+  {
+    name: 'Travel & Hospitality',
+    image: transportImg,
+    summary:
+      'Hospitality management systems, booking platforms, and travel technology solutions that enhance guest experiences and operations.',
+    strengths: ['Property management systems', 'Booking & reservation platforms', 'Guest experience solutions'],
+  },
 ];
 
 const IndustryOverviewSection = () => (
-  <section className="relative overflow-hidden bg-white py-12 sm:py-16 md:py-20">
+  <section className="relative overflow-hidden bg-white py-20">
     {/* Soft background accents */}
     <motion.div
-      className="pointer-events-none absolute -left-10 sm:-left-16 md:-left-20 top-10 h-36 w-36 sm:h-56 sm:w-56 md:h-72 md:w-72 rounded-full bg-blue-200/20 blur-3xl"
+      className="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-blue-200/20 blur-3xl"
       animate={{ y: [0, 16, 0], x: [0, 10, 0], opacity: [0.25, 0.4, 0.25] }}
       transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
     />
     <motion.div
-      className="pointer-events-none absolute right-0 bottom-0 h-40 w-40 sm:h-60 sm:w-60 md:h-80 md:w-80 rounded-full bg-red-200/15 blur-3xl"
+      className="pointer-events-none absolute right-0 bottom-0 h-80 w-80 rounded-full bg-red-200/15 blur-3xl"
       animate={{ y: [0, -18, 0], x: [0, -12, 0], opacity: [0.22, 0.36, 0.22] }}
       transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
     />
 
-    <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+    <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <div className="text-center">
-        <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">What we specialize in</p>
-        <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 px-2">Purpose-built industry playbooks</h2>
-        <p className="mx-auto mt-3 sm:mt-4 max-w-3xl text-sm sm:text-base md:text-lg text-gray-600 px-4">
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">What we specialize in</p>
+        <h2 className="mt-4 text-4xl font-bold text-gray-900">Purpose-built industry playbooks</h2>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
           Every industry squad is backed by accelerators, research, and compliance experts so we can move from ideation to measurable impact quickly.
         </p>
       </div>
-      <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-14 grid gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 xl:grid-cols-3">
+      <div className="mt-14 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {industries.map((industry, index) => (
           <motion.div
             key={industry.name}
@@ -107,29 +190,29 @@ const IndustryOverviewSection = () => (
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.45, delay: index * 0.05 }}
             whileHover={{ y: -6, scale: 1.01 }}
-            className="group overflow-hidden rounded-2xl sm:rounded-3xl border border-blue-50 bg-white shadow-xl transition-all duration-300 hover:shadow-2xl"
+            className="group overflow-hidden rounded-3xl border border-blue-50 bg-white shadow-xl transition-all duration-300 hover:shadow-2xl"
           >
-            <div className="relative h-36 sm:h-40 md:h-44 w-full overflow-hidden">
+            <div className="relative h-44 w-full overflow-hidden">
               <motion.img
                 src={industry.image}
                 alt={industry.name}
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent opacity-70" />
-              <div className="absolute left-3 sm:left-4 md:left-5 bottom-3 sm:bottom-4 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90">
-                0{index + 1}
+              <div className="absolute left-5 bottom-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/90">
+                {String(index + 1).padStart(2, '0')}
               </div>
             </div>
-            <div className="p-4 sm:p-5 md:p-6">
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
                 {industry.name}
               </h3>
-              <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">{industry.summary}</p>
-              <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-700">
+              <p className="mt-3 text-sm text-gray-600">{industry.summary}</p>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700">
                 {industry.strengths.map((item) => (
-                  <li key={item} className="flex items-start gap-2 sm:gap-3">
-                    <span className="mt-1 inline-block h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-gradient-to-r from-blue-600 to-red-500 flex-shrink-0"></span>
-                    <span className="leading-relaxed">{item}</span>
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 inline-block h-2 w-2 rounded-full bg-gradient-to-r from-blue-600 to-red-500"></span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
