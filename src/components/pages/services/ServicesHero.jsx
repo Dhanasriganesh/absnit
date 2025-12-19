@@ -1,6 +1,7 @@
-﻿import React, { useEffect } from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import backgroundImage from '../../../assets/about-section/10.png';
+import BackgroundImage from '../../shared/BackgroundImage';
 
 const stats = [
   { label: 'AI builds delivered', value: '180+' },
@@ -27,27 +28,11 @@ const floaters = [
 ];
 
 const ServicesHero = () => {
-  // Preload hero image since it's above the fold
-  useEffect(() => {
-    if (typeof window !== 'undefined' && backgroundImage) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = backgroundImage;
-      document.head.appendChild(link);
-    }
-  }, []);
-
   return (
-    <section
+    <BackgroundImage
+      src={backgroundImage}
       data-header-theme="hero"
       className="relative overflow-hidden py-12 sm:py-14 md:py-16"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
     >
       {/* Accent glows and floating elements */}
       <div className="absolute inset-0 opacity-35 pointer-events-none z-0">
@@ -139,7 +124,7 @@ const ServicesHero = () => {
           </motion.div>
         </div>
       </div>
-    </section>
+    </BackgroundImage>
   );
 };
 

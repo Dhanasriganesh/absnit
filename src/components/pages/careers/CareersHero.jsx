@@ -1,6 +1,7 @@
-﻿import React, { useEffect } from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import backgroundImage from '../../../assets/about-section/14.png';
+import BackgroundImage from '../../shared/BackgroundImage';
 
 const metrics = [
   { label: 'Studios worldwide', value: '6' },
@@ -25,29 +26,12 @@ const floaters = [
   { top: '30%', left: '86%', size: 8, delay: 1.1, speed: 5.6 },
 ];
 
-const CareersHero = () => {
-  // Preload hero image since it's above the fold
-  useEffect(() => {
-    if (typeof window !== 'undefined' && backgroundImage) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = backgroundImage;
-      document.head.appendChild(link);
-    }
-  }, []);
-
-  return (
-    <section
-      data-header-theme="hero"
-      className="relative overflow-hidden py-16"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
+const CareersHero = () => (
+  <BackgroundImage
+    src={backgroundImage}
+    data-header-theme="hero"
+    className="relative overflow-hidden py-16"
+  >
     {/* Accent glows and floating elements */}
     <div className="absolute inset-0 opacity-40 pointer-events-none z-0">
       <div className="absolute -left-16 top-8 h-64 w-64 rounded-full bg-blue-500 blur-3xl"></div>
@@ -123,8 +107,7 @@ const CareersHero = () => {
         </motion.div>
       </div>
     </div>
-  </section>
-  );
-};
+  </BackgroundImage>
+);
 
 export default CareersHero;

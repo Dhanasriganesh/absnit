@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import consultingHero from '../../../assets/about-section/consulting.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const valueLevers = [
   {
@@ -68,16 +69,17 @@ const Consulting = () => {
       />
 
       <section className="relative overflow-hidden pt-24">
-        <motion.img
+        <motion.div
           initial={{ opacity: 0.6, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          loading="lazy"
-          decoding="async"
-          src={consultingHero}
-          alt="Consulting"
-          className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
-        />
+        >
+          <SkeletonImage
+            src={consultingHero}
+            alt="Consulting"
+            className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
+          />
+        </motion.div>
         <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-900/20 via-transparent to-red-800/15 pointer-events-none" />
       </section>
 

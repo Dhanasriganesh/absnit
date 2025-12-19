@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import financialImg from '../../../assets/about-section/financial.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 import healthcareImg from '../../../assets/about-section/healthcare.png';
 import entertainmentImg from '../../../assets/about-section/entertainment.png';
 import telecommunicationImg from '../../../assets/about-section/telecommunication.png';
@@ -152,13 +153,17 @@ const IndustryOverviewSection = () => (
             className="group overflow-hidden rounded-3xl border border-blue-50 bg-white shadow-xl transition-all duration-300 hover:shadow-2xl"
           >
             <div className="relative h-44 w-full overflow-hidden">
-              <motion.img
-                src={industry.image}
-                alt={industry.name}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-              />
+              <motion.div
+                className="h-full w-full"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.5 }}
+              >
+                <SkeletonImage
+                  src={industry.image}
+                  alt={industry.name}
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent opacity-70" />
               <div className="absolute left-5 bottom-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/90">
                 {String(index + 1).padStart(2, '0')}

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
 import heroVideo from '../../../assets/videos/TetraXai.mp4';
+import SkeletonVideo from '../../shared/SkeletonVideo';
 
 const stats = [
   { value: 3480, suffix: '+', label: 'Projects Completed' },
@@ -42,12 +43,13 @@ const HeroSection = () => {
     >
       {/* Video Background */}
       <div className="absolute inset-0 z-0 w-full h-full">
-        <video
+        <SkeletonVideo
+          src={heroVideo}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
           style={{
             minWidth: '100%',
@@ -61,7 +63,7 @@ const HeroSection = () => {
         >
           <source src={heroVideo} type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </SkeletonVideo>
       </div>
 
       {/* Dark overlay for text readability */}

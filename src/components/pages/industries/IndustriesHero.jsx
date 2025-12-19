@@ -1,6 +1,7 @@
-﻿import React, { useEffect } from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import backgroundImage from '../../../assets/about-section/11.png';
+import BackgroundImage from '../../shared/BackgroundImage';
 
 const stats = [
   { label: 'Industry pods shipped', value: '120+' },
@@ -19,29 +20,12 @@ const floaters = [
   { top: '28%', left: '88%', size: 8, delay: 1.2, speed: 5.6 },
 ];
 
-const IndustriesHero = () => {
-  // Preload hero image since it's above the fold
-  useEffect(() => {
-    if (typeof window !== 'undefined' && backgroundImage) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = backgroundImage;
-      document.head.appendChild(link);
-    }
-  }, []);
-
-  return (
-    <section
-      data-header-theme="hero"
-      className="relative overflow-hidden py-16"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
+const IndustriesHero = () => (
+  <BackgroundImage
+    src={backgroundImage}
+    data-header-theme="hero"
+    className="relative overflow-hidden py-16"
+  >
     {/* Accent glows and floating elements */}
     <div className="absolute inset-0 opacity-35 pointer-events-none z-0">
       <div className="absolute -left-16 top-10 h-64 w-64 rounded-full bg-blue-500 blur-3xl"></div>
@@ -112,8 +96,7 @@ const IndustriesHero = () => {
         </motion.div>
       </div>
     </div>
-  </section>
-  );
-};
+  </BackgroundImage>
+);
 
 export default IndustriesHero;

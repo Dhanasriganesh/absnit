@@ -121,7 +121,7 @@ const IndustriesSection = () => {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-0"
       >
-        <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+        <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none">
           {/* Blue arc top-left */}
           <path d="M 0,200 Q 200,50 400,200" 
             fill="none" 
@@ -133,11 +133,11 @@ const IndustriesSection = () => {
             strokeWidth="1"/>
           
           {/* Red arc bottom-right */}
-          <path d="M 1000,800 Q 800,900 1000,1000" 
+          <path d="M 1200,640 Q 960,720 1200,800" 
             fill="none" 
             stroke="rgba(185, 28, 28, 0.3)" 
             strokeWidth="1.5"/>
-          <path d="M 950,750 Q 750,880 950,1000" 
+          <path d="M 1140,600 Q 900,704 1140,800" 
             fill="none" 
             stroke="rgba(185, 28, 28, 0.2)" 
             strokeWidth="1"/>

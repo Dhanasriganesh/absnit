@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import staffingHero from '../../../assets/about-section/staffing.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const talentModels = [
   {
@@ -42,16 +43,17 @@ const Staffing = () => {
   return (
     <div className="bg-gradient-to-br from-blue-300 via-white to-red-800">
       <section className="relative overflow-hidden pt-24">
-        <motion.img
+        <motion.div
           initial={{ opacity: 0.6, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          src={staffingHero}
-          loading="lazy"
-          decoding="async"
-          alt="Staffing in management"
-          className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
-        />
+        >
+          <SkeletonImage
+            src={staffingHero}
+            alt="Staffing in management"
+            className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
+          />
+        </motion.div>
       </section>
 
       <section className="bg-white py-20">

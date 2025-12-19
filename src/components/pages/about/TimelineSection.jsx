@@ -6,6 +6,7 @@ import milestone3Image from '../../../assets/banners/healthbanner.png';
 import milestone4Image from '../../../assets/banners/telecombanner.png';
 import milestone5Image from '../../../assets/ppl/location1.png';
 import journeyImage from '../../../assets/wolrdlocation.jpg';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const milestones = [
   {
@@ -264,19 +265,21 @@ const TimelineSection = () => {
                   className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
                   initial={false}
                 >
-                  <motion.img
-                    src={milestone.image}
-                    alt={milestone.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover object-center"
+                  <motion.div
                     initial={{ scale: 1.1 }}
                     whileHover={{ scale: 1.15 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="w-full h-full"
                     style={{
                       filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
                     }}
-                  />
+                  >
+                    <SkeletonImage
+                      src={milestone.image}
+                      alt={milestone.title}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </motion.div>
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
                 </motion.div>
                 

@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import itSolutionsHero from '../../../assets/about-section/itsolutions.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const pillars = [
   {
@@ -42,16 +43,17 @@ const caseResults = [
 const ITSolutions = () => (
   <div className="bg-gray-50">
     <section className="relative overflow-hidden pt-24">
-      <motion.img
+      <motion.div
         initial={{ opacity: 0.6, scale: 1.02 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
-        src={itSolutionsHero}
-        loading="lazy"
-        decoding="async"
-        alt="IT Solutions"
-        className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
-      />
+      >
+        <SkeletonImage
+          src={itSolutionsHero}
+          alt="IT Solutions"
+          className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
+        />
+      </motion.div>
     </section>
 
     <section className="bg-white py-20">

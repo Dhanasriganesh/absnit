@@ -6,6 +6,7 @@ import staffingImg from '../../../assets/about-section/staffing.png';
 import trainingImg from '../../../assets/about-section/training.png';
 import itSolutionsImg from '../../../assets/about-section/itsolutions.png';
 import visaSponsorshipImg from '../../../assets/about-section/vs.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const ServiceCard = ({ service, index }) => {
   const { ref, inView } = useInView({ 
@@ -58,15 +59,17 @@ const ServiceCard = ({ service, index }) => {
       <div className="relative h-full bg-white/90 backdrop-blur-xl rounded-xl sm:rounded-2xl p-0 shadow-lg border border-white/50 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
         {/* Image header */}
         <div className="relative h-32 sm:h-36 md:h-40 w-full overflow-hidden">
-          <motion.img
-            src={service.image}
-            alt={service.title}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          <motion.div
+            className="h-full w-full"
             initial={{ scale: 1.02 }}
             animate={{ scale: 1 }}
-            loading="lazy"
-            decoding="async"
-          />
+          >
+            <SkeletonImage
+              src={service.image}
+              alt={service.title}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent opacity-70" />
           <div className="absolute left-3 bottom-2 sm:left-4 sm:bottom-3 rounded-full bg-white/80 px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-700 shadow">
             {service.title}

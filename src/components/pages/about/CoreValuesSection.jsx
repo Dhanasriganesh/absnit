@@ -8,6 +8,7 @@ import peopleImage from '../../../assets/about-section/elevate.jpg';
 import outcomesImage from '../../../assets/banners/sponsership.jpg';
 import sustainabilityImage from '../../../assets/banners/mediabanner.png';
 import partnershipImage from '../../../assets/about-section/partnership.jpg';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const values = [
   {
@@ -119,15 +120,17 @@ const CoreValuesSection = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.img
-              src={valuesImage}
-              alt="Core Values"
-              className="w-full h-48 sm:h-56 md:h-64 lg:h-auto object-cover"
+            <motion.div
               whileHover={{ scale: 1.2, rotate: 2 }}
               transition={{ duration: 0.6 }}
-              loading="lazy"
-              decoding="async"
-            />
+              className="w-full h-48 sm:h-56 md:h-64 lg:h-auto"
+            >
+              <SkeletonImage
+                src={valuesImage}
+                alt="Core Values"
+                className="w-full h-48 sm:h-56 md:h-64 lg:h-auto object-cover"
+              />
+            </motion.div>
             <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
            
           </motion.div>
@@ -148,19 +151,21 @@ const CoreValuesSection = () => {
                 className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
                 initial={false}
               >
-                <motion.img
-                  src={value.image}
-                  alt={value.title}
-                  className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                  decoding="async"
+                <motion.div
                   initial={{ scale: 1.1 }}
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="w-full h-full"
                   style={{
                     filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
                   }}
-                />
+                >
+                  <SkeletonImage
+                    src={value.image}
+                    alt={value.title}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
               </motion.div>
               

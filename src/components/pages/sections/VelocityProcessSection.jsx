@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import phasesImage from '../../../assets/home-section/phases.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const steps = [
   {
@@ -25,12 +26,10 @@ const VelocityProcessSection = () => (
   <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden">
     {/* Static background image with white overlay for legibility */}
     <div className="absolute inset-0">
-      <img
+      <SkeletonImage
         src={phasesImage}
         alt="Process phases"
         className="h-full w-full object-cover"
-        loading="lazy"
-        decoding="async"
       />
       <div className="absolute inset-0 bg-white/42" />
     </div>

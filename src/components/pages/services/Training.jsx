@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import trainingHero from '../../../assets/about-section/training.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const tracks = [
   {
@@ -42,16 +43,17 @@ const outcomes = [
 const Training = () => (
   <div className="bg-gray-50">
     <section className="relative overflow-hidden pt-24">
-      <motion.img
+      <motion.div
         initial={{ opacity: 0.6, scale: 1.02 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8 }}
-        src={trainingHero}
-        loading="lazy"
-        decoding="async"
-        alt="Training"
-        className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
-      />
+      >
+        <SkeletonImage
+          src={trainingHero}
+          alt="Training"
+          className="w-full h-auto max-h-[360px] object-cover rounded-3xl shadow-2xl border border-white/50"
+        />
+      </motion.div>
     </section>
 
     <section className="bg-white py-20">

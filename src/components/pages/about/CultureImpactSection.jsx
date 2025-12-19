@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import cultureImage from '../../../assets/about-section/13.png';
 import impactImage from '../../../assets/banners/transportbanner.png';
 import commit from '../../../assets/about-section/12.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 const commitments = [
   'Diversity, equity, and inclusion targets tied to leadership OKRs',
   'Pro-bono innovation programs for nonprofits driving social impact',
@@ -108,15 +109,17 @@ const CultureImpactSection = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.img
-              src={cultureImage}
-              alt="Culture & Impact"
-              className="w-full h-48 sm:h-56 md:h-64 object-cover"
+            <motion.div
               whileHover={{ scale: 1.15, rotate: 2 }}
               transition={{ duration: 0.6 }}
-              loading="lazy"
-              decoding="async"
-            />
+              className="w-full h-48 sm:h-56 md:h-64"
+            >
+              <SkeletonImage
+                src={cultureImage}
+                alt="Culture & Impact"
+                className="w-full h-48 sm:h-56 md:h-64 object-cover"
+              />
+            </motion.div>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
          
           </motion.div>
@@ -165,15 +168,16 @@ const CultureImpactSection = () => {
             "Our partnership with Nexus AI accelerated our sustainability roadmap while equipping our teams with the skills to own the change."
             <p className="mt-2 sm:mt-3 font-semibold text-gray-900 text-xs sm:text-sm">VP of Digital Strategy, Global Energy Leader</p>
           </div>
-          <motion.img
-              src={commit}
-              loading="lazy"
-              decoding="async"
-              alt="Culture & Impact"
-              className="w-full h-40 sm:h-48 md:h-56 mt-3 sm:mt-4 object-cover rounded-xl sm:rounded-2xl"
+          <motion.div
               whileHover={{ scale: 1, rotate: 0 }}
               transition={{ duration: 0.6 }}
-            />
+            >
+              <SkeletonImage
+                src={commit}
+                alt="Culture & Impact"
+                className="w-full h-40 sm:h-48 md:h-56 mt-3 sm:mt-4 object-cover rounded-xl sm:rounded-2xl"
+              />
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -11,6 +11,8 @@ import greencardImg from '../../../assets/about-section/greencard.jpg';
 import stemImg from '../../../assets/about-section/stem.jpg';
 import cptImg from '../../../assets/about-section/cpt.jpg';
 import tnImg from '../../../assets/about-section/tn.jpg';
+import SkeletonImage from '../../shared/SkeletonImage';
+import BackgroundImage from '../../shared/BackgroundImage';
 
 const visaTypes = [
   {
@@ -129,19 +131,17 @@ const VisaSponsorship = () => {
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-red-50">
       {/* Hero */}
-      <motion.section
+      <BackgroundImage
+        src={visaSponsorBg}
         data-header-theme="hero"
         className="relative pt-32 pb-16"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        style={{
-          backgroundImage: `url(${visaSponsorBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
       >
+        <motion.section
+          className="relative"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container relative mx-auto px-4 lg:px-12 text-center">
           <div className="max-w-4xl mx-auto">
@@ -162,7 +162,8 @@ const VisaSponsorship = () => {
             </div>
           </div>
         </div>
-      </motion.section>
+        </motion.section>
+      </BackgroundImage>
 
       {/* Our Immigration Team - With Image */}
       <section className="relative py-16">
@@ -176,12 +177,10 @@ const VisaSponsorship = () => {
               transition={{ duration: 0.5 }}
               className="relative rounded-3xl overflow-hidden shadow-2xl"
             >
-              <img
+              <SkeletonImage
                 src={passportImg}
                 alt="Immigration Team"
                 className="w-full h-72 lg:h-96 object-cover"
-                loading="lazy"
-                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
@@ -281,8 +280,6 @@ const VisaSponsorship = () => {
                   src={h1bImg}
                   alt="H1B Visa Sponsorship"
                   className="w-full h-72 lg:h-[420px] object-cover"
-                  loading="lazy"
-                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 via-transparent to-transparent" />
               </div>
@@ -449,9 +446,9 @@ const VisaSponsorship = () => {
         transition={{ duration: 0.6 }}
       >
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${usaImg})` }}
+        <BackgroundImage
+          src={usaImg}
+          className="absolute inset-0"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-purple-900/80 to-red-900/85" />
         

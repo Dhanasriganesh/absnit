@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Building2, TrendingUp, Users, Award, Globe, Sparkles, Zap, Target, Rocket } from 'lucide-react';
 import heroBackgroundImage from '../../assets/about-section/12.png';
+import SkeletonImage from '../shared/SkeletonImage';
+import BackgroundImage from '../shared/BackgroundImage';
 
 // Import logos
 import accentureLogo from '../../assets/accenture.png';
@@ -72,17 +74,6 @@ import frontlineLogo from '../../assets/clients2/frontlineinsurancelogo.png';
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-
-  // Preload hero image since it's above the fold
-  useEffect(() => {
-    if (typeof window !== 'undefined' && heroBackgroundImage) {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = heroBackgroundImage;
-      document.head.appendChild(link);
-    }
-  }, []);
 
   const clients = {
     technology: [
@@ -270,15 +261,10 @@ const Clients = () => {
       </div>
 
       {/* Hero Section */}
-      <section 
+      <BackgroundImage 
+        src={heroBackgroundImage}
         data-header-theme="hero"
         className="relative pt-32 pb-16"
-        style={{
-          backgroundImage: `url(${heroBackgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
       >
         <div className="container relative mx-auto px-4 lg:px-12">
           <motion.div
@@ -347,7 +333,7 @@ const Clients = () => {
             </motion.div>
           </motion.div>
         </div>
-      </section>
+      </BackgroundImage>
 
       {/* Category Filters - Animated Pills */}
       <section className="relative py-8">
@@ -439,12 +425,10 @@ const Clients = () => {
                       >
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative bg-white rounded-xl p-4 border border-gray-200 shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:border-gray-300 w-36 h-24 flex items-center justify-center">
-                          <img
+                          <SkeletonImage
                             src={client.logo}
                             alt={client.name}
                             className="max-h-12 max-w-[90%] w-auto h-auto object-contain"
-                            loading="lazy"
-                            decoding="async"
                             onError={(e) => {
                               e.target.style.display = 'none';
                             }}
@@ -467,12 +451,10 @@ const Clients = () => {
                       >
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-red-600 rounded-xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500" />
                         <div className="relative bg-white rounded-xl p-4 border border-gray-200 shadow-md transition-all duration-500 group-hover:shadow-xl group-hover:border-gray-300 w-36 h-24 flex items-center justify-center">
-                          <img
+                          <SkeletonImage
                             src={client.logo}
                             alt={client.name}
                             className="max-h-12 max-w-[90%] w-auto h-auto object-contain"
-                            loading="lazy"
-                            decoding="async"
                             onError={(e) => {
                               e.target.style.display = 'none';
                             }}

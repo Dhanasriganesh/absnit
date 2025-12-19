@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import partnershipImage from '../../../assets/banners/fullstackbanner.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const commitments = [
   'Co-create a 90-day transformation roadmap',
@@ -67,15 +68,17 @@ const AboutCTASection = () => {
             className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
             initial={false}
           >
-            <motion.img
-              src={partnershipImage}
-              alt="Partnership"
-              className="w-full h-full object-cover"
+            <motion.div
               whileHover={{ scale: 1.2, rotate: 5 }}
-              loading="lazy"
-              decoding="async"
               transition={{ duration: 0.8 }}
-            />
+              className="w-full h-full"
+            >
+              <SkeletonImage
+                src={partnershipImage}
+                alt="Partnership"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-red-900/80 to-blue-900/80" />
           </motion.div>
           

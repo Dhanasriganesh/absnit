@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import usaImage from '../../../assets/about-section/usa.jpg';
 import hydImage from '../../../assets/about-section/hyd.jpg';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const locations = [
   {
@@ -109,12 +110,10 @@ const ContactInfoSection = () => {
 
                 {/* Right side - Image */}
                 <div className="w-full sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 flex-shrink-0 rounded-lg overflow-hidden mx-auto sm:mx-0">
-                  <img 
+                  <SkeletonImage 
                     src={location.image} 
                     alt={location.title}
                     className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
                   />
                 </div>
               </div>

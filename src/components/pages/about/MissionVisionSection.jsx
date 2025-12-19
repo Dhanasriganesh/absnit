@@ -5,6 +5,7 @@ import visionImage from '../../../assets/banners/databanner.png';
 import promiseImage from '../../../assets/banners/devopsbanner.png';
 import featuredImage from '../../../assets/ppl/girl2.jpg';
 import whyImage from '../../../assets/about-section/why.jpg';
+import SkeletonImage from '../../shared/SkeletonImage';
 const pillars = [
   {
     title: 'Mission',
@@ -88,15 +89,16 @@ const MissionVisionSection = () => {
           
           </div>
           <div className="lg:w-80 lg:flex-shrink-0">
-            <motion.img
-                src={whyImage}
-                alt="Why we exist"
-                className="w-full h-40 sm:h-48 md:h-56 lg:h-full lg:max-h-64 object-cover rounded-xl sm:rounded-2xl"
+            <motion.div
                 whileHover={{ scale: 1, rotate: 0 }}
                 transition={{ duration: 0.6 }}
-                loading="lazy"
-                decoding="async"
-              />
+              >
+                <SkeletonImage
+                  src={whyImage}
+                  alt="Why we exist"
+                  className="w-full h-40 sm:h-48 md:h-56 lg:h-full lg:max-h-64 object-cover rounded-xl sm:rounded-2xl"
+                />
+              </motion.div>
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </div>
         </div>
@@ -116,19 +118,21 @@ const MissionVisionSection = () => {
                 className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
                 initial={false}
               >
-                <motion.img
-                  src={pillar.image}
-                  alt={pillar.title}
-                  className="w-full h-full object-cover object-center"
+                <motion.div
                   initial={{ scale: 1.1 }}
                   whileHover={{ scale: 1.15 }}
-                  loading="lazy"
-                  decoding="async"
                   transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="w-full h-full"
                   style={{
                     filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
                   }}
-                />
+                >
+                  <SkeletonImage
+                    src={pillar.image}
+                    alt={pillar.title}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
               </motion.div>
               

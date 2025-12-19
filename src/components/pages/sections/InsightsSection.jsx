@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import insightsImage from '../../../assets/home-section/insights.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const insights = [
   {
@@ -23,12 +24,10 @@ const insights = [
 const InsightsSection = () => (
   <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 py-12 sm:py-16 md:py-20 overflow-hidden">
     <div className="absolute inset-2 sm:inset-3 md:inset-4 rounded-2xl sm:rounded-3xl md:rounded-[32px] overflow-hidden opacity-50">
-      <img
+      <SkeletonImage
         src={insightsImage}
         alt="Insights visual"
         className="h-full w-full object-cover"
-        loading="lazy"
-        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-br from-white via-white/70 to-white/20" />
     </div>

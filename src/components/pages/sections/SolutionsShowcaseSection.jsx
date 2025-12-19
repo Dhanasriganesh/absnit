@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import solutionsImage from '../../../assets/home-section/solutions.png';
+import SkeletonImage from '../../shared/SkeletonImage';
 
 const solutions = [
   {
@@ -29,7 +30,7 @@ const SolutionsShowcaseSection = () => (
   <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden" data-header-theme="light">
     {/* Full background image with legibility overlay */}
     <div className="absolute inset-0">
-      <img
+      <SkeletonImage
         src={solutionsImage}
         alt="Solutions in action"
         className="h-full w-full object-cover"
