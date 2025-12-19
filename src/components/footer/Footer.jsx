@@ -1,6 +1,8 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import logoImage from '../../assets/logoob.png';
+import SkeletonImage from '../shared/SkeletonImage';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -219,8 +221,8 @@ function Footer() {
             className="sm:col-span-2 md:col-span-3 lg:col-span-3"
           >
             <div className="mb-4 sm:mb-6">
-              <img 
-                src="/src/assets/logoob.png" 
+              <SkeletonImage 
+                src={logoImage} 
                 alt="Nexus AI Solutions Logo" 
                 className="h-12 sm:h-12 md:h-16 lg:h-16 w-auto lg:w-44 object-contain"
               />
