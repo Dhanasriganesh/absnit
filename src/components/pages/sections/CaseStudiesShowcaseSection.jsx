@@ -33,7 +33,7 @@ const CaseStudiesShowcaseSection = () => (
       transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       className="absolute inset-0"
     >
-      <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="none">
         {/* Blue bars - left side ascending */}
         <rect x="5%" y="70%" width="1.5" height="100" fill="rgba(29, 78, 216, 0.3)" rx="1"/>
         <rect x="8%" y="60%" width="1.5" height="150" fill="rgba(29, 78, 216, 0.35)" rx="1"/>
@@ -45,7 +45,7 @@ const CaseStudiesShowcaseSection = () => (
         <rect x="95%" y="50%" width="1.5" height="200" fill="rgba(185, 28, 28, 0.3)" rx="1"/>
         
         {/* Success path line (subtle upward curve) */}
-        <path d="M 20%,80% Q 50%,30% 80%,40%" 
+        <path d="M 200,800 Q 500,300 800,400" 
           fill="none" 
           stroke="rgba(29, 78, 216, 0.15)" 
           strokeWidth="1.5"
