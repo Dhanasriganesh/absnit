@@ -1,22 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Building2, TrendingUp, Users, Award, Globe, Sparkles, Zap, Target, Rocket } from 'lucide-react';
 import heroBackgroundImage from '../../assets/about-section/12.png';
-
-// Preload hero image since it's above the fold
-const preloadHeroImage = (src) => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = src;
-  document.head.appendChild(link);
-};
-
-// Preload on component mount
-if (typeof window !== 'undefined') {
-  preloadHeroImage(heroBackgroundImage);
-}
 
 // Import logos
 import accentureLogo from '../../assets/accenture.png';
@@ -86,6 +72,17 @@ import frontlineLogo from '../../assets/clients2/frontlineinsurancelogo.png';
 
 const Clients = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+
+  // Preload hero image since it's above the fold
+  useEffect(() => {
+    if (typeof window !== 'undefined' && heroBackgroundImage) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = heroBackgroundImage;
+      document.head.appendChild(link);
+    }
+  }, []);
 
   const clients = {
     technology: [

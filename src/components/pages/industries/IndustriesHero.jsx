@@ -1,20 +1,6 @@
-﻿import React from 'react';
+﻿import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import backgroundImage from '../../../assets/about-section/11.png';
-
-// Preload hero image since it's above the fold
-const preloadHeroImage = (src) => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = src;
-  document.head.appendChild(link);
-};
-
-// Preload on component mount
-if (typeof window !== 'undefined') {
-  preloadHeroImage(backgroundImage);
-}
 
 const stats = [
   { label: 'Industry pods shipped', value: '120+' },
@@ -33,17 +19,29 @@ const floaters = [
   { top: '28%', left: '88%', size: 8, delay: 1.2, speed: 5.6 },
 ];
 
-const IndustriesHero = () => (
-  <section
-    data-header-theme="hero"
-    className="relative overflow-hidden py-16"
-    style={{
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-    }}
-  >
+const IndustriesHero = () => {
+  // Preload hero image since it's above the fold
+  useEffect(() => {
+    if (typeof window !== 'undefined' && backgroundImage) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = backgroundImage;
+      document.head.appendChild(link);
+    }
+  }, []);
+
+  return (
+    <section
+      data-header-theme="hero"
+      className="relative overflow-hidden py-16"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
     {/* Accent glows and floating elements */}
     <div className="absolute inset-0 opacity-35 pointer-events-none z-0">
       <div className="absolute -left-16 top-10 h-64 w-64 rounded-full bg-blue-500 blur-3xl"></div>
@@ -115,6 +113,7 @@ const IndustriesHero = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default IndustriesHero;

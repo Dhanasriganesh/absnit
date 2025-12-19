@@ -1,20 +1,6 @@
-﻿import React from 'react';
+﻿import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import backgroundImage from '../../../assets/about-section/abt-hero.png';
-
-// Preload hero image since it's above the fold
-const preloadHeroImage = (src) => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = src;
-  document.head.appendChild(link);
-};
-
-// Preload on component mount
-if (typeof window !== 'undefined') {
-  preloadHeroImage(backgroundImage);
-}
 
 const stats = [
   { label: 'AI launches', value: '320+' },
@@ -36,6 +22,17 @@ const floaters = [
 ];
 
 const AboutHero = () => {
+  // Preload hero image since it's above the fold
+  useEffect(() => {
+    if (typeof window !== 'undefined' && backgroundImage) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = backgroundImage;
+      document.head.appendChild(link);
+    }
+  }, []);
+
   return (
     <section 
       data-header-theme="hero"

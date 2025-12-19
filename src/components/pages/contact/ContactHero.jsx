@@ -1,21 +1,19 @@
-﻿import React from 'react';
+﻿import React, { useEffect } from 'react';
 import backgroundImage from '../../../assets/about-section/GET IN TOUCH WITH US.png';
 
-// Preload hero image since it's above the fold
-const preloadHeroImage = (src) => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = src;
-  document.head.appendChild(link);
-};
+const ContactHero = () => {
+  // Preload hero image since it's above the fold
+  useEffect(() => {
+    if (typeof window !== 'undefined' && backgroundImage) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = backgroundImage;
+      document.head.appendChild(link);
+    }
+  }, []);
 
-// Preload on component mount
-if (typeof window !== 'undefined') {
-  preloadHeroImage(backgroundImage);
-}
-
-const ContactHero = () => (
+  return (
   <section 
     data-header-theme="hero"
     className="relative overflow-hidden min-h-screen"
@@ -27,6 +25,7 @@ const ContactHero = () => (
     }}
   >
   </section>
-);
+  );
+};
 
 export default ContactHero;
