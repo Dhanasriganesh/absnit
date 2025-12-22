@@ -1,5 +1,5 @@
 ﻿import React, { useState } from 'react';
-import joinImage from '../../../assets/about-section/join.png';
+import joinImage from '../../../assets/about-section/join.webp';
 
 const ApplicationFormSection = () => {
   const [formData, setFormData] = useState({

@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import phasesImage from '../../../assets/home-section/phases.png';
+import phasesImage from '../../../assets/home-section/phases.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const steps = [

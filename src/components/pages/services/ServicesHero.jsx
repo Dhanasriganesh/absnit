@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import backgroundImage from '../../../assets/about-section/10.png';
+import backgroundImage from '../../../assets/about-section/10.webp';
 import BackgroundImage from '../../shared/BackgroundImage';
 
 const stats = [

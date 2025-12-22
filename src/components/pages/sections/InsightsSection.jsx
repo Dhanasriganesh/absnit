@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import insightsImage from '../../../assets/home-section/insights.png';
+import insightsImage from '../../../assets/home-section/insights.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const insights = [

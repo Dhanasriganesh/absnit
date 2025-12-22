@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import backgroundImage from '../../../assets/about-section/GET IN TOUCH WITH US.png';
+import backgroundImage from '../../../assets/about-section/GET IN TOUCH WITH US.webp';
 import BackgroundImage from '../../shared/BackgroundImage';
 
 const ContactHero = () => (

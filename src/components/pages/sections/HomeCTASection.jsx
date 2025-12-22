@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import buildImage from '../../../assets/home-section/build.png';
+import buildImage from '../../../assets/home-section/build.webp';
 
 const HomeCTASection = () => (
   <section className="relative bg-gradient-to-r from-blue-800 via-blue-700 to-red-800 py-20 text-white overflow-hidden" data-header-theme="gradient">

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Counter from './Counter';
-import statsImage from '../../../assets/home-section/statistics.png';
+import statsImage from '../../../assets/home-section/statistics.webp';
 
 const StatisticsSection = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });

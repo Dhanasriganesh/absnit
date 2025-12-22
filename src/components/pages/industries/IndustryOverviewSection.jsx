@@ -1,22 +1,22 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import financialImg from '../../../assets/about-section/financial.png';
+import financialImg from '../../../assets/about-section/financial.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
-import healthcareImg from '../../../assets/about-section/healthcare.png';
-import entertainmentImg from '../../../assets/about-section/entertainment.png';
-import telecommunicationImg from '../../../assets/about-section/telecommunication.png';
-import energyImg from '../../../assets/about-section/energy.png';
-import consumerImg from '../../../assets/about-section/consumer.png';
-import transportImg from '../../../assets/about-section/transport.png';
-import automobileImg from '../../../assets/about-section/automobile.png';
+import healthcareImg from '../../../assets/about-section/healthcare.webp';
+import entertainmentImg from '../../../assets/about-section/entertainment.webp';
+import telecommunicationImg from '../../../assets/about-section/telecommunication.webp';
+import energyImg from '../../../assets/about-section/energy.webp';
+import consumerImg from '../../../assets/about-section/consumer.webp';
+import transportImg from '../../../assets/about-section/transport.webp';
+import automobileImg from '../../../assets/about-section/automobile.webp';
 // Additional industry images
-import educationImg from '../../../assets/about-section/technology.png';
-import governmentImg from '../../../assets/about-section/govt_public.png';
-import insuranceImg from '../../../assets/about-section/insurance.png';
-import logisticsImg from '../../../assets/about-section/transport.png';
-import oilGasImg from '../../../assets/about-section/Oil-Gas.jpg';
-import manufacturingImg from '../../../assets/about-section/manufacturing.jpg';
-import travelHospitalityImg from '../../../assets/about-section/travel-hospitality.jpg';
+import educationImg from '../../../assets/about-section/technology.webp';
+import governmentImg from '../../../assets/about-section/govt_public.webp';
+import insuranceImg from '../../../assets/about-section/insurance.webp';
+import logisticsImg from '../../../assets/about-section/transport.webp';
+import oilGasImg from '../../../assets/about-section/Oil-Gas.webp';
+import manufacturingImg from '../../../assets/about-section/manufacturing.webp';
+import travelHospitalityImg from '../../../assets/about-section/travel-hospitality.webp';
 
 const industries = [
   {

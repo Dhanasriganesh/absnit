@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Snowfall from 'react-snowfall';
-import consultingImg from '../../../assets/about-section/consulting.png';
-import staffingImg from '../../../assets/about-section/staffing.png';
-import trainingImg from '../../../assets/about-section/training.png';
-import itSolutionsImg from '../../../assets/about-section/itsolutions.png';
-import visaSponsorshipImg from '../../../assets/about-section/vs.png';
+import consultingImg from '../../../assets/about-section/consulting.webp';
+import staffingImg from '../../../assets/about-section/staffing.webp';
+import trainingImg from '../../../assets/about-section/training.webp';
+import itSolutionsImg from '../../../assets/about-section/itsolutions.webp';
+import visaSponsorshipImg from '../../../assets/about-section/vs.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const ServiceCard = ({ service, index }) => {

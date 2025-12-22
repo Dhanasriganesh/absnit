@@ -1,8 +1,8 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import cultureImage from '../../../assets/about-section/13.png';
-import impactImage from '../../../assets/banners/transportbanner.png';
-import commit from '../../../assets/about-section/12.png';
+import cultureImage from '../../../assets/about-section/13.webp';
+import impactImage from '../../../assets/banners/transportbanner.webp';
+import commit from '../../../assets/about-section/12.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 const commitments = [
   'Diversity, equity, and inclusion targets tied to leadership OKRs',

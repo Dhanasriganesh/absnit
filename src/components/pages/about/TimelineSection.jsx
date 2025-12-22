@@ -1,11 +1,11 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import milestone1Image from '../../../assets/banners/energybanner.png';
-import milestone2Image from '../../../assets/banners/financebanner.png';
-import milestone3Image from '../../../assets/banners/healthbanner.png';
-import milestone4Image from '../../../assets/banners/telecombanner.png';
-import milestone5Image from '../../../assets/ppl/location1.png';
-import journeyImage from '../../../assets/wolrdlocation.jpg';
+import milestone1Image from '../../../assets/banners/energybanner.webp';
+import milestone2Image from '../../../assets/banners/financebanner.webp';
+import milestone3Image from '../../../assets/banners/healthbanner.webp';
+import milestone4Image from '../../../assets/banners/telecombanner.webp';
+import milestone5Image from '../../../assets/ppl/location1.webp';
+import journeyImage from '../../../assets/wolrdlocation.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const milestones = [

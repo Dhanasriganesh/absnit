@@ -1,5 +1,5 @@
 ﻿import React, { useState } from 'react';
-import inTouchImage from '../../../assets/about-section/in touch.png';
+import inTouchImage from '../../../assets/about-section/in touch.webp';
 
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({

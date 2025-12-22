@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logoImage from '../../assets/logoob.png';
+import logoImage from '../../assets/logoob.webp';
 import SkeletonImage from '../shared/SkeletonImage';
 
 function Footer() {

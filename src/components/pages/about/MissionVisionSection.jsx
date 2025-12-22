@@ -1,10 +1,10 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import missionImage from '../../../assets/banners/cloudbanner.jpg';
-import visionImage from '../../../assets/banners/databanner.png';
-import promiseImage from '../../../assets/banners/devopsbanner.png';
-import featuredImage from '../../../assets/ppl/girl2.jpg';
-import whyImage from '../../../assets/about-section/why.jpg';
+import missionImage from '../../../assets/banners/cloudbanner.webp';
+import visionImage from '../../../assets/banners/databanner.webp';
+import promiseImage from '../../../assets/banners/devopsbanner.webp';
+import featuredImage from '../../../assets/ppl/girl2.webp';
+import whyImage from '../../../assets/about-section/why.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 const pillars = [
   {

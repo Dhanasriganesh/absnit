@@ -2,15 +2,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { BookOpen, Users, Award, Target, Zap, TrendingUp, CheckCircle2, Clock, Globe, Code, Database, Cloud, Brain, Shield, Rocket, MessageCircle, ArrowRight, GraduationCap, Laptop, PlayCircle, FileText, Layers, Network, BarChart3, Cpu, Server, Lock, Monitor, Building2 } from 'lucide-react';
-import trainingHero from '../../../assets/about-section/training.png';
+import trainingHero from '../../../assets/about-section/training.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 import BackgroundImage from '../../shared/BackgroundImage';
-import training24 from '../../../assets/training/24.png';
-import training25 from '../../../assets/training/25.png';
-import training26 from '../../../assets/training/26.png';
-import training27 from '../../../assets/training/27.png';
-import training28 from '../../../assets/training/28.png';
-import training29 from '../../../assets/training/29.png';
+import training24 from '../../../assets/training/24.webp';
+import training25 from '../../../assets/training/25.webp';
+import training26 from '../../../assets/training/26.webp';
+import training27 from '../../../assets/training/27.webp';
+import training28 from '../../../assets/training/28.webp';
+import training29 from '../../../assets/training/29.webp';
 
 const trainingTracks = [
   {

@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import Snowfall from 'react-snowfall';
-import whyImage from '../../../assets/home-section/why.png';
+import whyImage from '../../../assets/home-section/why.webp';
 
 const stats = [
   { label: 'AI-native launches', value: '280+' },

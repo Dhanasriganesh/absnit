@@ -1,13 +1,13 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import valuesImage from '../../../assets/about-section/core.jpg';
-import teamworkImage from '../../../assets/banners/webbanner.png';
-import integrityImage from '../../../assets/about-section/int.png';
-import innovationImage from '../../../assets/about-section/invent.jpg';
-import peopleImage from '../../../assets/about-section/elevate.jpg';
-import outcomesImage from '../../../assets/banners/sponsership.jpg';
-import sustainabilityImage from '../../../assets/banners/mediabanner.png';
-import partnershipImage from '../../../assets/about-section/partnership.jpg';
+import valuesImage from '../../../assets/about-section/core.webp';
+import teamworkImage from '../../../assets/banners/webbanner.webp';
+import integrityImage from '../../../assets/about-section/int.webp';
+import innovationImage from '../../../assets/about-section/invent.webp';
+import peopleImage from '../../../assets/about-section/elevate.webp';
+import outcomesImage from '../../../assets/banners/sponsership.webp';
+import sustainabilityImage from '../../../assets/banners/mediabanner.webp';
+import partnershipImage from '../../../assets/about-section/partnership.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const values = [

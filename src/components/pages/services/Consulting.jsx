@@ -2,15 +2,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Target, Lightbulb, TrendingUp, Users, BarChart3, CheckCircle2, Rocket, Shield, Zap, Globe, Building2, MessageCircle, ArrowRight, Award, FileText, Brain, Network, Layers, Gauge } from 'lucide-react';
-import consultingHero from '../../../assets/about-section/consulting.png';
+import consultingHero from '../../../assets/about-section/consulting.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 import BackgroundImage from '../../shared/BackgroundImage';
-import consulting12 from '../../../assets/consulting/12.png';
-import consulting13 from '../../../assets/consulting/13.png';
-import consulting14 from '../../../assets/consulting/14.png';
-import consulting15 from '../../../assets/consulting/15.png';
-import consulting16 from '../../../assets/consulting/16.png';
-import consulting17 from '../../../assets/consulting/17.png';
+import consulting12 from '../../../assets/consulting/12.webp';
+import consulting13 from '../../../assets/consulting/13.webp';
+import consulting14 from '../../../assets/consulting/14.webp';
+import consulting15 from '../../../assets/consulting/15.webp';
+import consulting16 from '../../../assets/consulting/16.webp';
+import consulting17 from '../../../assets/consulting/17.webp';
 
 const consultingServices = [
   {

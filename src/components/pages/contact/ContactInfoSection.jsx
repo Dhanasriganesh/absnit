@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import usaImage from '../../../assets/about-section/usa.jpg';
-import hydImage from '../../../assets/about-section/hyd.jpg';
+import usaImage from '../../../assets/about-section/usa.webp';
+import hydImage from '../../../assets/about-section/hyd.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const locations = [

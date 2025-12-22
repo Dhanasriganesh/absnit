@@ -2,15 +2,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Server, Cloud, Shield, Zap, Database, Network, Code, Rocket, CheckCircle2, Clock, Globe, Building2, MessageCircle, ArrowRight, Layers, Cpu, Lock, Monitor, BarChart3, Settings, Activity, FileText, Target, TrendingUp, Brain, Users } from 'lucide-react';
-import itSolutionsHero from '../../../assets/about-section/itsolutions.png';
+import itSolutionsHero from '../../../assets/about-section/itsolutions.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 import BackgroundImage from '../../shared/BackgroundImage';
-import it1 from '../../../assets/it-solutions/it-1.png';
-import it2 from '../../../assets/it-solutions/it-2.png';
-import it3 from '../../../assets/it-solutions/it-3.png';
-import it4 from '../../../assets/it-solutions/it-4.png';
-import it5 from '../../../assets/it-solutions/it-5.png';
-import it6 from '../../../assets/it-solutions/it-6.png';
+import it1 from '../../../assets/it-solutions/it-1.webp';
+import it2 from '../../../assets/it-solutions/it-2.webp';
+import it3 from '../../../assets/it-solutions/it-3.webp';
+import it4 from '../../../assets/it-solutions/it-4.webp';
+import it5 from '../../../assets/it-solutions/it-5.webp';
+import it6 from '../../../assets/it-solutions/it-6.webp';
 
 const solutionPillars = [
   {

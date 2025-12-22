@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import solutionsImage from '../../../assets/home-section/solutions.png';
+import solutionsImage from '../../../assets/home-section/solutions.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const solutions = [

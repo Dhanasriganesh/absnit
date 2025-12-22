@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import partnershipImage from '../../../assets/banners/fullstackbanner.png';
+import partnershipImage from '../../../assets/banners/fullstackbanner.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const commitments = [

@@ -2,15 +2,15 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Users, Rocket, Shield, TrendingUp, CheckCircle2, Award, Briefcase, Clock, Target, Zap, Globe, Building2, MessageCircle, ArrowRight, FileText, Network, Layers, Gauge, UserCheck, Code, Palette, Database, Brain, BarChart3 } from 'lucide-react';
-import staffingHero from '../../../assets/about-section/staffing.png';
+import staffingHero from '../../../assets/about-section/staffing.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 import BackgroundImage from '../../shared/BackgroundImage';
-import staffing18 from '../../../assets/staffing/18.png';
-import staffing19 from '../../../assets/staffing/19.png';
-import staffing20 from '../../../assets/staffing/20.png';
-import staffing21 from '../../../assets/staffing/21.png';
-import staffing22 from '../../../assets/staffing/22.png';
-import staffing23 from '../../../assets/staffing/23.png';
+import staffing18 from '../../../assets/staffing/18.webp';
+import staffing19 from '../../../assets/staffing/19.webp';
+import staffing20 from '../../../assets/staffing/20.webp';
+import staffing21 from '../../../assets/staffing/21.webp';
+import staffing22 from '../../../assets/staffing/22.webp';
+import staffing23 from '../../../assets/staffing/23.webp';
 
 const talentModels = [
   {
