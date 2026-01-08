@@ -5,19 +5,19 @@ const channels = [
   {
     title: 'Partnerships & Sales',
     description: 'Exploring new initiatives, co-innovation, or platform builds.',
-    email: 'careers@nexusaisol.com',
+    email: 'contact@nexusaisol.com',
     response: '2 business days',
   },
   {
     title: 'Support & Client Delivery',
     description: 'Active engagement support, production issues, or roadmap planning.',
-    email: 'careers@nexusaisol.com',
+    email: 'contact@nexusaisol.com',
     response: 'Same day',
   },
   {
     title: 'Talent & Media',
     description: 'Careers, speaking opportunities, or media inquiries.',
-    email: 'careers@nexusaisol.com',
+    email: 'contact@nexusaisol.com',
     response: '3 business days',
   },
 ];

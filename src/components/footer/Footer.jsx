@@ -48,14 +48,14 @@ function Footer() {
       title: 'Nexus AI Headquarters',
       address: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
       phone: '+1 980 781 9639',
-      email: 'careers@nexusaisol.com',
+      email: 'contact@nexusaisol.com',
       mapUrl: 'https://www.google.com/maps?q=11020+David+Taylor+Dr,+Charlotte,+NC+28262',
     },
     {
       title: 'Nexus AI Development Center',
       address: 'Unit no. 1020, 9th floor, Vasavi MPM Grand, Ameerpet, Near by metro station, Hyderabad, Telangana, India',
       phone: '+91 77939 92217',
-      email: 'careers@nexusaisol.com',
+      email: 'contact@nexusaisol.com',
       mapUrl: 'https://www.google.com/maps?q=Vasavi+MPM+Grand,+Ameerpet,+Hyderabad,+Telangana',
     },
   ];
