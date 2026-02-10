@@ -1,76 +1,82 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Snowfall from 'react-snowfall';
+import { CheckCircle2, Users2, Heart, Lightbulb } from 'lucide-react';
 import Counter from './Counter';
-import statsImage from '../../../assets/home-section/statistics.webp';
+
+const statList = [
+  { number: 3480, suffix: '', label: 'Projects Completed', icon: CheckCircle2, color: 'text-blue-600', bg: 'bg-blue-50' },
+  { number: 428, suffix: '', label: 'IT Specialists', icon: Users2, color: 'text-red-600', bg: 'bg-red-50' },
+  { number: 6980, suffix: '', label: 'Happy Clients', icon: Heart, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+  { number: 256, suffix: '', label: 'Smart Solutions', icon: Lightbulb, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+];
 
 const StatisticsSection = () => {
-  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
-
-  const stats = [
-    { number: 3480, suffix: '', label: 'Projects Completed' },
-    { number: 428, suffix: '', label: 'IT Specialists' },
-    { number: 6980, suffix: '', label: 'Happy Clients' },
-    { number: 256, suffix: '', label: 'Smart Solutions' },
-  ];
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
 
   return (
-    <section 
-      id="statistics" 
-      data-header-theme="gradient"
-      ref={ref} 
-      className="relative bg-blue-950 py-12 sm:py-16 md:py-20 text-white overflow-hidden"
+    <section
+      id="statistics"
+      ref={ref}
+      className="relative bg-white py-16 lg:py-24 overflow-hidden"
     >
-      {/* Snowfall Effect (matching other blue sections) */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
-      >
-        <Snowfall
-          color="#ffffff"
-          snowflakeCount={150}
-          speed={[1.0, 3.0]}
-          wind={[-0.5, 2.0]}
-          radius={[0.5, 3.0]}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            top: 0,
-            left: 0,
+      {/* Precision Metrics Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Subtle Square Grid */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
+          opacity: '0.4'
+        }} />
+
+        {/* Pulsing Data Accents */}
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.6, 0.3],
           }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-600/10 to-transparent"
         />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px]"
+        />
+
+        {/* Textured Overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,white_90%)]" />
       </div>
 
-      {/* Optional subtle overlay/background image */}
-      <div className="absolute inset-0 opacity-20 z-10">
-        <div className="absolute inset-0" />
-      </div>
-
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-          {stats.map((stat, index) => (
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          {statList.map((stat, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
+              key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="text-center px-2 sm:px-0"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="relative flex flex-col items-center text-center group"
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-1.5 sm:mb-2 text-white">
+              <div className={`p-4 rounded-3xl ${stat.bg} ${stat.color} mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 shadow-sm border border-white`}>
+                <stat.icon className="w-6 h-6 md:w-8 md:h-8" />
+              </div>
+
+              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 mb-2 font-display">
                 {inView ? <Counter end={stat.number} suffix={stat.suffix} /> : '0'}
               </div>
-              <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl opacity-90 leading-tight text-white/90">
+
+              <div className="text-xs md:text-sm font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-900 transition-colors">
                 {stat.label}
               </div>
+
+              {/* Connecting Dot for desktop */}
+              {index < statList.length - 1 && (
+                <div className="absolute top-1/2 -right-6 w-1 h-1 bg-slate-200 rounded-full hidden lg:block" />
+              )}
             </motion.div>
           ))}
         </div>

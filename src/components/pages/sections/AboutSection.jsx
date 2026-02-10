@@ -6,10 +6,10 @@ const AboutSection = () => {
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       data-header-theme="light"
-      ref={ref} 
+      ref={ref}
       className="py-20 bg-white"
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -20,13 +20,13 @@ const AboutSection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">
-            About Nexus AI Solutions
+            About ABSN IT Solutions
           </h2>
           <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-blue-600">
             Driving Innovation Through AI-Powered Excellence
           </h3>
           <p className="text-lg text-gray-600 leading-relaxed mb-8">
-            Welcome to Nexus AI Solutions, where innovation meets expertise. Based in the dynamic tech hub of Charlotte, North Carolina, we are pioneering the future of IT services and consulting with our transformative AI-driven solutions.
+            Welcome to ABSN IT Solutions, where innovation meets expertise. Based in the dynamic tech hub of Charlotte, North Carolina, we are pioneering the future of IT services and consulting with our transformative AI-driven solutions.
           </p>
         </motion.div>
       </div>

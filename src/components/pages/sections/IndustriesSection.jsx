@@ -1,253 +1,130 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Snowfall from 'react-snowfall';
+import {
+  Car, Palette, Eye, Code, Layers, Landmark, HeartPulse,
+  Monitor, Cpu, Phone, Zap, Factory, Plane, Briefcase,
+  GraduationCap, Building2, Shield, Box, ShoppingBag,
+  Droplets, Hotel, Globe, Mic, Radio
+} from 'lucide-react';
+
+const industryList = [
+  { title: 'Automobile & Mobility', icon: Car, color: 'text-blue-600', bg: 'bg-blue-50' },
+  { title: 'Product Design', icon: Palette, color: 'text-red-500', bg: 'bg-red-50' },
+  { title: 'Smart Vision', icon: Eye, color: 'text-indigo-500', bg: 'bg-indigo-50' },
+  { title: 'Web Development', icon: Code, color: 'text-emerald-500', bg: 'bg-emerald-50' },
+  { title: 'Platform Integration', icon: Layers, color: 'text-purple-500', bg: 'bg-purple-50' },
+  { title: 'Financial Services', icon: Landmark, color: 'text-amber-600', bg: 'bg-amber-50' },
+  { title: 'Healthcare', icon: HeartPulse, color: 'text-rose-500', bg: 'bg-rose-50' },
+  { title: 'Media & Entertainment', icon: Mic, color: 'text-sky-500', bg: 'bg-sky-50' },
+  { title: 'Technology Enablement', icon: Cpu, color: 'text-slate-600', bg: 'bg-slate-50' },
+  { title: 'Telecommunications', icon: Phone, color: 'text-blue-500', bg: 'bg-blue-50' },
+  { title: 'Energy & Utility', icon: Zap, color: 'text-yellow-600', bg: 'bg-yellow-50' },
+  { title: 'Industrial Products', icon: Factory, color: 'text-orange-600', bg: 'bg-orange-50' },
+  { title: 'Transportation & Travel', icon: Plane, color: 'text-cyan-600', bg: 'bg-cyan-50' },
+  { title: 'Banking & Finance', icon: Briefcase, color: 'text-indigo-600', bg: 'bg-indigo-50' },
+  { title: 'Education', icon: GraduationCap, color: 'text-violet-600', bg: 'bg-violet-50' },
+  { title: 'Government', icon: Building2, color: 'text-slate-700', bg: 'bg-slate-50' },
+  { title: 'Insurance', icon: Shield, color: 'text-blue-700', bg: 'bg-blue-50' },
+  { title: 'Logistics', icon: Box, color: 'text-amber-700', bg: 'bg-amber-50' },
+  { title: 'Retail & Consumer Goods', icon: ShoppingBag, color: 'text-pink-600', bg: 'bg-pink-50' },
+  { title: 'Telecom & Media', icon: Radio, color: 'text-blue-400', bg: 'bg-blue-50' },
+  { title: 'Oil & Gas', icon: Droplets, color: 'text-blue-800', bg: 'bg-blue-50' },
+  { title: 'Travel & Hospitality', icon: Hotel, color: 'text-emerald-600', bg: 'bg-emerald-50' },
+  { title: 'Smart Cities', icon: Building2, color: 'text-indigo-400', bg: 'bg-indigo-50' },
+  { title: 'E-commerce', icon: Globe, color: 'text-blue-600', bg: 'bg-blue-50' },
+];
 
 const IndustriesSection = () => {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
-
-  const industries = [
-    {
-      title: 'Automobile & Mobility',
-      icon: '🚗',
-      accent: 'from-orange-500/10 to-orange-500/5',
-    },
-    {
-      title: 'Product Design',
-      icon: '🧠',
-    },
-    {
-      title: 'Smart Vision',
-      icon: '🎯',
-    },
-    {
-      title: 'Web Development',
-      icon: '🛠️',
-    },
-    {
-      title: 'Platform Integration',
-      icon: '♾️',
-    },
-    {
-      title: 'Financial Services',
-      icon: '💹',
-    },
-    {
-      title: 'Healthcare',
-      icon: '⚕️',
-    },
-    {
-      title: 'Media, Entertainment & Gaming',
-      icon: '📺',
-    },
-    {
-      title: 'Technology Enablement',
-      icon: '📡',
-    },
-    {
-      title: 'Telecommunications',
-      icon: '📶',
-    },
-    {
-      title: 'Energy',
-      icon: '⚡',
-    },
-    {
-      title: 'Consumer & Industrial Products',
-      icon: '🏭',
-    },
-    {
-      title: 'Transportation & Travel',
-      icon: '✈️',
-    },
-    {
-      title: 'Banking & Financial',
-      icon: '🏦',
-    },
-    {
-      title: 'Education',
-      icon: '🎓',
-    },
-    {
-      title: 'Energy & Utility',
-      icon: '⚡',
-    },
-    {
-      title: 'Government',
-      icon: '🏛️',
-    },
-    {
-      title: 'Healthcare & Life Science',
-      icon: '🧬',
-    },
-    {
-      title: 'Insurance',
-      icon: '🛡️',
-    },
-    {
-      title: 'Logistics & Warehousing',
-      icon: '📦',
-    },
-    {
-      title: 'Retail & Consumer Goods',
-      icon: '🛒',
-    },
-    {
-      title: 'Telecom & Media',
-      icon: '📡',
-    },
-    {
-      title: 'Oil & Gas',
-      icon: '🛢️',
-    },
-    {
-      title: 'Travel & Hospitality',
-      icon: '🏨',
-    },
-  ];
+  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section 
-      id="industries" 
-      data-header-theme="light"
-      ref={ref} 
-      className="relative bg-blue-950 py-12 sm:py-16 md:py-20 overflow-hidden"
+    <section
+      id="industries"
+      ref={ref}
+      className="relative bg-white py-16 lg:py-24 overflow-hidden"
     >
-      {/* Snowfall Effect (matching StrategicHighlightsSection) */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
-      >
-        <Snowfall
-          color="#ffffff"
-          snowflakeCount={150}
-          speed={[1.0, 3.0]}
-          wind={[-0.5, 2.0]}
-          radius={[0.5, 3.0]}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            top: 0,
-            left: 0,
-          }}
-        />
-      </div>
-      {/* Minimal curved arcs */}
-      <motion.div 
-        animate={{ 
-          opacity: [0.4, 0.6, 0.4],
-          x: [0, 10, 0]
-        }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 z-10"
-      >
-        <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none">
-          {/* Blue arc top-left */}
-          <path d="M 0,200 Q 200,50 400,200" 
-            fill="none" 
-            stroke="rgba(29, 78, 216, 0.3)" 
-            strokeWidth="1.5"/>
-          <path d="M 0,250 Q 250,80 500,250" 
-            fill="none" 
-            stroke="rgba(29, 78, 216, 0.2)" 
-            strokeWidth="1"/>
-          
-          {/* Red arc bottom-right */}
-          <path d="M 1200,640 Q 960,720 1200,800" 
-            fill="none" 
-            stroke="rgba(185, 28, 28, 0.3)" 
-            strokeWidth="1.5"/>
-          <path d="M 1140,600 Q 900,704 1140,800" 
-            fill="none" 
-            stroke="rgba(185, 28, 28, 0.2)" 
-            strokeWidth="1"/>
-        </svg>
-      </motion.div>
-      
-      {/* Soft gradient orbs */}
-      <motion.div 
-        animate={{ 
-          x: [0, 40, 0],
-          y: [0, -30, 0],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-10 -left-10 sm:-top-20 sm:-left-20 w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 bg-blue-300/20 rounded-full blur-3xl z-10"
-      ></motion.div>
-      <motion.div 
-        animate={{ 
-          x: [0, -40, 0],
-          y: [0, 30, 0],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -bottom-10 -right-10 sm:-bottom-20 sm:-right-20 w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 bg-red-300/20 rounded-full blur-3xl z-10"
-      ></motion.div>
-      
-      {/* Minimal dots accent */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 2, 1],
-          opacity: [0.4, 0.8, 0.4]
-        }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 sm:top-32 right-1/4 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600/40 rounded-full hidden sm:block z-10"
-      ></motion.div>
-      <motion.div 
-        animate={{ 
-          scale: [1, 2, 1],
-          opacity: [0.4, 0.8, 0.4]
-        }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-        className="absolute bottom-20 sm:bottom-32 left-1/4 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-600/40 rounded-full hidden sm:block z-10"
-      ></motion.div>
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
+      {/* Industry Lattice Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Subtle Cross-Hatch Grid */}
+        <div className="absolute inset-0 opacity-[0.05]" style={{
+          backgroundImage: `
+            linear-gradient(45deg, #475569 1px, transparent 1px),
+            linear-gradient(-45deg, #475569 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }} />
+
+        {/* Dynamic Vertical Accents */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-8 sm:mb-10 md:mb-12"
-        >
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white">
-            Domain depth
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 text-white leading-tight px-2 sm:px-0">
-            Industries we power
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-3xl mx-auto px-2 sm:px-0 leading-relaxed">
+          animate={{
+            y: [-100, 100],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 right-1/4 w-[1px] h-64 bg-gradient-to-b from-transparent via-blue-600 to-transparent"
+        />
+        <motion.div
+          animate={{
+            y: [100, -100],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "linear", delay: 2 }}
+          className="absolute bottom-0 left-1/3 w-[1px] h-64 bg-gradient-to-b from-transparent via-red-600 to-transparent"
+        />
+
+        {/* Soft Radial Gradients */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(59,130,246,0.03)_0%,transparent_50%),radial-gradient(circle_at_100%_100%,rgba(239,68,68,0.03)_0%,transparent_50%)]" />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">Domain Depth</span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight"
+          >
+            Industries we <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600">power</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="text-base text-slate-600 max-w-2xl mx-auto"
+          >
             From mobility to media, every program is tailored with industry-specific playbooks, controls, and partners.
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
-
-
-        {/* Grid for all industries */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
-          {industries.map((industry, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {industryList.map((industry, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white border border-gray-200 p-3 sm:p-4 md:p-5 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-blue-200"
+              key={industry.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.03 }}
+              whileHover={{ y: -5 }}
+              className="group p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-red-600 opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
-              <div className="relative flex items-center gap-2 sm:gap-3">
-                <div className={`inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-100 to-red-100 text-lg sm:text-xl md:text-2xl transition-all duration-500 group-hover:bg-white group-hover:scale-110 flex-shrink-0 ${industry.accent || ''}`}>
-                  {industry.icon}
+              <div className="flex flex-col items-center text-center">
+                <div className={`p-3 rounded-xl ${industry.bg} ${industry.color} mb-3 transition-transform group-hover:scale-110 group-hover:rotate-3`}>
+                  <industry.icon className="w-5 h-5" />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-sm sm:text-base font-bold text-gray-900 transition-colors duration-500 group-hover:text-blue-700 leading-tight">{industry.title}</h4>
-                  <p className="text-[10px] sm:text-xs text-gray-500 mt-0.5 sm:mt-1">Use-case accelerators ready to deploy.</p>
-                </div>
+                <h4 className="text-sm md:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                  {industry.title}
+                </h4>
+                <div className="mt-4 h-0.5 w-0 group-hover:w-12 bg-gradient-to-r from-blue-600 to-red-600 transition-all duration-300" />
               </div>
             </motion.div>
           ))}
@@ -258,3 +135,4 @@ const IndustriesSection = () => {
 };
 
 export default IndustriesSection;
+

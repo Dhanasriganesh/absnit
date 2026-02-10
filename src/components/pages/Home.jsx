@@ -19,11 +19,11 @@ const Home = () => {
       <ServicesSection />
       <SolutionsShowcaseSection />
       <IndustriesSection />
-      <VelocityProcessSection />;
-      {/* <CaseStudiesShowcaseSection /> */}
+      <VelocityProcessSection />
+      <CaseStudiesShowcaseSection />
       <StatisticsSection />
       <InsightsSection />
-      {/* <HomeCTASection /> */}
+      <HomeCTASection />
     </div>
   );
 };

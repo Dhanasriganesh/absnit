@@ -23,43 +23,87 @@ const stats = [
 ];
 
 const IndustryEcosystemSection = () => (
-  <section className="bg-gradient-to-b from-white to-blue-50 py-20">
-    <div className="container mx-auto grid gap-10 px-4 lg:grid-cols-[3fr_2fr] lg:px-12">
+  <section className="relative overflow-hidden bg-white py-16 lg:py-24">
+    {/* Subtle Mesh Background */}
+    <div className="absolute inset-0 pointer-events-none">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.4 }}
-        className="space-y-6"
-      >
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Partner ecosystem</p>
-        <h2 className="text-4xl font-bold text-gray-900">We surround every engagement with experts and partners</h2>
-        <div className="space-y-4">
-          {ecosystem.map((item) => (
-            <div key={item.title} className="rounded-3xl border border-white/70 bg-white p-6 shadow-lg">
-              <h3 className="text-2xl font-semibold text-gray-900">{item.title}</h3>
-              <p className="mt-2 text-sm text-gray-600">{item.description}</p>
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.1, 0.2, 0.1],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100 rounded-full blur-[140px]"
+      />
+    </div>
+
+    <div className="container relative z-10 mx-auto px-4 lg:px-12">
+      <div className="grid lg:grid-cols-2 gap-16 items-start">
+        {/* Left: Ecosystem Context */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-blue-600 mb-6 flex items-center gap-3">
+            <span className="w-8 h-[1px] bg-blue-600" />
+            Partner Network
+          </p>
+          <h2 className="text-3xl md:text-4xl font-light text-slate-900 leading-tight mb-8">
+            Expertise <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">Surrounding</span> <br />
+            Every Engagement.
+          </h2>
+          <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-12 max-w-xl">
+            We collaborate with hyperscalers, research labs, and regulatory advisors to ensure your solution is built on a foundation of industry excellence.
+          </p>
+
+          <div className="space-y-4">
+            {ecosystem.map((item) => (
+              <div key={item.title} className="p-8 rounded-[32px] bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all duration-500">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-xs text-slate-500 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right: Stats & Impact */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="lg:sticky lg:top-32"
+        >
+          <div className="p-10 rounded-[40px] bg-white border border-slate-100 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-600 to-red-600" />
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-10">Network Scale</p>
+
+            <div className="space-y-10">
+              {stats.map((stat) => (
+                <div key={stat.label} className="group">
+                  <p className="text-4xl font-light text-slate-900 mb-2">{stat.value}</p>
+                  <p className="text-[10px] uppercase tracking-widest font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.4, delay: 0.1 }}
-        className="rounded-[32px] border border-blue-100 bg-white p-8 shadow-xl"
-      >
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">Impact by the numbers</p>
-        <div className="mt-6 space-y-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="rounded-2xl bg-blue-50 p-4 text-center">
-              <p className="text-3xl font-bold text-blue-900">{stat.value}</p>
-              <p className="text-xs uppercase tracking-wide text-blue-500">{stat.label}</p>
+
+            <div className="mt-12 pt-10 border-t border-slate-50">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                  <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-slate-900 uppercase tracking-widest">Global Reach</p>
+                  <p className="text-[10px] text-slate-500 italic">"Connected ecosystems."</p>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-      </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </div>
   </section>
 );

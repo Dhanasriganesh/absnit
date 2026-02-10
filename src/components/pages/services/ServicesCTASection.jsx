@@ -9,55 +9,64 @@ const commitments = [
 
 const ServicesCTASection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-950 via-red-950 to-blue-900 py-12 sm:py-16 md:py-20 text-white overflow-hidden">
-      {/* Modern tech grid pattern */}
-      <div className="absolute inset-0 opacity-15">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(to right, #3b82f6 1px, transparent 1px),
-            linear-gradient(to bottom, #3b82f6 1px, transparent 1px),
-            linear-gradient(to right, #ef4444 1px, transparent 1px),
-            linear-gradient(to bottom, #ef4444 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px, 80px 80px, 40px 40px, 40px 40px',
-          backgroundPosition: '0 0, 0 0, 40px 40px, 40px 40px'
-        }}></div>
-      </div>
-      {/* Glowing orbs */}
-      <div className="absolute top-0 left-1/4 w-56 h-56 sm:w-80 sm:h-80 md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-blue-600 rounded-full blur-[150px] opacity-20"></div>
-      <div className="absolute bottom-0 right-1/4 w-56 h-56 sm:w-80 sm:h-80 md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-red-600 rounded-full blur-[150px] opacity-20"></div>
-      {/* Diagonal accent lines */}
-      <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 border-t-2 border-r-2 border-blue-500/20 hidden sm:block"></div>
-      <div className="absolute bottom-0 left-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 border-b-2 border-l-2 border-red-500/20 hidden sm:block"></div>
-      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+    <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+      {/* Background Mesh */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* We use a slate-900 background for a strong contrast finish */}
+        <div className="absolute inset-0 bg-slate-900" />
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="rounded-2xl sm:rounded-3xl md:rounded-[40px] border border-white/10 bg-gradient-to-r from-blue-800 to-red-700 p-6 sm:p-8 md:p-10 shadow-2xl"
+          animate={{
+            rotate: [0, 360],
+          }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-1/2 -left-1/2 w-[150%] h-[150%] opacity-20"
+          style={{
+            backgroundImage: `radial-gradient(circle at center, rgba(59,130,246,0.3) 0%, transparent 70%)`,
+          }}
+        />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="relative p-10 md:p-16 rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden text-center max-w-5xl mx-auto"
         >
-          <div className="flex flex-col gap-6 sm:gap-8 md:gap-10 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-white/60">Let's build</p>
-              <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold leading-tight px-1 sm:px-0">
-                Unlock your next chapter with modern services, ready-made accelerators, and teams that care.
-              </h2>
-              <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/80 leading-relaxed">
-                We co-create engagement plans that meet you where you are and grow with you. No black boxes - just transparent partners focused on measurable outcomes.
-              </p>
-            </div>
-            <div className="rounded-2xl sm:rounded-3xl bg-white/10 p-4 sm:p-5 md:p-6 lg:flex-shrink-0 lg:w-80">
-              <ul className="space-y-3 sm:space-y-4 text-xs sm:text-sm text-white/90">
-                {commitments.map((item) => (
-                  <li key={item} className="flex items-center gap-2 sm:gap-3">
-                    <span className="inline-flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-white/20 text-xs flex-shrink-0">*</span>
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            
-            </div>
+          {/* Subtle Gradient Accent */}
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-red-500" />
+
+          <p className="text-xs font-bold uppercase tracking-[0.5em] text-blue-400 mb-8">
+            Next Chapter
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-10 leading-tight">
+            Ready to build the <span className="italic">next increment</span> <br />
+            of your digital <span className="font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-red-400">future</span>?
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto">
+            {commitments.map((item) => (
+              <div key={item} className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+                <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest block mb-4">Milestone</span>
+                <p className="text-xs text-white/80 leading-relaxed font-light">{item}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a
+              href="/contact"
+              className="px-8 py-4 rounded-full bg-white text-slate-900 text-xs font-bold uppercase tracking-widest hover:bg-blue-50 transition-all shadow-xl hover:shadow-blue-500/20"
+            >
+              Start Conversation
+            </a>
+            <a
+              href="/services"
+              className="px-8 py-4 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all"
+            >
+              Learn Models
+            </a>
           </div>
         </motion.div>
       </div>

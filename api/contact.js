@@ -8,7 +8,7 @@ const createTransporter = () => {
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     throw new Error('Gmail credentials are not configured. Please check your environment variables.');
   }
-  
+
   return nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -118,7 +118,7 @@ const createContactEmailTemplate = (data) => {
           ${data.hasFile ? '<div class="field"><div class="field-label">Supporting File</div><div class="field-value">📎 File attached</div></div>' : ''}
         </div>
         <div class="footer">
-          <p>This email was sent from the Nexus AI Contact Form</p>
+          <p>This email was sent from the ABSN IT Contact Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -141,14 +141,14 @@ export default async function handler(req, res) {
     });
 
     const [fields, files] = await form.parse(req);
-    
+
     const name = Array.isArray(fields.name) ? fields.name[0] : fields.name;
     const company = Array.isArray(fields.company) ? fields.company[0] : fields.company || '';
     const email = Array.isArray(fields.email) ? fields.email[0] : fields.email;
     const mobile = Array.isArray(fields.mobile) ? fields.mobile[0] : fields.mobile || '';
     const topic = Array.isArray(fields.topic) ? fields.topic[0] : fields.topic;
     const message = Array.isArray(fields.message) ? fields.message[0] : fields.message || '';
-    
+
     const file = files.file ? (Array.isArray(files.file) ? files.file[0] : files.file) : null;
 
     // Validation
@@ -182,8 +182,8 @@ export default async function handler(req, res) {
 
     // Email options
     const mailOptions = {
-      from: `"Nexus AI Contact" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
+      from: `"ABSN IT Contact" <${process.env.GMAIL_USER}>`,
+      to: process.env.MAIL_TO || 'careers@absnit.com',
       subject: `New Contact Form: ${topic} - ${name}`,
       html: createContactEmailTemplate({
         name,

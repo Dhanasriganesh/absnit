@@ -8,11 +8,11 @@ import AboutCTASection from './about/AboutCTASection';
 
 const About = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="min-h-screen bg-white">
       <AboutHero />
       <MissionVisionSection />
       <CoreValuesSection />
-      {/* <TimelineSection /> */}
+      <TimelineSection />
       <CultureImpactSection />
       <AboutCTASection />
     </div>

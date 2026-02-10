@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import logoImage from '../../assets/logoob.webp';
+import logoImage from '../../assets/absnit.png';
 import SkeletonImage from '../shared/SkeletonImage';
 
 function Footer() {
@@ -45,18 +45,11 @@ function Footer() {
 
   const locations = [
     {
-      title: 'Nexus AI Headquarters',
-      address: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
-      phone: '+1 980 781 9639',
-      email: 'contact@nexusaisol.com',
-      mapUrl: 'https://www.google.com/maps?q=11020+David+Taylor+Dr,+Charlotte,+NC+28262',
-    },
-    {
-      title: 'Nexus AI Development Center',
-      address: 'Unit no. 1020, 9th floor, Vasavi MPM Grand, Ameerpet, Near by metro station, Hyderabad, Telangana, India',
-      phone: '+91 77939 92217',
-      email: 'contact@nexusaisol.com',
-      mapUrl: 'https://www.google.com/maps?q=Vasavi+MPM+Grand,+Ameerpet,+Hyderabad,+Telangana',
+      title: '📍 ABSN IT Headquarters',
+      address: 'H No 1-111, Madannapet, Narsampet Mandal, Warangal, Telangana, India',
+      phone: '+91 9948550646',
+      email: 'info@absnit.com',
+      mapUrl: 'https://www.google.com/maps?q=H+No+1-111,+Madannapet,+Narsampet+Mandal,+Warangal,+Telangana,+India',
     },
   ];
 
@@ -90,7 +83,7 @@ function Footer() {
         />
 
         {/* Radial Pattern Gradient */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
             backgroundImage: `
@@ -135,7 +128,7 @@ function Footer() {
         />
 
         {/* Dot Pattern Overlay */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: 'radial-gradient(circle, #3b82f6 1px, transparent 1px)',
@@ -181,8 +174,8 @@ function Footer() {
         </motion.svg>
 
         {/* Subtle Blurred Shapes for Depth */}
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, 50, 0],
             y: [0, -30, 0],
             scale: [1, 1.1, 1]
@@ -190,8 +183,8 @@ function Footer() {
           transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -right-10 sm:-right-20 top-0 h-48 w-48 sm:h-64 sm:w-64 md:h-96 md:w-96 rounded-full bg-blue-600 blur-3xl opacity-[0.03]"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             x: [0, -50, 0],
             y: [0, 30, 0],
             scale: [1, 1.15, 1]
@@ -199,8 +192,8 @@ function Footer() {
           transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -left-10 sm:-left-20 bottom-0 h-48 w-48 sm:h-64 sm:w-64 md:h-96 md:w-96 rounded-full bg-orange-500 blur-3xl opacity-[0.03]"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             rotate: [0, 360],
             scale: [1, 1.1, 1]
           }}
@@ -220,22 +213,18 @@ function Footer() {
             transition={{ duration: 0.6 }}
             className="sm:col-span-2 md:col-span-3 lg:col-span-3"
           >
-            <div className="mb-4 sm:mb-6">
-              <SkeletonImage 
-                src={logoImage} 
-                alt="Nexus AI Solutions Logo" 
-                className="h-12 sm:h-12 md:h-16 lg:h-16 w-auto lg:w-44 object-contain"
+            <div className="mb-2 sm:mb-4">
+              <SkeletonImage
+                src={logoImage}
+                alt="ABSN IT Solutions Logo"
+                className="h-20 sm:h-12 md:h-16 lg:h-44 w-auto lg:w-44 object-contain"
               />
+              <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm">
+                ABSN IT is an independent technology company and digital transformation partner. We help businesses design, integrate, and scale their digital solutions.
+              </p>
             </div>
-            <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-xs sm:text-sm">
-              Nexus AI is an independent technology company and digital transformation partner. We help businesses design, integrate, and scale their digital solutions.
-            </p>
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-green-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium shadow-sm">
-              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-              E-Verified Company
-            </div>
+
+
           </motion.div>
 
           {/* Explore Section */}
@@ -316,13 +305,13 @@ function Footer() {
         </div>
 
         {/* Newsletter/Demo Request Section - OfficeSpace Style */}
-       
+
 
         {/* Location Sections */}
         <div className="bg-white/80 border border-gray-100 rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-5 md:p-6 mb-8 sm:mb-10 md:mb-12">
           <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5 md:mb-6">
             <div className="h-8 sm:h-10 w-0.5 sm:w-1 bg-yellow-500 rounded-full" />
-            <h3 className="text-gray-900 font-semibold text-base sm:text-lg">Our Locations</h3>
+            <h3 className="text-gray-900 font-semibold text-base sm:text-lg">Our Location</h3>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
             {locations.map((location, idx) => (
@@ -397,13 +386,13 @@ function Footer() {
           className="border-t border-gray-200 pt-4 sm:pt-5 md:pt-6"
         >
           <div className="flex justify-center items-center">
-            <p className="text-xs sm:text-sm text-gray-600 text-center px-2">© 2020 Nexus AI. All rights reserved.</p>
+            <p className="text-xs sm:text-sm text-gray-600 text-center px-2">© 2020 ABSN IT. All rights reserved.</p>
           </div>
           <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
             <svg className="w-80 h-80" viewBox="0 0 200 200" fill="none">
-              <circle cx="100" cy="100" r="100" fill="currentColor" className="text-blue-600"/>
-              <circle cx="60" cy="80" r="40" fill="currentColor" className="text-orange-500"/>
-              <circle cx="140" cy="120" r="50" fill="currentColor" className="text-green-500"/>
+              <circle cx="100" cy="100" r="100" fill="currentColor" className="text-blue-600" />
+              <circle cx="60" cy="80" r="40" fill="currentColor" className="text-orange-500" />
+              <circle cx="140" cy="120" r="50" fill="currentColor" className="text-green-500" />
             </svg>
           </div>
         </motion.div>

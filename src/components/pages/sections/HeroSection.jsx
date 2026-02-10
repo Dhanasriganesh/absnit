@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
-import heroVideo from '../../../assets/videos/TetraXai.mp4';
+import heroVideo from '../../../assets/videos/absnit.mp4';
 import mobileVideo from '../../../assets/videos/mobile-video.mp4';
 import SkeletonVideo from '../../shared/SkeletonVideo';
 
@@ -37,8 +37,8 @@ const AnimatedNumber = ({ value, suffix = '+' }) => {
 
 const HeroSection = () => {
   return (
-    <section 
-      id="hero" 
+    <section
+      id="hero"
       data-header-theme="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black w-full"
     >
@@ -131,7 +131,7 @@ const HeroSection = () => {
             </motion.h1> */}
 
             {/* Description */}
-          
+
 
             {/* Stats Preview */}
             {/* <motion.div
@@ -154,7 +154,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 10, 0] }}
@@ -162,8 +162,8 @@ const HeroSection = () => {
         className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10 pointer-events-auto"
       >
         <div className="flex flex-col items-center gap-1.5 sm:gap-2">
-          <span 
-            className="text-white/70 text-[8px] sm:text-[9px] md:text-[10px] font-medium uppercase tracking-wider" 
+          <span
+            className="text-white/70 text-[8px] sm:text-[9px] md:text-[10px] font-medium uppercase tracking-wider"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Scroll

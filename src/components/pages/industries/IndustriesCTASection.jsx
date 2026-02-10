@@ -8,36 +8,61 @@ const commitments = [
 ];
 
 const IndustriesCTASection = () => (
-  <section className="bg-blue-950 py-20 text-white">
-    <div className="container mx-auto px-4 lg:px-12">
+  <section className="relative overflow-hidden bg-white py-20 lg:py-28">
+    {/* Dark Mesh Contrast Background */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 bg-slate-900" />
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5 }}
-        className="rounded-[40px] border border-white/10 bg-gradient-to-r from-blue-800 to-purple-700 p-10 shadow-2xl"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.15, 0.25, 0.15],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.2)_0%,transparent_70%)]"
+      />
+    </div>
+
+    <div className="container relative z-10 mx-auto px-4 lg:px-12">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.98 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="relative p-10 md:p-16 rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden text-center max-w-5xl mx-auto"
       >
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Partner with us</p>
-            <h2 className="mt-4 text-4xl font-bold leading-tight">Ready to accelerate in your industry?</h2>
-            <p className="mt-4 text-lg text-white/80">
-              We co-create engagement models that fit your regulatory landscape and ambition level. Let us show you the art of the possible.
-            </p>
-          </div>
-          <div className="rounded-3xl bg-white/10 p-6">
-            <ul className="space-y-4 text-sm text-white/90">
-              {commitments.map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-xs">*</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/contact"><button className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-blue-800 shadow-lg">Schedule briefing</button></Link>
+        {/* Subtle Gradient Accent */}
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-red-500" />
+
+        <p className="text-xs font-bold uppercase tracking-[0.5em] text-blue-400 mb-8">
+          Market Leadership
+        </p>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-10 leading-tight">
+          Ready to redefine your <span className="italic">industry</span> <br />
+          with production-grade <span className="font-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-red-400">excellence</span>?
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-3xl mx-auto text-left">
+          {commitments.map((item) => (
+            <div key={item} className="p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group">
+              <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest block mb-4">Commitment</span>
+              <p className="text-xs text-white/80 leading-relaxed font-light">{item}</p>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <Link
+            to="/contact"
+            className="px-8 py-4 rounded-full bg-white text-slate-900 text-xs font-bold uppercase tracking-widest hover:bg-blue-50 transition-all shadow-xl hover:shadow-blue-500/20"
+          >
+            Start Briefing
+          </Link>
+          <Link
+            to="/about"
+            className="px-8 py-4 rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all"
+          >
+            Our Philosophy
+          </Link>
         </div>
       </motion.div>
     </div>

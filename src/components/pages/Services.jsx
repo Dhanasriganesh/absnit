@@ -9,7 +9,7 @@ import ServiceDetailSections from './services/ServiceDetailSections';
 
 const Services = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="min-h-screen bg-white">
       <ServicesHero />
       <ServiceDetailSections />
       <CapabilityMatrixSection />

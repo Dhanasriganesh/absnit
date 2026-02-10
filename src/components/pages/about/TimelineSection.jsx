@@ -43,253 +43,74 @@ const milestones = [
 
 const TimelineSection = () => {
   return (
-    <section className="relative bg-gradient-to-b from-white via-red-50/20 to-white py-20 overflow-hidden">
-      {/* Abstract network/connection pattern - continuous flow */}
-      <div className="absolute inset-0 opacity-20">
-        <motion.svg 
-          className="absolute w-full h-full" 
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ overflow: 'visible' }}
-        >
-          <defs>
-            <pattern id="connection-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
-              {/* Blue connections */}
-              <motion.line 
-                x1="0" y1="0" x2="50" y2="50" 
-                stroke="#1e40af" 
-                strokeWidth="1.5" 
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.line 
-                x1="50" y1="50" x2="100" y2="30" 
-                stroke="#1e40af" 
-                strokeWidth="1.5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              />
-              <motion.line 
-                x1="100" y1="30" x2="150" y2="70" 
-                stroke="#991b1b" 
-                strokeWidth="1.5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              />
-              <motion.line 
-                x1="150" y1="70" x2="200" y2="50" 
-                stroke="#991b1b" 
-                strokeWidth="1.5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-              />
-              {/* Red connections */}
-              <motion.line 
-                x1="0" y1="100" x2="60" y2="120" 
-                stroke="#991b1b" 
-                strokeWidth="1.5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-              />
-              <motion.line 
-                x1="60" y1="120" x2="120" y2="100" 
-                stroke="#1e40af" 
-                strokeWidth="1.5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              />
-              <motion.line 
-                x1="120" y1="100" x2="180" y2="130" 
-                stroke="#991b1b" 
-                strokeWidth="1.5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ 
-                  pathLength: [0, 1, 0],
-                  opacity: [0, 0.6, 0]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
-              />
-              {/* Nodes - pulsing */}
-              <motion.circle 
-                cx="50" cy="50" r="4" 
-                fill="#1e40af"
-                animate={{ 
-                  scale: [1, 1.5, 1],
-                  opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.circle 
-                cx="100" cy="30" r="4" 
-                fill="#991b1b"
-                animate={{ 
-                  scale: [1, 1.5, 1],
-                  opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              />
-              <motion.circle 
-                cx="150" cy="70" r="4" 
-                fill="#1e40af"
-                animate={{ 
-                  scale: [1, 1.5, 1],
-                  opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              />
-              <motion.circle 
-                cx="60" cy="120" r="4" 
-                fill="#991b1b"
-                animate={{ 
-                  scale: [1, 1.5, 1],
-                  opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-              />
-              <motion.circle 
-                cx="120" cy="100" r="4" 
-                fill="#1e40af"
-                animate={{ 
-                  scale: [1, 1.5, 1],
-                  opacity: [0.4, 0.8, 0.4]
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-              />
-            </pattern>
-          </defs>
-          <motion.rect 
-            width="100%" 
-            height="100%" 
-            fill="url(#connection-pattern)"
-            animate={{ 
-              x: [0, 200],
-              y: [0, 200]
-            }}
-            transition={{ 
-              duration: 20, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-          />
-        </motion.svg>
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24">
+      {/* Connection Flow Background */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <pattern id="dot-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1" fill="#1e40af" />
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#dot-pattern)" />
+        </svg>
       </div>
-      <motion.div 
-        animate={{ 
-          x: [0, -50, 0],
-          y: [0, 50, 0],
-          scale: [1, 1.3, 1]
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-blue-800 to-blue-900 rounded-full blur-3xl opacity-10"
-      ></motion.div>
-      <motion.div 
-        animate={{ 
-          x: [0, 50, 0],
-          y: [0, -50, 0],
-          scale: [1, 1.4, 1]
-        }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-to-br from-red-800 to-red-900 rounded-full blur-3xl opacity-10"
-      ></motion.div>
-      <motion.div 
-        animate={{ 
-          rotate: [0, 360],
-          scale: [1, 1.5, 1]
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-900 rounded-full blur-3xl opacity-5"
-      ></motion.div>
-      <div className="container relative mx-auto px-4 lg:px-12">
-        <div className="mb-12 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">Journey</p>
-          <h2 className="mt-3 text-4xl font-bold text-gray-900">Momentum built year after year</h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600">
-            Growth driven by long-term partnerships, not project volume. Every milestone represents a new capability that clients leverage today.
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        {/* Header */}
+        <div className="max-w-3xl mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-blue-600 mb-6 flex items-center gap-3">
+            <span className="w-8 h-[1px] bg-blue-600" />
+            Our Evolution
           </p>
+          <h2 className="text-3xl md:text-4xl font-light text-slate-900 leading-tight">
+            A decade of <span className="italic">velocity</span> and <br />
+            continuous <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">learning</span>.
+          </h2>
         </div>
 
-        {/* Timeline Image Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-12 rounded-3xl overflow-hidden shadow-2xl group max-w-5xl mx-auto"
-        >
-          <motion.img
-            src={journeyImage}
-            alt="Our Journey"
-            className="w-full h-64 object-cover"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.6 }}
-          />
-        </motion.div>
+        {/* Dense Timeline */}
+        <div className="relative">
+          {/* Vertical Line */}
+          <div className="absolute left-4 top-0 bottom-0 w-[1px] bg-slate-100 md:left-1/2" />
 
-        <div className="relative mx-auto max-w-4xl">
-          <div className="absolute inset-y-0 left-5 w-px bg-gradient-to-b from-blue-500/40 to-red-500/40 sm:left-8"></div>
-          <div className="space-y-10 border-l border-transparent pl-12 sm:pl-16">
+          <div className="space-y-12">
             {milestones.map((milestone, index) => (
               <motion.div
                 key={milestone.year}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true, amount: 0.3 }}
-                className="group relative rounded-3xl border border-white/60 bg-white/90 p-6 shadow-xl overflow-hidden"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative flex flex-col md:flex-row gap-8 items-start ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
+                  }`}
               >
-                {/* Background Image on Hover */}
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
-                  initial={false}
-                >
-                  <motion.div
-                    initial={{ scale: 1.1 }}
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="w-full h-full"
-                    style={{
-                      filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
-                    }}
-                  >
-                    <SkeletonImage
-                      src={milestone.image}
-                      alt={milestone.title}
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </motion.div>
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
-                </motion.div>
-                
-                <div className="relative z-10">
-                <span className="absolute -left-9 top-6 flex h-8 w-8 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-blue-500 to-red-500 text-xs font-semibold text-white">
-                  {milestone.year}
-                </span>
-                <h3 className="text-2xl font-semibold text-gray-900">{milestone.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{milestone.description}</p>
+                {/* Year Bubble */}
+                <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center z-10 md:left-1/2 md:-translate-x-1/2">
+                  <div className="w-2 h-2 rounded-full bg-blue-600" />
                 </div>
+
+                {/* Content Card */}
+                <div className="flex-1 ml-12 md:ml-0 md:w-1/2">
+                  <div className={`p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-100 hover:shadow-xl transition-all duration-300 ${index % 2 === 0 ? 'md:mr-10 text-right md:items-end' : 'md:ml-10'
+                    }`}>
+                    <span className="text-xs font-bold text-blue-600 mb-2 block">{milestone.year}</span>
+                    <h3 className="text-lg font-bold text-slate-900 mb-3">{milestone.title}</h3>
+                    <p className="text-sm text-slate-500 leading-relaxed mb-4">
+                      {milestone.description}
+                    </p>
+
+                    {/* Compact Image */}
+                    <div className="rounded-xl overflow-hidden h-24 sm:h-32 opacity-80 group-hover:opacity-100 transition-opacity">
+                      <SkeletonImage
+                        src={milestone.image}
+                        alt={milestone.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Spacer for MD screens */}
+                <div className="hidden md:block flex-1" />
               </motion.div>
             ))}
           </div>

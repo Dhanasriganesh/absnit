@@ -6,12 +6,10 @@ import ContactFormSection from './contact/ContactFormSection';
 
 const Contact = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="bg-white">
       <ContactHero />
       <ContactFormSection />
       <ContactInfoSection />
-      
-      
       <SupportChannelsSection />
     </div>
   );

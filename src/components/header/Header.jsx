@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import DesktopNavigation from './DesktopNavigation';
 import MobileMenuButton from './MobileMenuButton';
 import MobileMenu from './MobileMenu';
-import logonImage from '../../assets/logoob.webp';
+import logonImage from '../../assets/absnit.png';
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,7 +23,7 @@ function Header() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Don't hide header if we're at the top
       if (currentScrollY < 50) {
         setIsVisible(true);
@@ -58,8 +58,8 @@ function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
-      transition={{ 
-        duration: 0.2, 
+      transition={{
+        duration: 0.2,
         ease: [0.4, 0, 0.2, 1],
         type: "tween"
       }}
@@ -70,10 +70,10 @@ function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="block">
-              <img 
-                src={logonImage} 
-                alt="Nexus AI Solutions Logo" 
-                className="h-12 sm:h-12 md:h-16 lg:h-16 w-auto lg:w-44 object-contain"
+              <img
+                src={logonImage}
+                alt="ABSN IT Solutions Logo"
+                className="h-16 sm:h-12 md:h-16 lg:h-62 w-auto lg:w-44 object-contain"
               />
             </Link>
           </div>

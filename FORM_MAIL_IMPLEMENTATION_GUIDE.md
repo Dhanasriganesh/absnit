@@ -276,7 +276,7 @@ The backend should support email sending via SMTP. Common options:
 
 #### Contact Form Email
 
-**From:** `"Nexus AI Contact" <your-email@domain.com>`
+**From:** `"ABSN IT Contact" <your-email@domain.com>`
 
 **To:** Recipient email (from environment variable or default)
 
@@ -299,7 +299,7 @@ New Contact Form: strategy - John Doe
 
 #### Careers Application Email
 
-**From:** `"Nexus AI Careers" <your-email@domain.com>`
+**From:** `"ABSN IT Careers" <your-email@domain.com>`
 
 **To:** Recipient email (from environment variable or default)
 
@@ -397,7 +397,7 @@ The backend should use these environment variables:
 
 ### Example `.env` file
 ```env
-GMAIL_USER=your-email@gmail.com
+GMAIL_USER=your-email@absnit.com
 GMAIL_APP_PASSWORD=your-app-password
 MAIL_TO=recipient@example.com
 ```
@@ -521,7 +521,7 @@ app.post('/api/contact', upload.single('file'), async (req, res) => {
 
     // Prepare email
     const mailOptions = {
-      from: `"Nexus AI Contact" <${process.env.GMAIL_USER}>`,
+      from: `"ABSN IT Contact" <${process.env.GMAIL_USER}>`,
       to: process.env.MAIL_TO || 'default@example.com',
       subject: `New Contact Form: ${topic} - ${name}`,
       html: `
@@ -580,7 +580,7 @@ app.post('/api/careers/apply', upload.single('file'), async (req, res) => {
 
     // Prepare email
     const mailOptions = {
-      from: `"Nexus AI Careers" <${process.env.GMAIL_USER}>`,
+      from: `"ABSN IT Careers" <${process.env.GMAIL_USER}>`,
       to: process.env.MAIL_TO || 'careers@example.com',
       subject: `New Career Application: ${role} - ${name}`,
       html: `

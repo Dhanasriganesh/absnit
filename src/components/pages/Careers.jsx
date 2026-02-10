@@ -7,13 +7,13 @@ import ApplicationFormSection from './careers/ApplicationFormSection';
 
 const Careers = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="min-h-screen bg-white">
       <CareersHero />
       <ApplicationFormSection />
       <BenefitsSection />
       {/* <OpenRolesSection /> */}
       <CultureSection />
-      
+
     </div>
   );
 };

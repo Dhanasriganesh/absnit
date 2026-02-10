@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import Snowfall from 'react-snowfall';
+import { Brain, Users, GraduationCap, Monitor, Globe, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import consultingImg from '../../../assets/about-section/consulting.webp';
 import staffingImg from '../../../assets/about-section/staffing.webp';
 import trainingImg from '../../../assets/about-section/training.webp';
@@ -9,304 +9,178 @@ import itSolutionsImg from '../../../assets/about-section/itsolutions.webp';
 import visaSponsorshipImg from '../../../assets/about-section/vs.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
-const ServiceCard = ({ service, index }) => {
-  const { ref, inView } = useInView({ 
-    threshold: 0.3, 
-    triggerOnce: false,
-    rootMargin: '-50px 0px'
-  });
+const services = [
+  {
+    title: 'Consulting',
+    description: 'We bring cutting-edge AI and deep industry expertise to help your business navigate complex challenges and unlock new opportunities.',
+    image: consultingImg,
+    icon: Brain,
+    color: 'from-blue-500 to-indigo-500',
+    path: '/services/consulting'
+  },
+  {
+    title: 'Staffing',
+    description: 'Our solutions connect you with top-tier professionals who drive business forward through specialized expertise and dedication.',
+    image: staffingImg,
+    icon: Users,
+    color: 'from-purple-500 to-pink-500',
+    path: '/services/staffing'
+  },
+  {
+    title: 'Training',
+    description: 'Stay ahead of the curve with comprehensive training designed to upskill your team and keep them at the forefront of innovation.',
+    image: trainingImg,
+    icon: GraduationCap,
+    color: 'from-emerald-500 to-teal-500',
+    path: '/services/training'
+  },
+  {
+    title: 'IT Solutions',
+    description: 'Transform your business with our comprehensive suite of IT solutions tailored to drive digital transformation and growth.',
+    image: itSolutionsImg,
+    icon: Monitor,
+    color: 'from-orange-500 to-red-500',
+    path: '/services/it-solutions'
+  },
+  {
+    title: 'Visa Sponsorship',
+    description: 'Navigate your visa journey with confidence through our in-house immigration team providing full H1B and Green Card support.',
+    image: visaSponsorshipImg,
+    icon: Globe,
+    color: 'from-cyan-500 to-blue-500',
+    path: '/services/visa-sponsorship'
+  },
+];
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60,
-      scale: 0.95
-    },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        delay: index * 0.15,
-        ease: [0.25, 0.46, 0.45, 0.94],
-        opacity: { duration: 0.6 },
-        y: { duration: 0.8 },
-        scale: { duration: 0.8 }
-      }
-    }
-  };
+const ServiceCard = ({ service, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    className="group relative h-full flex flex-col"
+  >
+    {/* Card Container */}
+    <div className="relative flex-1 rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-500 hover:border-slate-300">
 
-  const iconVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: index * 0.15 + 0.2,
-        duration: 0.4
-      }
-    }
-  };
+      {/* Image Section */}
+      <div className="relative h-40 overflow-hidden">
+        <SkeletonImage
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent opacity-60"></div>
 
-  return (
-    <motion.div
-      ref={ref}
-      variants={cardVariants}
-      initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      className="group relative"
-    >
-      <div className="relative h-full bg-white/10 backdrop-blur-xl rounded-xl sm:rounded-2xl p-0 shadow-lg border border-white/30 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] hover:bg-white/15">
-        {/* Image header */}
-        <div className="relative h-32 sm:h-36 md:h-40 w-full overflow-hidden">
-          <motion.div
-            className="h-full w-full"
-            initial={{ scale: 1.02 }}
-            animate={{ scale: 1 }}
-          >
-            <SkeletonImage
-              src={service.image}
-              alt={service.title}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent opacity-70" />
-          <div className="absolute left-3 bottom-2 sm:left-4 sm:bottom-3 rounded-full bg-white/20 backdrop-blur-sm px-2 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white shadow border border-white/30">
-            {service.title}
-          </div>
+        {/* Floating Icon Badge */}
+        <div className={`absolute top-6 left-6 p-3 rounded-2xl bg-gradient-to-br ${service.color} shadow-lg shadow-black/10`}>
+          <service.icon className="w-5 h-5 text-white" />
         </div>
-
-        <div className="relative z-10 p-4 sm:p-5 md:p-6">
-          {/* Animated gradient background */}
-          <motion.div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-            style={{
-              background: `linear-gradient(135deg, 
-                ${index % 2 === 0 ? 'rgba(59, 130, 246, 0.1)' : 'rgba(239, 68, 68, 0.1)'} 0%, 
-                transparent 50%, 
-                ${index % 2 === 0 ? 'rgba(168, 85, 247, 0.1)' : 'rgba(59, 130, 246, 0.1)'} 100%)`
-            }}
-            animate={{
-              backgroundPosition: ['0% 0%', '100% 100%'],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "linear"
-            }}
-          />
-          
-          {/* Shimmer effect */}
-          <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-          
-          {/* Content */}
-          <div className="relative z-10">
-            {/* Title */}
-            <motion.h4
-              initial={{ opacity: 0, x: -20 }}
-              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{ delay: index * 0.15 + 0.4, duration: 0.6 }}
-              className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white group-hover:text-white/80 transition-colors duration-300"
-            >
-              {service.title}
-            </motion.h4>
-
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: index * 0.15 + 0.5, duration: 0.6 }}
-              className="text-white leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm line-clamp-3 sm:line-clamp-4"
-            >
-              {service.description}
-            </motion.p>
-
-            {/* Read More Link */}
-            <motion.a
-              href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ delay: index * 0.15 + 0.6, duration: 0.6 }}
-              className="relative inline-flex items-center gap-1.5 sm:gap-2 text-white font-semibold text-xs sm:text-sm group/link overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center gap-1.5 sm:gap-2">
-                Read More
-                <motion.span
-                  className="text-lg sm:text-xl"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  →
-                </motion.span>
-              </span>
-              <motion.div
-                className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-white/80 to-white/50"
-                initial={{ width: 0 }}
-                whileHover={{ width: '100%' }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.a>
-          </div>
-        </div>
-
-        {/* Decorative corner accent */}
-        <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-gradient-to-br from-white/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </div>
-    </motion.div>
-  );
-};
+
+      {/* Content Section */}
+      <div className="p-6 flex flex-col h-full">
+        <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+          {service.title}
+        </h3>
+        <p className="text-slate-600 text-sm leading-relaxed mb-8 flex-1">
+          {service.description}
+        </p>
+
+        {/* Action Link */}
+        <Link
+          to={service.path}
+          className="inline-flex items-center gap-2 text-slate-900 font-bold text-sm tracking-widest uppercase group/link"
+        >
+          <span>Explore Service</span>
+          <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center transition-all group-hover/link:bg-blue-600 group-hover/link:translate-x-2">
+            <ArrowRight className="w-4 h-4 text-slate-600 group-hover/link:text-white transition-colors" />
+          </div>
+        </Link>
+      </div>
+
+      {/* Interactive Hover Glow - Subtle for light mode */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500 pointer-events-none`}></div>
+    </div>
+  </motion.div>
+);
 
 const ServicesSection = () => {
-  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
-
-  const services = [
-    {
-      title: 'Consulting',
-      description:
-        'At Nexus AI Solutions, we bring cutting-edge artificial intelligence and deep industry expertise to help your business navigate complex challenges and unlock new opportunities.',
-      image: consultingImg,
-    },
-    {
-      title: 'Staffing',
-      description:
-        "In today's competitive landscape, having the right talent is crucial for success. Our staffing solutions connect you with top-tier professionals who can drive your business forward.",
-      image: staffingImg,
-    },
-    {
-      title: 'Training',
-      description:
-        'Stay ahead of the technology curve with our comprehensive training programs designed to upskill your team and keep them at the forefront of industry innovations.',
-      image: trainingImg,
-    },
-    {
-      title: 'IT Solutions',
-      description:
-        'Transform your business with our comprehensive suite of IT solutions tailored to meet your unique needs and drive digital transformation.',
-      image: itSolutionsImg,
-    },
-    {
-      title: 'Visa Sponsorship',
-      description:
-        'Navigate your visa sponsorship journey with confidence through our dedicated in-house immigration team. We provide comprehensive H1B, OPT, CPT, and Green Card support.',
-      image: visaSponsorshipImg,
-    },
-  ];
-
   return (
-    <section 
-      id="services" 
-      data-header-theme="light"
-      className="relative py-12 sm:py-16 md:py-24 lg:py-32 bg-blue-950 overflow-hidden"
-    >
-      {/* Snowfall Effect */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 1,
-          pointerEvents: 'none',
-        }}
-      >
-        <Snowfall
-          color="#ffffff"
-          snowflakeCount={150}
-          speed={[1.0, 3.0]}
-          wind={[-0.5, 2.0]}
-          radius={[0.5, 3.0]}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '100%',
-            top: 0,
-            left: 0,
-          }}
-        />
-      </div>
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+    <section id="services" className="relative bg-white py-16 lg:py-24 overflow-hidden">
+      {/* Precision Tech Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Fine Dot Grid */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(#e2e8f0 1px, transparent 1px)`,
+          backgroundSize: '32px 32px',
+          opacity: '0.6'
+        }} />
+
+        {/* Floating Accents */}
         <motion.div
           animate={{
-            backgroundPosition: ['0px 0px', '100px 100px'],
+            y: [-20, 20, -20],
+            rotate: [0, 5, 0],
           }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute inset-0 opacity-20 z-10"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}
-        />
-        
-        {/* Floating gradient orbs */}
-        <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, 50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-10 left-5 sm:top-20 sm:left-10 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 bg-white/20 rounded-full blur-3xl z-10"
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -right-10 w-96 h-96 bg-blue-50/50 rounded-full blur-[80px]"
         />
         <motion.div
           animate={{
-            x: [0, -80, 0],
-            y: [0, -60, 0],
-            scale: [1, 1.3, 1],
+            y: [20, -20, 20],
+            rotate: [0, -5, 0],
           }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-          className="absolute bottom-10 right-5 sm:bottom-20 sm:right-10 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-white/20 rounded-full blur-3xl z-10"
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-1/4 -left-10 w-80 h-80 bg-slate-50 rounded-full blur-[100px]"
         />
+
+        {/* Diagonal Light Burst */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-blue-100/50 via-transparent to-red-100/50 rotate-12 opacity-40" />
       </div>
 
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 md:px-8 lg:px-8">
-        {/* Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20"
-        >
-          <motion.span
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 mb-3 sm:mb-4 bg-white/10 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-semibold border border-white/30"
-          >
-            What We're Offering
-          </motion.span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 text-white leading-tight">
-            Our Services
-          </h2>
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        {/* Header Implementation */}
+        <div className="max-w-4xl mx-auto text-center mb-20">
           <motion.div
-            initial={{ width: 0 }}
-            animate={inView ? { width: '100px' } : {}}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="h-1 bg-gradient-to-r from-white/50 to-white/30 mx-auto rounded-full"
-          />
-        </motion.div>
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-2 mb-4"
+          >
+            <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-blue-600"></div>
+            <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.3em]">Excellence in Delivery</span>
+            <div className="w-12 h-[1px] bg-gradient-to-l from-transparent to-blue-600"></div>
+          </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5 md:gap-6 lg:gap-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-4xl lg:text-6xl font-bold text-slate-900 mb-4 leading-tight"
+          >
+            Comprehensive <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-slate-700 to-red-600">
+              Technology Services
+            </span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto"
+          >
+            Empowering global enterprises with innovative solutions designed for the digital-first era.
+          </motion.p>
+        </div>
+
+        {/* Services Horizontal Layout */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => (
-            <ServiceCard key={index} service={service} index={index} />
+            <ServiceCard key={service.title} service={service} index={index} />
           ))}
         </div>
       </div>
@@ -315,3 +189,4 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
+

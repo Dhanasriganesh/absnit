@@ -1,4 +1,4 @@
-// Header Navigation Menu Items Configuration - Based on nexusaisol.com
+// Header Navigation Menu Items Configuration - Based on absnit.com
 export const menuItems = [
   {
     name: 'Home',

@@ -18,43 +18,43 @@ const visaTypes = [
   {
     title: 'H1B Visas',
     icon: Building2,
-    body: 'Specialty occupation visas for skilled professionals. Nexus AI provides comprehensive H1B sponsorship and processing support.',
-    support: '✓ Full support by Nexus AI',
+    body: 'Specialty occupation visas for skilled professionals. ABSN IT provides comprehensive H1B sponsorship and processing support.',
+    support: '✓ Full support by ABSN IT',
     image: h1bImg,
   },
   {
     title: 'F1 Visa (Student Visas)',
     icon: GraduationCap,
     body: 'Academic student visas for educational purposes. Our team assists with F1 visa applications and status maintenance.',
-    support: '✓ Full support by Nexus AI',
+    support: '✓ Full support by ABSN IT',
     image: studentVisaImg,
   },
   {
     title: 'Optional Practical Training (OPT/OPT-STEM)',
     icon: Award,
     body: 'Work authorization for F1 students in STEM fields. We help extend OPT visas for up to 24 months with E-Verify certification.',
-    support: '✓ Full support by Nexus AI',
+    support: '✓ Full support by ABSN IT',
     image: stemImg,
   },
   {
     title: 'Curricular Practical Training (CPT)',
     icon: FileText,
-    body: 'Work authorization as part of academic curriculum. Nexus AI facilitates CPT authorization for eligible students.',
-    support: '✓ Full support by Nexus AI',
+    body: 'Work authorization as part of academic curriculum. ABSN IT facilitates CPT authorization for eligible students.',
+    support: '✓ Full support by ABSN IT',
     image: cptImg,
   },
   {
     title: 'TN1, TN2',
     icon: Globe,
-    body: 'NAFTA professional visas for Canadian and Mexican citizens. Complete sponsorship and processing support provided by Nexus AI.',
-    support: '✓ Full support by Nexus AI',
+    body: 'NAFTA professional visas for Canadian and Mexican citizens. Complete sponsorship and processing support provided by ABSN IT.',
+    support: '✓ Full support by ABSN IT',
     image: tnImg,
   },
   {
     title: 'Green Card Process (EB-2/EB-3)',
     icon: Users,
-    body: 'Permanent residency sponsorship provided by Nexus AI. Complete support for EB-2 and EB-3 employment-based green card applications.',
-    support: '✓ Full support by Nexus AI Immigration Team',
+    body: 'Permanent residency sponsorship provided by ABSN IT. Complete support for EB-2 and EB-3 employment-based green card applications.',
+    support: '✓ Full support by ABSN IT Immigration Team',
     image: greencardImg,
   },
 ];
@@ -72,9 +72,9 @@ const processSteps = [
   },
   {
     number: '03',
-    title: 'Client Matching & Sponsorship by Nexus AI',
-    body: 'Nexus AI directly matches you with suitable clients and provides visa sponsorship. Our immigration team handles all sponsorship documentation and ensures Nexus AI sponsors your visa for the right opportunity.',
-    badge: 'NEXUS AI SPONSORSHIP',
+    title: 'Client Matching & Sponsorship by ABSN IT',
+    body: 'ABSN IT directly matches you with suitable clients and provides visa sponsorship. Our immigration team handles all sponsorship documentation and ensures ABSN IT sponsors your visa for the right opportunity.',
+    badge: 'ABSN IT SPONSORSHIP',
   },
   {
     number: '04',
@@ -92,7 +92,7 @@ const experienceBenefits = [
   {
     title: 'E-Verify Certification',
     icon: Shield,
-    body: 'Our e-verify certification offers students in STEM majors the potential to extend their OPT visa for 24 months. Nexus AI handles all certification processes.',
+    body: 'Our e-verify certification offers students in STEM majors the potential to extend their OPT visa for 24 months. ABSN IT handles all certification processes.',
     support: '✓ 24-month OPT extension support',
   },
   {
@@ -104,13 +104,13 @@ const experienceBenefits = [
   {
     title: 'Direct Client Relationships',
     icon: Users,
-    body: 'Nexus AI directly markets candidates to end clients, alleviating third-party channel issues and ensuring smooth processes.',
+    body: 'ABSN IT directly markets candidates to end clients, alleviating third-party channel issues and ensuring smooth processes.',
     support: '✓ Direct client connections',
   },
   {
     title: 'Comprehensive Green Card Support',
     icon: Award,
-    body: 'Nexus AI provides full support for your green card journey. We facilitate EB-2 and EB-3 employment-based applications, handle PERM certification, and I-140 petitions.',
+    body: 'ABSN IT provides full support for your green card journey. We facilitate EB-2 and EB-3 employment-based applications, handle PERM certification, and I-140 petitions.',
     support: '✓ EB-2/EB-3, PERM, I-140 support',
   },
   {
@@ -122,7 +122,7 @@ const experienceBenefits = [
   {
     title: 'Industry Recognition',
     icon: Building2,
-    body: "Nexus AI's client portfolio includes partnerships with Fortune 500 companies across multiple industries. Trusted by top employers.",
+    body: "ABSN IT's client portfolio includes partnerships with Fortune 500 companies across multiple industries. Trusted by top employers.",
     support: '✓ Fortune 500 partnerships',
   },
 ];
@@ -142,26 +142,26 @@ const VisaSponsorship = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="container relative mx-auto px-4 lg:px-12 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-              Nexus AI Immigration Team - Your Trusted Visa Sponsorship Partner
-            </h1>
-            <p className="mt-6 text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
-              Navigate your visa sponsorship journey with confidence through{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent font-semibold italic">
-                Nexus AI&apos;s dedicated in-house immigration team
-              </span>
-              . Our comprehensive immigration support services are provided directly by Nexus AI, ensuring personalized attention and seamless sponsorship processes.
-            </p>
-            <div className="mt-8 inline-block rounded-lg border-2 border-blue-400 bg-gradient-to-r from-blue-600/30 to-red-600/30 backdrop-blur-sm px-6 py-4">
-              <p className="text-base sm:text-lg font-semibold text-white">
-                ✨ Visa Sponsorship Provided Directly by Nexus AI - No Third-Party Intermediaries
+          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="container relative mx-auto px-4 lg:px-12 text-center">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+                ABSN IT Immigration Team - Your Trusted Visa Sponsorship Partner
+              </h1>
+              <p className="mt-6 text-base sm:text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
+                Navigate your visa sponsorship journey with confidence through{' '}
+                <span className="bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent font-semibold italic">
+                  ABSN IT&apos;s dedicated in-house immigration team
+                </span>
+                . Our comprehensive immigration support services are provided directly by ABSN IT, ensuring personalized attention and seamless sponsorship processes.
               </p>
+              <div className="mt-8 inline-block rounded-lg border-2 border-blue-400 bg-gradient-to-r from-blue-600/30 to-red-600/30 backdrop-blur-sm px-6 py-4">
+                <p className="text-base sm:text-lg font-semibold text-white">
+                  ✨ Visa Sponsorship Provided Directly by ABSN IT - No Third-Party Intermediaries
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         </motion.section>
       </BackgroundImage>
 
@@ -198,13 +198,13 @@ const VisaSponsorship = () => {
               className="rounded-3xl border-2 border-blue-300 bg-gradient-to-br from-blue-100 via-red-50 to-blue-50 p-8 sm:p-10 text-center lg:text-left shadow-xl"
             >
               <span className="inline-block rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-widest shadow-md">
-                NEXUS AI IMMIGRATION TEAM
+                ABSN IT IMMIGRATION TEAM
               </span>
               <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
                 Our Immigration Team is Here to Help You Every Step of the Way
               </h2>
               <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed">
-                Connect directly with Nexus AI&apos;s immigration specialists. Our in-house team provides personalized support throughout your visa sponsorship journey.
+                Connect directly with ABSN IT&apos;s immigration specialists. Our in-house team provides personalized support throughout your visa sponsorship journey.
               </p>
               <div className="mt-8">
                 <Link to="/contact">
@@ -214,7 +214,7 @@ const VisaSponsorship = () => {
                     className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-8 py-3 text-base font-semibold text-white shadow-lg"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    Contact Nexus AI Immigration Team
+                    Contact ABSN IT Immigration Team
                   </motion.button>
                 </Link>
               </div>
@@ -236,14 +236,14 @@ const VisaSponsorship = () => {
               className="text-center lg:text-left"
             >
               <span className="inline-block rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-widest shadow-md">
-                NEXUS AI IMMIGRATION TEAM
+                ABSN IT IMMIGRATION TEAM
               </span>
               <h2 className="mt-6 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                Best-In-Class Visa Sponsorship Solutions by Nexus AI
+                Best-In-Class Visa Sponsorship Solutions by ABSN IT
               </h2>
               <p className="mt-6 text-base sm:text-lg text-gray-700 leading-relaxed">
                 As the global workforce rapidly evolves, choosing the right partner for your visa sponsorship and employment needs is crucial.{' '}
-                <span className="font-semibold text-blue-600 underline decoration-red-400">Nexus AI&apos;s internal immigration team</span>{' '}
+                <span className="font-semibold text-blue-600 underline decoration-red-400">ABSN IT&apos;s internal immigration team</span>{' '}
                 guides you through each step of the visa sponsorship process and provides tailored solutions to international consultants facing immigration challenges.
               </p>
               <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed">
@@ -259,10 +259,10 @@ const VisaSponsorship = () => {
                 className="mt-8 rounded-2xl border-l-4 border-blue-500 bg-blue-50/80 p-6 text-left shadow-md"
               >
                 <p className="text-base sm:text-lg font-bold text-blue-700">
-                  ✓ Visa Sponsorship Provided Directly by Nexus AI
+                  ✓ Visa Sponsorship Provided Directly by ABSN IT
                 </p>
                 <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed">
-                  Our immigration team is an integral part of Nexus AI, ensuring direct communication, faster processing, and dedicated support throughout your visa journey.
+                  Our immigration team is an integral part of ABSN IT, ensuring direct communication, faster processing, and dedicated support throughout your visa journey.
                 </p>
               </motion.div>
             </motion.div>
@@ -403,7 +403,7 @@ const VisaSponsorship = () => {
       <section className="relative bg-white py-16">
         <div className="container mx-auto px-4 lg:px-12 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-            With Nexus AI, You Can Expect an Exceptional Sponsorship Experience
+            With ABSN IT, You Can Expect an Exceptional Sponsorship Experience
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
             Our comprehensive benefits package ensures you have the support you need throughout your visa sponsorship journey.
@@ -451,7 +451,7 @@ const VisaSponsorship = () => {
           className="absolute inset-0"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-purple-900/80 to-red-900/85" />
-        
+
         <div className="container relative mx-auto px-4 lg:px-12 text-center text-white">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}

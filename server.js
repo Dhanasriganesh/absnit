@@ -44,7 +44,7 @@ const createTransporter = () => {
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     throw new Error('Gmail credentials are not configured. Please check your .env file.');
   }
-  
+
   return nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -150,7 +150,7 @@ const createApplicationEmailTemplate = (data) => {
           ${data.hasFile ? '<div class="field"><div class="field-label">Resume/Portfolio</div><div class="field-value">📎 File attached</div></div>' : ''}
         </div>
         <div class="footer">
-          <p>This email was sent from the Nexus AI Careers Application Form</p>
+          <p>This email was sent from the ABSN IT Careers Application Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -259,7 +259,7 @@ const createContactEmailTemplate = (data) => {
           ${data.hasFile ? '<div class="field"><div class="field-label">Supporting File</div><div class="field-value">📎 File attached</div></div>' : ''}
         </div>
         <div class="footer">
-          <p>This email was sent from the Nexus AI Contact Form</p>
+          <p>This email was sent from the ABSN IT Contact Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -363,7 +363,7 @@ const createEmailTemplate = (data) => {
           </div>
         </div>
         <div class="footer">
-          <p>This email was sent from the Nexus AI Careers Application Form</p>
+          <p>This email was sent from the ABSN IT Careers Application Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -414,8 +414,8 @@ app.post('/api/careers/apply', upload.single('file'), async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: `"Nexus AI Careers" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
+      from: `"ABSN IT Careers" <${process.env.GMAIL_USER}>`,
+      to: process.env.MAIL_TO || 'careers@absnit.com',
       subject: `New Career Application: ${role} - ${name}`,
       html: createApplicationEmailTemplate({
         name,
@@ -427,11 +427,11 @@ app.post('/api/careers/apply', upload.single('file'), async (req, res) => {
       }),
       attachments: file
         ? [
-            {
-              filename: file.originalname || 'resume',
-              path: file.path,
-            },
-          ]
+          {
+            filename: file.originalname || 'resume',
+            path: file.path,
+          },
+        ]
         : [],
     };
 
@@ -488,8 +488,8 @@ app.post('/api/careers', async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: `"Nexus AI Careers" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
+      from: `"ABSN IT Careers" <${process.env.GMAIL_USER}>`,
+      to: process.env.MAIL_TO || 'careers@absnit.com',
       subject: `New Career Application: ${subject} - ${firstName} ${lastName}`,
       html: createEmailTemplate({
         firstName,
@@ -559,8 +559,8 @@ app.post('/api/contact', upload.single('file'), async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: `"Nexus AI Contact" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
+      from: `"ABSN IT Contact" <${process.env.GMAIL_USER}>`,
+      to: process.env.MAIL_TO || 'careers@absnit.com',
       subject: `New Contact Form: ${topic} - ${name}`,
       html: createContactEmailTemplate({
         name,
@@ -573,11 +573,11 @@ app.post('/api/contact', upload.single('file'), async (req, res) => {
       }),
       attachments: file
         ? [
-            {
-              filename: file.originalname || 'attachment',
-              path: file.path,
-            },
-          ]
+          {
+            filename: file.originalname || 'attachment',
+            path: file.path,
+          },
+        ]
         : [],
     };
 
@@ -623,14 +623,14 @@ app.get('/api/health', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📧 Email will be sent to: ${process.env.MAIL_TO || 'careers@nexusaisol.com'}`);
-  
+  console.log(`📧 Email will be sent to: ${process.env.MAIL_TO || 'careers@absnit.com'}`);
+
   // Check configuration
   console.log('\n📋 Environment Variables Check:');
   console.log(`   GMAIL_USER: ${process.env.GMAIL_USER ? process.env.GMAIL_USER : 'NOT SET ✗'}`);
   console.log(`   GMAIL_APP_PASSWORD: ${process.env.GMAIL_APP_PASSWORD ? 'SET ✓ (hidden)' : 'NOT SET ✗'}`);
   console.log(`   MAIL_TO: ${process.env.MAIL_TO || 'NOT SET'}`);
-  
+
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     console.warn('\n⚠️  WARNING: Gmail credentials not found in .env file!');
     console.warn('   Required: GMAIL_USER and GMAIL_APP_PASSWORD');

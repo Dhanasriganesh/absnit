@@ -21,82 +21,125 @@ const floaters = [
 ];
 
 const IndustriesHero = () => (
-  <BackgroundImage
-    src={backgroundImage}
-    data-header-theme="hero"
-    className="relative overflow-hidden py-16"
-  >
-    {/* Accent glows and floating elements */}
-    <div className="absolute inset-0 opacity-35 pointer-events-none z-0">
-      <div className="absolute -left-16 top-10 h-64 w-64 rounded-full bg-blue-500 blur-3xl"></div>
-      <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-purple-500 blur-[140px]"></div>
-      <div className="absolute top-1/2 left-1/3 h-72 w-72 rounded-full bg-blue-300 blur-[120px]"></div>
+  <section className="relative overflow-hidden bg-white py-20 lg:py-28" data-header-theme="hero">
+    {/* Advanced Animated Background */}
+    <div className="absolute inset-0 pointer-events-none">
+      {/* Subtle Mesh Gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,#f8fafc_0%,#ffffff_100%)]" />
 
-      {floaters.map((item, idx) => (
-        <motion.span
-          key={idx}
-          className="absolute rounded-full bg-white/70 mix-blend-screen"
-          style={{
-            top: item.top,
-            left: item.left,
-            width: item.size,
-            height: item.size,
-          }}
-          animate={{
-            y: [0, -16, 6, -12, 0],
-            x: [0, 8, -4, 10, 0],
-            opacity: [0.25, 0.9, 0.35, 0.85, 0.25],
-            rotate: [0, 6, -4, 8, 0],
-          }}
-          transition={{
-            duration: item.speed,
-            repeat: Infinity,
-            delay: item.delay,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
+      {/* Moving Orbs */}
+      <motion.div
+        animate={{
+          x: [0, 100, 0],
+          y: [0, -50, 0],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-32 left-1/4 w-[600px] h-[600px] bg-blue-100/30 rounded-full blur-[140px]"
+      />
+      <motion.div
+        animate={{
+          x: [0, -80, 0],
+          y: [0, 40, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute -bottom-48 right-1/4 w-[500px] h-[500px] bg-red-100/20 rounded-full blur-[120px]"
+      />
+
+      {/* Dynamic Evolution Grid */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `linear-gradient(#1e40af 1px, transparent 1px), linear-gradient(90deg, #1e40af 1px, transparent 1px)`,
+        backgroundSize: '80px 80px'
+      }} />
     </div>
 
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
-      <div className="grid lg:grid-cols-3 gap-10 items-center py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="lg:col-span-2 space-y-8"
-        >
-        </motion.div>
+      <div className="grid lg:grid-cols-5 gap-16 items-center">
+        {/* Main Content */}
+        <div className="lg:col-span-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-6 flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-red-600" />
+              Custom Playbooks
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-8 leading-[1.1]">
+              Industry-Grade <span className="italic">Execution</span>, <br />
+              at Startup <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">Velocity</span>.
+            </h1>
+            <p className="text-base md:text-lg text-slate-600 mb-12 max-w-xl leading-relaxed">
+              We build with the nuance of your vertical and the rigor of production-scale engineering. No generic solutions—only targeted impact.
+            </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="lg:col-span-1"
-        >
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gray-300/50 bg-white/80 backdrop-blur-sm px-8 py-3.5 text-sm md:text-base uppercase tracking-[0.32em] text-gray-900 shadow-sm font-semibold">
-              Industries
+            <div className="flex flex-wrap gap-4">
+              {['Fintech', 'HealthTech', 'Automotive', 'Logistics', 'Energy'].map((item, idx) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + idx * 0.1 }}
+                  className="flex items-center gap-3 py-2 px-4 rounded-full bg-slate-50 border border-slate-100 text-[10px] font-bold uppercase tracking-widest text-slate-500 hover:border-blue-200 transition-colors"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                  {item}
+                </motion.div>
+              ))}
             </div>
-            <div className="rounded-3xl border border-gray-300/50 bg-white/80 backdrop-blur-sm p-6 shadow-sm">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-700 mb-3">Proof, not promises</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-gray-300/30 bg-white/60 px-4 py-4 text-center"
-                  >
-                    <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
-                    <p className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-gray-700">{stat.label}</p>
+          </motion.div>
+        </div>
+
+        {/* Side Metrics Card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="lg:col-span-2"
+        >
+          <div className="p-8 rounded-[40px] bg-white border border-slate-100 shadow-2xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-600 to-red-600" />
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-10">Proof of Impact</p>
+
+            <div className="space-y-8">
+              {stats.map((stat, idx) => (
+                <div key={stat.label} className="relative group">
+                  <div className="flex items-end justify-between mb-2">
+                    <p className="text-3xl font-light text-slate-900">{stat.value}</p>
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
+                      {stat.label}
+                    </p>
                   </div>
-                ))}
+                  <div className="h-[1px] w-full bg-slate-50 relative">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: '100%' }}
+                      transition={{ duration: 1, delay: 0.8 + idx * 0.2 }}
+                      className="absolute top-0 left-0 h-full bg-slate-200"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 pt-8 border-t border-slate-50">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center">
+                  <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-slate-900 uppercase tracking-widest">Vertically Integrated</p>
+                  <p className="text-[10px] text-slate-500 italic">"Scaling domain expertise."</p>
+                </div>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
     </div>
-  </BackgroundImage>
+  </section>
 );
 
 export default IndustriesHero;

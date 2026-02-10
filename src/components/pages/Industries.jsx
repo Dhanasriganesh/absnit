@@ -7,7 +7,7 @@ import IndustriesCTASection from './industries/IndustriesCTASection';
 
 const Industries = () => {
   return (
-    <div className="bg-gray-50">
+    <div className="min-h-screen bg-white">
       <IndustriesHero />
       <IndustryOverviewSection />
       <IndustryDetailPanels />

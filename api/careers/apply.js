@@ -8,7 +8,7 @@ const createTransporter = () => {
   if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
     throw new Error('Gmail credentials are not configured. Please check your environment variables.');
   }
-  
+
   return nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -114,7 +114,7 @@ const createApplicationEmailTemplate = (data) => {
           ${data.hasFile ? '<div class="field"><div class="field-label">Resume/Portfolio</div><div class="field-value">📎 File attached</div></div>' : ''}
         </div>
         <div class="footer">
-          <p>This email was sent from the Nexus AI Careers Application Form</p>
+          <p>This email was sent from the ABSN IT Careers Application Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -137,13 +137,13 @@ export default async function handler(req, res) {
     });
 
     const [fields, files] = await form.parse(req);
-    
+
     const name = Array.isArray(fields.name) ? fields.name[0] : fields.name;
     const email = Array.isArray(fields.email) ? fields.email[0] : fields.email;
     const mobile = Array.isArray(fields.mobile) ? fields.mobile[0] : fields.mobile || '';
     const role = Array.isArray(fields.role) ? fields.role[0] : fields.role;
     const message = Array.isArray(fields.message) ? fields.message[0] : fields.message || '';
-    
+
     const file = files.file ? (Array.isArray(files.file) ? files.file[0] : files.file) : null;
 
     // Validation
@@ -177,8 +177,8 @@ export default async function handler(req, res) {
 
     // Email options
     const mailOptions = {
-      from: `"Nexus AI Careers" <${process.env.GMAIL_USER}>`,
-      to: process.env.MAIL_TO || 'careers@nexusaisol.com',
+      from: `"ABSN IT Careers" <${process.env.GMAIL_USER}>`,
+      to: process.env.MAIL_TO || 'careers@absnit.com',
       subject: `New Career Application: ${role} - ${name}`,
       html: createApplicationEmailTemplate({
         name,

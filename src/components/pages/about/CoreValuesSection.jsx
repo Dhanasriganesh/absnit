@@ -45,134 +45,59 @@ const values = [
 
 const CoreValuesSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-12 sm:py-16 md:py-20 overflow-hidden">
-      {/* Geometric shapes background */}
-      <div className="absolute inset-0 opacity-20">
-        <motion.div 
-          animate={{ 
-            rotate: [45, 225, 45],
-            scale: [1, 1.2, 1]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-10 left-10 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 border-2 border-blue-300 hidden sm:block"
-          style={{ rotate: 45 }}
-        ></motion.div>
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.3, 1],
-            x: [0, 20, 0],
-            y: [0, -20, 0]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-40 right-20 w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 border-2 border-red-300 rounded-full hidden sm:block"
-        ></motion.div>
-        <motion.div 
-          animate={{ 
-            rotate: [-12, 168, -12],
-            x: [0, -30, 0]
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 left-1/4 w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 border-2 border-blue-400 hidden md:block"
-          style={{ rotate: -12 }}
-        ></motion.div>
-        <motion.div 
-          animate={{ 
-            rotate: [45, 405, 45],
-            scale: [1, 1.4, 1]
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-10 right-1/3 w-20 h-20 sm:w-28 sm:h-28 md:w-40 md:h-40 border-2 border-red-400 rounded-full hidden sm:block"
-          style={{ rotate: 45 }}
-        ></motion.div>
-        <motion.svg 
-          animate={{ 
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24">
+      {/* Dynamic Background Mesh */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-slate-50 opacity-40" />
+        <motion.div
+          animate={{
             rotate: [0, 360],
-            y: [0, -20, 0]
           }}
-          transition={{ duration: 11, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/3 right-1/4 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 text-blue-300 hidden md:block" 
-          viewBox="0 0 100 100"
-        >
-          <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </motion.svg>
-        <motion.svg 
-          animate={{ 
-            rotate: [0, -360],
-            y: [0, 20, 0]
-          }}
-          transition={{ duration: 13, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/3 left-1/3 w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 text-red-300 hidden md:block" 
-          viewBox="0 0 100 100"
-        >
-          <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </motion.svg>
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-1/2 -right-1/4 w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)]"
+        />
       </div>
-      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:flex-row lg:items-center lg:justify-between mb-8 sm:mb-10 md:mb-12">
-          <div className="flex-1">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-500">Core values</p>
-            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight px-1 sm:px-0">
-              Principles that guide every engagement
-            </h2>
-          </div>
-          <motion.div
-            className="relative flex-1 max-w-md rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group mt-4 lg:mt-0"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.div
-              whileHover={{ scale: 1.2, rotate: 2 }}
-              transition={{ duration: 0.6 }}
-              className="w-full h-48 sm:h-56 md:h-64 lg:h-auto"
-            >
-              <SkeletonImage
-                src={valuesImage}
-                alt="Core Values"
-                className="w-full h-48 sm:h-56 md:h-64 lg:h-auto object-cover"
-              />
-            </motion.div>
-            <div className="absolute inset-0  opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-           
-          </motion.div>
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-blue-600 mb-6">Foundational Pillars</p>
+          <h2 className="text-3xl md:text-4xl font-light text-slate-900 leading-tight">
+            Principles that guide every <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal italic">engagement</span>.
+          </h2>
         </div>
 
-        <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-14 grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {/* Compact Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((value, index) => (
             <motion.div
               key={value.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              viewport={{ once: true, amount: 0.3 }}
-              className="group relative rounded-2xl sm:rounded-3xl border border-transparent bg-white/90 p-4 sm:p-5 md:p-6 text-left shadow-lg shadow-blue-100 hover:-translate-y-1 hover:border-blue-200 hover:shadow-blue-200 overflow-hidden"
+              viewport={{ once: true }}
+              className="group relative p-8 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500"
             >
-              {/* Background Image on Hover */}
-              <motion.div
-                className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity duration-700 ease-out overflow-hidden"
-                initial={false}
-              >
-                <motion.div
-                  initial={{ scale: 1.1 }}
-                  whileHover={{ scale: 1.15 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="w-full h-full"
-                  style={{
-                    filter: 'brightness(0.95) contrast(1.05) saturate(1.1)',
-                  }}
-                >
-                  <SkeletonImage
-                    src={value.image}
-                    alt={value.title}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </motion.div>
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/60" />
-              </motion.div>
-              
-              <div className="relative z-10">
-              <div className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-blue-500">0{index + 1}</div>
-              <h3 className="mt-2 sm:mt-3 text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 leading-tight">{value.title}</h3>
-              <p className="mt-2 sm:mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">{value.description}</p>
+              {/* Subtle Icon/Number */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="p-3 rounded-xl bg-blue-50 text-blue-600">
+                  <span className="text-sm font-bold tracking-tighter">V{index + 1}</span>
+                </div>
+                <div className="h-[1px] flex-1 bg-slate-100 mx-4" />
+                <div className="w-2 h-2 rounded-full bg-red-600 opacity-20 group-hover:opacity-100 transition-opacity" />
+              </div>
+
+              <h3 className="text-lg font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                {value.title}
+              </h3>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                {value.description}
+              </p>
+
+              {/* Advanced Link (Subtle) */}
+              <div className="mt-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-slate-900 transition-colors">
+                Read More
+                <div className="w-4 h-[1px] bg-slate-300 group-hover:bg-slate-900 transition-all" />
               </div>
             </motion.div>
           ))}

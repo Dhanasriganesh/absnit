@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import joinImage from '../../../assets/about-section/join.webp';
 
 const ApplicationFormSection = () => {
@@ -71,9 +72,9 @@ const ApplicationFormSection = () => {
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSubmitStatus({ 
-        type: 'error', 
-        message: error.message || 'Network error. Please check your connection and try again.' 
+      setSubmitStatus({
+        type: 'error',
+        message: error.message || 'Network error. Please check your connection and try again.'
       });
     } finally {
       setIsSubmitting(false);
@@ -81,136 +82,195 @@ const ApplicationFormSection = () => {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-100 via-white to-red-100 py-12 sm:py-16 md:py-20 overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-red-400 rounded-full blur-3xl"></div>
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24">
+      {/* Advanced Layered Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{
+            x: [0, 40, 0],
+            y: [0, -20, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -30, 0],
+            y: [0, 40, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-1/4 -right-1/4 w-[700px] h-[700px] bg-red-50/30 rounded-full blur-[120px]"
+        />
       </div>
-      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="text-center mb-6 sm:mb-8">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Apply</p>
-          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 px-2">Tell us about yourself</h2>
-          <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base md:text-lg text-gray-600 px-4">
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        <div className="max-w-3xl mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-6 flex items-center gap-3">
+            <span className="w-8 h-[1px] bg-red-600" />
+            Applied Innovation
+          </p>
+          <h2 className="text-3xl md:text-4xl font-light text-slate-900 leading-tight mb-8">
+            Tell us about <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">Yourself</span>.
+          </h2>
+          <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-2xl">
             Share your experience, links, and a resume or portfolio file. We review every submission and typically respond within a week.
           </p>
         </div>
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2 items-stretch">
-          {/* Left side - Image */}
-          <div className="order-2 lg:order-1 h-full min-h-[250px] sm:min-h-[300px] md:min-h-[400px] lg:min-h-0">
-            <img 
-              src={joinImage} 
-              alt="Join us"
-              className="w-full h-full object-cover rounded-2xl sm:rounded-3xl"
+
+        <div className="grid gap-12 lg:grid-cols-2 items-start">
+          {/* Left: Visual Accent */}
+          <div className="relative group overflow-hidden rounded-[48px] h-full min-h-[400px]">
+            <img
+              src={joinImage}
+              alt="Join ABSN IT"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
-          </div>
-          
-          {/* Right side - Form */}
-          <form onSubmit={handleSubmit} className="order-1 lg:order-2 h-full flex flex-col rounded-2xl sm:rounded-3xl border border-blue-100 bg-white p-4 sm:p-6 md:p-8 shadow-2xl">
-          <div className="flex-grow">
-          <div className="grid gap-4 sm:gap-5 md:gap-6 md:grid-cols-2">
-            <div>
-              <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="name">Full name</label>
-              <input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder=""
-              />
-            </div>
-            <div>
-              <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder=""
-              />
-            </div>
-            <div>
-              <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="mobile">Mobile number</label>
-              <input
-                id="mobile"
-                type="tel"
-                name="mobile"
-                value={formData.mobile}
-                onChange={handleChange}
-                required
-                className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-                placeholder=""
-              />
+            <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors" />
+
+            {/* Overlay Info */}
+            <div className="absolute bottom-10 left-10 right-10 p-8 rounded-[32px] bg-white/10 backdrop-blur-md border border-white/20">
+              <p className="text-[10px] font-bold text-white uppercase tracking-widest mb-2">Our Promise</p>
+              <p className="text-xs text-white/80 italic">"We review every application personally."</p>
             </div>
           </div>
-          <div className="mt-4 sm:mt-5 md:mt-6">
-            <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="role">Role of interest</label>
-            <input
-              id="role"
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              required
-              className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none"
-              placeholder=""
-            />
-          </div>
-          <div className="mt-4 sm:mt-5 md:mt-6">
-            <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="message">Tell us more</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows="4"
-              className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-sm focus:border-blue-500 focus:outline-none resize-y"
-              placeholder=""
-            ></textarea>
-          </div>
-          <div className="mt-4 sm:mt-5 md:mt-6">
-            <label className="text-xs sm:text-sm font-semibold text-gray-700" htmlFor="resume">Upload resume / portfolio (PDF, DOCX, ZIP)</label>
-            <input
-              id="resume"
-              type="file"
-              accept=".pdf,.doc,.docx,.zip"
-              onChange={handleFileChange}
-              className="mt-1.5 sm:mt-2 w-full rounded-xl sm:rounded-2xl border border-dashed border-gray-300 bg-gray-50 px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm text-gray-600 file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-            />
-          </div>
-          </div>
-          <div className="mt-6 sm:mt-auto space-y-2 sm:space-y-3">
-            {submitStatus.message && (
-              <div
-                className={`rounded-xl sm:rounded-2xl border px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold ${
-                  submitStatus.type === 'success'
-                    ? 'border-green-200 bg-green-50 text-green-700'
-                    : 'border-red-200 bg-red-50 text-red-700'
-                }`}
-              >
-                {submitStatus.message}
+
+          {/* Right: Form */}
+          <div className="relative">
+            <form onSubmit={handleSubmit} className="space-y-8 p-10 md:p-12 rounded-[48px] bg-slate-50 border border-slate-100 shadow-xl">
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="name">Full Name</label>
+                    <input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="Jane Doe"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="email">Email Address</label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="jane@example.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="mobile">Mobile Number</label>
+                    <input
+                      id="mobile"
+                      type="tel"
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="role">Role of Interest</label>
+                    <input
+                      id="role"
+                      name="role"
+                      value={formData.role}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="AI Engineering / Design"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="4"
+                    className="w-full p-6 rounded-[32px] bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300 min-h-[140px]"
+                    placeholder="Tell us about your background and why you want to join us..."
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="resume">Resume / Portfolio (PDF, DOCX)</label>
+                  <div className="relative h-24 group">
+                    <input
+                      id="resume"
+                      type="file"
+                      accept=".pdf,.doc,.docx,.zip"
+                      onChange={handleFileChange}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                    />
+                    <div className="absolute inset-0 rounded-3xl border border-dashed border-slate-200 bg-white group-hover:border-blue-600 group-hover:bg-blue-50/30 transition-all flex flex-col items-center justify-center p-4">
+                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">
+                        {file ? file.name : "Click to select or drag file"}
+                      </p>
+                      {!file && <p className="text-[9px] text-slate-300 italic">PDF, DOCX up to 10MB</p>}
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`rounded-full bg-blue-600 px-6 py-2.5 sm:px-8 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition hover:bg-blue-700 w-full sm:w-auto ${
-                  isSubmitting ? 'opacity-60 cursor-not-allowed' : ''
-                }`}
-              >
-                {isSubmitting ? 'Sending...' : 'Submit application'}
-              </button>
-              {submitted && submitStatus.type === 'success' && (
-                <span className="text-xs sm:text-sm font-semibold text-green-600">Thanks! We received your details.</span>
-              )}
-            </div>
+
+              <div className="pt-6 border-t border-slate-100 space-y-6">
+                <AnimatePresence>
+                  {submitStatus.message && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className={`p-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-center ${submitStatus.type === 'success'
+                          ? 'bg-green-50 text-green-700 border border-green-100'
+                          : 'bg-red-50 text-red-700 border border-red-100'
+                        }`}
+                    >
+                      {submitStatus.message}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto h-14 px-10 rounded-full bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 hover:shadow-2xl hover:shadow-red-600/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-white animate-ping" />
+                        Transmitting...
+                      </span>
+                    ) : (
+                      "Submit Application"
+                    )}
+                  </button>
+                  {submitted && submitStatus.type === 'success' && (
+                    <p className="text-[10px] font-bold text-green-600 uppercase tracking-widest flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-600 shadow-lg" />
+                      Application Received
+                    </p>
+                  )}
+                </div>
+              </div>
+            </form>
           </div>
-          </form>
         </div>
       </div>
     </section>

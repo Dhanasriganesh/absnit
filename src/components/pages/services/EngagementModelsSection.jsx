@@ -21,67 +21,69 @@ const models = [
 
 const EngagementModelsSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-red-50 via-white to-blue-50 py-12 sm:py-16 md:py-20 overflow-hidden">
-      {/* Striped waves pattern */}
-      <div className="absolute inset-0 opacity-15">
-        <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="blueWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.3 }} />
-              <stop offset="50%" style={{ stopColor: '#3b82f6', stopOpacity: 0.1 }} />
-              <stop offset="100%" style={{ stopColor: '#3b82f6', stopOpacity: 0.3 }} />
-            </linearGradient>
-            <linearGradient id="redWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: '#ef4444', stopOpacity: 0.3 }} />
-              <stop offset="50%" style={{ stopColor: '#ef4444', stopOpacity: 0.1 }} />
-              <stop offset="100%" style={{ stopColor: '#ef4444', stopOpacity: 0.3 }} />
-            </linearGradient>
-          </defs>
-          <path d="M0,100 Q300,50 600,100 T1200,100 L1200,150 Q900,200 600,150 T0,150 Z" fill="url(#blueWave)"/>
-          <path d="M0,300 Q300,250 600,300 T1200,300 L1200,350 Q900,400 600,350 T0,350 Z" fill="url(#redWave)"/>
-          <path d="M0,500 Q300,450 600,500 T1200,500 L1200,550 Q900,600 600,550 T0,550 Z" fill="url(#blueWave)"/>
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24">
+      {/* Connection Flow Background */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <pattern id="dot-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="0.5" fill="#1e40af" />
+          </pattern>
+          <rect width="100%" height="100%" fill="url(#dot-pattern)" />
         </svg>
       </div>
-      <div className="absolute -top-10 sm:-top-20 right-1/4 w-40 h-40 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-blue-300 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute -bottom-10 sm:-bottom-20 left-1/4 w-40 h-40 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-red-300 rounded-full blur-3xl opacity-20"></div>
-      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-blue-600">Engagement models</p>
-            <h2 className="mt-2 sm:mt-3 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight px-1 sm:px-0">
-              Choose the level of partnership that fits your pace
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-start mb-20">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.4em] text-blue-600 mb-6 flex items-center gap-3">
+              <span className="w-8 h-[1px] bg-blue-600" />
+              Engagement Models
+            </p>
+            <h2 className="text-3xl md:text-4xl font-light text-slate-900 leading-tight mb-8">
+              Partnership levels <span className="italic">designed</span> to fit your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">pace</span>.
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
+            <p className="text-sm md:text-base text-slate-600 leading-relaxed mb-8">
               We flex between strategic advisory, outcome-based pods, and managed services. Every model anchors to measurable outcomes with joint governance.
             </p>
           </div>
-          <div className="rounded-2xl sm:rounded-3xl border border-blue-100 bg-white p-4 sm:p-5 md:p-6 text-xs sm:text-sm text-gray-600 shadow-2xl lg:flex-shrink-0 lg:w-80">
-            <p className="font-semibold text-gray-900">Co-creation commitments</p>
-            <ul className="mt-3 sm:mt-4 list-disc space-y-1 sm:space-y-1.5 pl-4 sm:pl-5 leading-relaxed">
-              <li>Transparent backlog and decision logs</li>
-              <li>Integrated change and enablement plans</li>
-              <li>Shared metrics and weekly value reviews</li>
+
+          <div className="p-8 rounded-[32px] bg-slate-50 border border-slate-100">
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mb-6">Our Commitments</p>
+            <ul className="space-y-4">
+              {[
+                'Transparent backlog and decision logs',
+                'Integrated change and enablement plans',
+                'Shared metrics and weekly value reviews'
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5" />
+                  <span className="text-xs font-medium text-slate-700">{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-14 grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {models.map((model, index) => (
             <motion.div
               key={model.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              viewport={{ once: true, amount: 0.3 }}
-              className="rounded-2xl sm:rounded-3xl border border-transparent bg-white p-5 sm:p-6 md:p-8 shadow-xl shadow-blue-100 hover:border-blue-200"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group p-8 rounded-[32px] bg-white border border-slate-100 hover:border-blue-100 hover:shadow-2xl transition-all duration-500"
             >
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 leading-tight">{model.title}</h3>
-              <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">{model.description}</p>
-              <div className="mt-4 sm:mt-5 md:mt-6 space-y-2 sm:space-y-2.5 md:space-y-3 text-xs sm:text-sm">
+              <h3 className="text-lg font-bold text-slate-900 mb-4">{model.title}</h3>
+              <p className="text-xs text-slate-500 leading-relaxed mb-8 h-12">
+                {model.description}
+              </p>
+
+              <div className="space-y-3">
                 {model.outcomes.map((outcome) => (
-                  <div key={outcome} className="flex items-center gap-2 sm:gap-3">
-                    <span className="inline-flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-blue-50 text-blue-600 text-xs sm:text-sm flex-shrink-0">*</span>
-                    <span className="leading-relaxed">{outcome}</span>
+                  <div key={outcome} className="flex items-center gap-3 py-2 px-4 rounded-full bg-slate-50 border border-slate-100 text-[10px] font-medium text-slate-600 group-hover:bg-white transition-colors">
+                    <span className="w-1 h-1 rounded-full bg-blue-600" />
+                    {outcome}
                   </div>
                 ))}
               </div>

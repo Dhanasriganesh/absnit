@@ -1,28 +1,19 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import usaImage from '../../../assets/about-section/usa.webp';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import hydImage from '../../../assets/about-section/hyd.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const locations = [
   {
-    title: 'Nexus AI Headquarters',
-    location: 'USA',
-    address: '11020 David Taylor Dr #100 Charlotte, NC 28262, USA',
-    phone: '+1 (980) 781-9639',
-    phoneLink: '+19807819639',
-    email: 'contact@nexusaisol.com',
-    mapQuery: encodeURIComponent('11020 David Taylor Dr #100 Charlotte, NC 28262'),
-    image: usaImage,
-  },
-  {
-    title: 'Nexus AI Development Center',
-    location: 'Hyderabad, India',
-    address: 'Unit no. 1020, 9th floor, Vasavi MPM Grand, Ameerpet, Near by metro station, Hyderabad, Telangana, India',
-    phone: '+91 77939 92217',
-    phoneLink: '+917793992217',
-    email: 'contact@nexusaisol.com',
-    mapQuery: encodeURIComponent('Unit no. 1020, 9th floor Vasavi MPM Grand, Ameerpet Near by metro station, Hyderabad, Telangana, India'),
+    title: 'ABSN IT Headquarters',
+    location: 'Telangana, India',
+    address: 'H No 1-111, Madannapet, Narsampet Mandal, Warangal, Telangana, India',
+    phone: '+91 9948550646',
+    phoneLink: '+919948550646',
+    email: 'info@absnit.com',
+    hours: '09:00 - 18:00 IST',
+    mapQuery: encodeURIComponent('H No 1-111, Madannapet, Narsampet Mandal, Warangal, Telangana, India'),
     image: hydImage,
   },
 ];
@@ -32,102 +23,117 @@ const ContactInfoSection = () => {
   const getMapEmbedUrl = (query) => `https://www.google.com/maps?q=${query}&output=embed&maptype=roadmap&zoom=15`;
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-100 via-blue-50 to-red-100 py-12 sm:py-16 md:py-20 overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-red-400 rounded-full blur-3xl"></div>
+    <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+      {/* Background Accents */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-slate-50 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 opacity-50" />
       </div>
-      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8 sm:mb-10 md:mb-12"
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 px-2">Our Locations</h2>
-        </motion.div>
-        
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        <div className="max-w-3xl mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-6 flex items-center gap-3">
+            <span className="w-8 h-[1px] bg-red-600" />
+            Our Studios
+          </p>
+          <h2 className="text-3xl md:text-5xl font-light text-slate-900 leading-tight">
+            Connecting <span className="italic">locally</span>, <br />
+            impacting <span className="italic">globally</span>.
+          </h2>
+        </div>
+
+        <div className="grid gap-12 lg:grid-cols-1">
           {locations.map((location, index) => (
             <motion.div
               key={location.location}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`rounded-2xl sm:rounded-3xl border p-4 sm:p-6 md:p-8 shadow-xl ${
-                index === 0 
-                  ? 'border-blue-200 bg-gradient-to-br from-white to-blue-50' 
-                  : 'border-red-200 bg-gradient-to-br from-white to-red-50'
-              }`}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="group relative grid lg:grid-cols-2 gap-0 rounded-[56px] overflow-hidden border border-slate-100 bg-slate-50 shadow-2xl"
             >
-              {/* Header with location pin */}
-              <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <svg className={`h-5 w-5 sm:h-6 sm:w-6 ${index === 0 ? 'text-blue-600' : 'text-red-600'}`} fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-800">{location.location}</h3>
-              </div>
+              {/* Info Column */}
+              <div className="p-10 md:p-16 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center shadow-sm">
+                      <MapPin className="w-5 h-5 text-red-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-slate-900 leading-none mb-2">{location.location}</h3>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{location.title}</p>
+                    </div>
+                  </div>
 
-              {/* Top section: Contact info and Image side by side */}
-              <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 sm:gap-6 items-start mb-4 sm:mb-6">
-                {/* Left side - Contact info */}
-                <div className="space-y-3 sm:space-y-4">
-                  <div>
-                    <p className="text-xs sm:text-sm font-bold text-gray-800 mb-1">Address:</p>
-                    <a
-                      href={getMapUrl(location.mapQuery)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs sm:text-sm text-gray-800 hover:text-blue-600 transition-colors break-words"
-                    >
-                      {location.address}
-                    </a>
-                  </div>
-                  
-                  <div className='flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2'>
-                    <p className="text-xs sm:text-sm font-bold text-gray-800">Phone:</p>
-                    <a
-                      href={`tel:${location.phoneLink}`}
-                      className={`text-xs sm:text-sm ${index === 0 ? 'text-blue-600 hover:text-blue-700' : 'text-red-600 hover:text-red-700'} transition-colors`}
-                    >
-                      {location.phone}
-                    </a>
-                  </div>
-                  
-                  <div className='flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2'>
-                    <p className="text-xs sm:text-sm font-bold text-gray-800">Email:</p>
-                    <a
-                      href={`mailto:${location.email}`}
-                      className={`text-xs sm:text-sm ${index === 0 ? 'text-blue-600 hover:text-blue-700' : 'text-red-600 hover:text-red-700'} transition-colors break-all`}
-                    >
-                      {location.email}
-                    </a>
+                  <div className="space-y-8">
+                    <div className="group/item">
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Principal Address</p>
+                      <a
+                        href={getMapUrl(location.mapQuery)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-slate-600 leading-relaxed hover:text-red-600 transition-colors block max-w-sm"
+                      >
+                        {location.address}
+                      </a>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-8">
+                      <div>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Operations</p>
+                        <div className="space-y-2">
+                          <a href={`tel:${location.phoneLink}`} className="flex items-center gap-2 text-sm text-slate-900 hover:text-red-600 transition-colors group/link">
+                            <Phone className="w-3 h-3 text-slate-300 group-hover/link:text-red-600 transition-colors" />
+                            {location.phone}
+                          </a>
+                          <a href={`mailto:${location.email}`} className="flex items-center gap-2 text-sm text-slate-900 hover:text-red-600 transition-colors group/link">
+                            <Mail className="w-3 h-3 text-slate-300 group-hover/link:text-red-600 transition-colors" />
+                            {location.email}
+                          </a>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Local Time</p>
+                        <div className="flex items-center gap-2 text-sm text-slate-900">
+                          <Clock className="w-3 h-3 text-slate-300" />
+                          {location.hours}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                {/* Right side - Image */}
-                <div className="w-full sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 flex-shrink-0 rounded-lg overflow-hidden mx-auto sm:mx-0">
-                  <SkeletonImage 
-                    src={location.image} 
-                    alt={location.title}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="mt-12 pt-10 border-t border-slate-200/60">
+                  <a
+                    href={getMapUrl(location.mapQuery)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-900 group/btn hover:text-red-600 transition-colors"
+                  >
+                    View on Digital Maps
+                    <div className="w-8 h-[1px] bg-slate-900 group-hover/btn:bg-red-600 group-hover/btn:w-12 transition-all" />
+                  </a>
                 </div>
               </div>
 
-              {/* Map - Full width below address and image */}
-              <div className="rounded-lg overflow-hidden border border-gray-300 h-48 sm:h-56 md:h-64">
+              {/* Map Column */}
+              <div className="relative min-h-[400px] lg:min-h-full">
                 <iframe
                   title={`${location.title} Map`}
                   src={getMapEmbedUrl(location.mapQuery)}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full border-0"
+                  className="absolute inset-0 w-full h-full border-0 grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
                   allowFullScreen
                 />
+
+                {/* Visual Accent on Image */}
+                <div className="absolute top-10 right-10 w-32 h-32 rounded-3xl overflow-hidden border-4 border-white shadow-2xl z-10 hidden md:block">
+                  <SkeletonImage
+                    src={location.image}
+                    alt={location.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </motion.div>
           ))}

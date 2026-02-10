@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
+import { Star, ArrowUpRight } from 'lucide-react';
 
 const studies = [
   {
@@ -23,77 +24,40 @@ const studies = [
 ];
 
 const CaseStudiesShowcaseSection = () => (
-  <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-20 overflow-hidden">
-    {/* Minimal ascending bars (representing growth/success) */}
-    <motion.div 
-      animate={{ 
-        opacity: [0.3, 0.5, 0.3],
-        y: [0, -10, 0]
-      }}
-      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute inset-0"
-    >
-      <svg className="absolute w-full h-full" xmlns="http://www.w3.org/2000/svg">
-        {/* Blue bars - left side ascending */}
-        <rect x="5%" y="70%" width="1.5" height="100" fill="rgba(29, 78, 216, 0.3)" rx="1"/>
-        <rect x="8%" y="60%" width="1.5" height="150" fill="rgba(29, 78, 216, 0.35)" rx="1"/>
-        <rect x="11%" y="50%" width="1.5" height="200" fill="rgba(29, 78, 216, 0.3)" rx="1"/>
-        
-        {/* Red bars - right side ascending */}
-        <rect x="89%" y="70%" width="1.5" height="100" fill="rgba(185, 28, 28, 0.3)" rx="1"/>
-        <rect x="92%" y="60%" width="1.5" height="150" fill="rgba(185, 28, 28, 0.35)" rx="1"/>
-        <rect x="95%" y="50%" width="1.5" height="200" fill="rgba(185, 28, 28, 0.3)" rx="1"/>
-        
-        {/* Success path line (subtle upward curve) */}
-        <path d="M 20%,80% Q 50%,30% 80%,40%" 
-          fill="none" 
-          stroke="rgba(29, 78, 216, 0.15)" 
-          strokeWidth="1.5"
-          strokeDasharray="5,5"/>
-      </svg>
-    </motion.div>
-    
-    {/* Soft gradient corners */}
-    <motion.div 
-      animate={{ 
-        scale: [1, 1.3, 1],
-        x: [0, -20, 0],
-        y: [0, -20, 0]
-      }}
-      transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute top-0 left-0 w-72 h-72 bg-blue-300/15 rounded-full blur-3xl transform -translate-x-1/3 -translate-y-1/3"
-    ></motion.div>
-    <motion.div 
-      animate={{ 
-        scale: [1, 1.3, 1],
-        x: [0, 20, 0],
-        y: [0, 20, 0]
-      }}
-      transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute bottom-0 right-0 w-72 h-72 bg-red-300/15 rounded-full blur-3xl transform translate-x-1/3 translate-y-1/3"
-    ></motion.div>
-    
-    {/* Subtle achievement stars */}
-    <motion.div 
-      animate={{ 
-        rotate: [0, 360],
-        scale: [1, 1.5, 1]
-      }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute top-24 right-20 text-blue-600/15 text-3xl"
-    >★</motion.div>
-    <motion.div 
-      animate={{ 
-        rotate: [0, -360],
-        scale: [1, 1.5, 1]
-      }}
-      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      className="absolute bottom-32 left-24 text-red-600/15 text-2xl"
-    >★</motion.div>
+  <section className="relative bg-white py-16 lg:py-24 overflow-hidden">
+    {/* Proof & Success Background */}
+    <div className="absolute inset-0 pointer-events-none">
+      {/* Cinematic Horizontal Bars */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `linear-gradient(to right, #1e40af 1px, transparent 1px)`,
+        backgroundSize: '80px 100%',
+      }} />
+
+      {/* Ascending Value Nodes */}
+      <motion.div
+        animate={{
+          y: [0, -100],
+          opacity: [0, 0.4, 0],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-0 left-1/4 w-[1px] h-64 bg-gradient-to-t from-blue-600 to-transparent"
+      />
+      <motion.div
+        animate={{
+          y: [0, -120],
+          opacity: [0, 0.4, 0],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 3 }}
+        className="absolute bottom-0 right-1/3 w-[1px] h-80 bg-gradient-to-t from-red-600 to-transparent"
+      />
+
+      {/* Soft Success Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(59,130,246,0.02)_0%,transparent_70%)]" />
+    </div>
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
-      <div className="text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">Proof</p>
-        <h2 className="mt-4 text-4xl font-bold text-gray-900">Co-authored results with ambitious teams</h2>
+      <div className="text-center mb-16">
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">Proof of excellence</p>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900">Co-authored results with <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600">ambitious teams</span></h2>
       </div>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
         {studies.map((study, index) => (
@@ -103,20 +67,23 @@ const CaseStudiesShowcaseSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="flex flex-col rounded-3xl border border-white bg-white p-6 shadow-xl"
+            className="flex flex-col rounded-3xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-red-700">{study.industry}</p>
-            <h3 className="mt-3 text-2xl font-semibold text-gray-900">{study.headline}</h3>
-            <p className="mt-4 text-sm text-gray-600 flex-1">{study.detail}</p>
-            <ul className="mt-6 space-y-2 text-sm text-gray-700">
+            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <ArrowUpRight className="w-5 h-5 text-slate-300" />
+            </div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-red-600 mb-4">{study.industry}</p>
+            <h3 className="text-xl font-bold text-slate-900 mb-3 leading-tight">{study.headline}</h3>
+            <p className="text-sm text-slate-600 flex-1 leading-relaxed">{study.detail}</p>
+            <ul className="mt-6 space-y-2 text-xs font-bold text-slate-500 uppercase tracking-wider">
               {study.metrics.map((metric) => (
-                <li key={metric} className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-700"></span>
+                <li key={metric} className="flex items-center gap-3">
+                  <span className="h-1 w-1 rounded-full bg-blue-600"></span>
                   <span>{metric}</span>
                 </li>
               ))}
             </ul>
-         
+
           </motion.div>
         ))}
       </div>

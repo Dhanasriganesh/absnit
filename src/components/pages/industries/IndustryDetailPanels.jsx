@@ -6,7 +6,7 @@ const details = [
     name: 'Product Design',
     focus: 'Customer and employee experiences',
     deliverables: ['Vision sprints + prototypes', 'Multi-channel design systems', 'Experimentation + analytics rituals'],
-    quote: 'The Nexus AI design guild rebuilt our product strategy and design ops in 10 weeks.',
+    quote: 'The ABSN IT design guild rebuilt our product strategy and design ops in 10 weeks.',
   },
   {
     name: 'Smart Vision',
@@ -35,37 +35,75 @@ const details = [
 ];
 
 const IndustryDetailPanels = () => (
-  <section className="bg-gray-50 py-20">
-    <div className="container mx-auto px-4 lg:px-12">
-      <div className="text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">How we work inside each industry</p>
-        <h2 className="mt-4 text-4xl font-bold text-gray-900">Specialized pods, measurable outcomes</h2>
+  <section className="relative overflow-hidden bg-white py-16 lg:py-24">
+    {/* Background Pattern */}
+    <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+      <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <pattern id="pods-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1" fill="#1e40af" />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#pods-pattern)" />
+      </svg>
+    </div>
+
+    <div className="container relative z-10 mx-auto px-4 lg:px-12">
+      <div className="max-w-3xl mb-16">
+        <p className="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-6 flex items-center gap-3">
+          <span className="w-8 h-[1px] bg-red-600" />
+          Delivery Pods
+        </p>
+        <h2 className="text-3xl md:text-4xl font-light text-slate-900 leading-tight">
+          Specialized pods for <span className="italic">domain-specific</span> outcomes.
+        </h2>
       </div>
-      <div className="mt-14 space-y-6">
+
+      <div className="space-y-6">
         {details.map((detail, index) => (
           <motion.div
             key={detail.name}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="flex flex-col gap-6 rounded-[32px] border border-white/80 bg-white p-8 shadow-xl lg:flex-row"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            className="group relative flex flex-col gap-12 rounded-[40px] bg-slate-50 border border-slate-100 p-8 md:p-12 hover:bg-white hover:shadow-2xl transition-all duration-500 lg:flex-row items-center"
           >
+            {/* Left Column: Context */}
             <div className="lg:w-1/3">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">{detail.name}</p>
-              <h3 className="mt-2 text-2xl font-semibold text-gray-900">{detail.focus}</h3>
-              <p className="mt-4 text-sm text-gray-600">{detail.quote}</p>
+              <span className="text-[10px] font-bold text-blue-600 uppercase tracking-[0.4em] block mb-4">
+                {detail.name}
+              </span>
+              <h3 className="text-2xl font-light text-slate-900 mb-6 leading-tight">
+                {detail.focus}
+              </h3>
+              <p className="text-xs text-slate-500 italic leading-relaxed">
+                "{detail.quote}"
+              </p>
             </div>
-            <div className="flex-1 rounded-3xl border border-blue-100 bg-blue-50/60 p-6">
-              <p className="text-xs font-semibold uppercase tracking-wide text-blue-800">What we deliver</p>
-              <ul className="mt-4 grid gap-3 text-sm text-gray-800 md:grid-cols-2">
-                {detail.deliverables.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 inline-block h-2 w-2 rounded-full bg-blue-600"></span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+
+            {/* Right Column: Execution */}
+            <div className="flex-1 grid md:grid-cols-2 gap-6">
+              <div className="col-span-2">
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-6">Execution Deliverables</p>
+              </div>
+              {detail.deliverables.map((item) => (
+                <div key={item} className="p-6 rounded-3xl bg-white border border-slate-100 group-hover:bg-slate-50 transition-colors">
+                  <div className="flex items-start gap-4">
+                    <span className="w-1 h-1 rounded-full bg-blue-600 mt-2" />
+                    <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">{item}</span>
+                  </div>
+                </div>
+              ))}
+
+              {/* Visual Indicator */}
+              <div className="col-span-2 md:col-span-1 p-6 rounded-3xl bg-slate-900 text-white flex items-center justify-between">
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-60">Status</p>
+                  <p className="text-xs font-medium">Production Ready</p>
+                </div>
+                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                </div>
+              </div>
             </div>
           </motion.div>
         ))}

@@ -86,70 +86,112 @@ const offerings = [
 
 const ServiceDetailSections = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-50 via-white to-red-50 py-12 sm:py-16 md:py-20 overflow-hidden" id="service-details">
-      {/* Modern gradient mesh background */}
-      <div className="absolute inset-0 opacity-50">
-        <div className="absolute top-10 left-10 sm:top-20 sm:left-20 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-400 to-blue-200 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 sm:bottom-20 sm:right-20 w-56 h-56 sm:w-80 sm:h-80 md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-tl from-red-400 to-red-200 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-64 sm:h-64 md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] bg-gradient-to-r from-blue-300 to-red-300 rounded-full blur-3xl opacity-70 hidden sm:block"></div>
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24" id="service-details">
+      {/* Advanced Layered Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{
+            x: [0, 60, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-1/4 -right-1/4 w-[800px] h-[800px] bg-blue-50/30 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -40, 0],
+            y: [0, 50, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-1/4 -left-1/4 w-[700px] h-[700px] bg-red-50/20 rounded-full blur-[100px]"
+        />
+
+        {/* Subtle Geometric Pattern Overlay */}
+        <div className="absolute inset-0 opacity-[0.05]" style={{
+          backgroundImage: `radial-gradient(#1e40af 0.5px, transparent 0.5px)`,
+          backgroundSize: '30px 30px'
+        }} />
       </div>
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 opacity-[0.06]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(#3b82f6 1.5px, transparent 1.5px), linear-gradient(90deg, #ef4444 1.5px, transparent 1.5px)',
-          backgroundSize: '60px 60px'
-        }}></div>
-      </div>
-      <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="text-center">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-blue-600 px-2 sm:px-0">Consulting · Staffing · Training · IT Solutions</p>
-          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight px-2 sm:px-0">
-            Depth across every service line
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        {/* Header */}
+        <div className="max-w-3xl mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-6 flex items-center gap-3">
+            <span className="w-8 h-[1px] bg-red-600" />
+            Our Expertise
+          </p>
+          <h2 className="text-3xl md:text-4xl font-light text-slate-900 leading-tight mb-6">
+            Depth across every service line. <br />
+            Built for <span className="font-normal italic">longevity</span> and <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">performance</span>.
           </h2>
-          <p className="mx-auto mt-3 sm:mt-4 max-w-3xl text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed px-2 sm:px-0">
+          <p className="text-sm md:text-base text-slate-600 leading-relaxed">
             Each offering includes strategy, experience, engineering, and change partners so we can move from idea to scaled value without handoffs.
           </p>
         </div>
 
-        <div className="mt-10 sm:mt-12 md:mt-14 lg:mt-16 space-y-6 sm:space-y-8 md:space-y-10">
+        {/* Detailed Services list */}
+        <div className="space-y-12">
           {offerings.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
-              viewport={{ once: true, amount: 0.2 }}
-              className="flex flex-col gap-6 sm:gap-7 md:gap-8 rounded-2xl sm:rounded-3xl md:rounded-[32px] border border-gray-100 bg-gray-50/70 p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl lg:flex-row"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="group relative grid lg:grid-cols-2 gap-12 items-center p-8 md:p-12 rounded-[40px] bg-white border border-slate-100 hover:shadow-2xl transition-all duration-500 overflow-hidden"
             >
-              <div className="lg:w-1/2">
-                <div className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-blue-500">{service.title}</div>
-                <h3 className="mt-2 sm:mt-3 text-xl sm:text-2xl md:text-3xl font-semibold text-gray-900 leading-tight">{service.headline}</h3>
-                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">{service.description}</p>
-                <ul className="mt-4 sm:mt-5 md:mt-6 space-y-2 sm:space-y-2.5 md:space-y-3 text-xs sm:text-sm text-gray-700">
+              {/* Subtle Hover Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* Left: Content */}
+              <div className="relative z-10">
+                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-600 mb-4 block">
+                  {service.title}
+                </span>
+                <h3 className="text-2xl md:text-3xl font-light text-slate-900 mb-6 leading-tight">
+                  {service.headline}
+                </h3>
+                <p className="text-sm text-slate-600 mb-8 leading-relaxed max-w-lg">
+                  {service.description}
+                </p>
+
+                <ul className="space-y-4 mb-8">
                   {service.pillars.map((pillar) => (
-                    <li key={pillar} className="flex items-start gap-2 sm:gap-3">
-                      <span className="mt-1 sm:mt-1.5 md:mt-2 inline-block h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-blue-600 flex-shrink-0"></span>
-                      <span className="leading-relaxed">{pillar}</span>
+                    <li key={pillar} className="flex items-start gap-3 group/item">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 group-hover/item:bg-blue-600 transition-colors" />
+                      <span className="text-sm text-slate-700 leading-none">{pillar}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="flex-1 rounded-2xl sm:rounded-3xl border border-white/80 bg-white p-4 sm:p-5 md:p-6 shadow-lg">
-                <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-gray-500">Snapshot metrics</p>
-                <div className="mt-4 sm:mt-5 md:mt-6 grid grid-cols-2 gap-3 sm:gap-4">
-                  {service.metrics.map((metric) => (
-                    <div key={metric.label} className="rounded-xl sm:rounded-2xl bg-gray-50 p-3 sm:p-4 text-center">
-                      <p className="text-xl sm:text-2xl font-bold text-gray-900">{metric.value}</p>
-                      <p className="mt-0.5 sm:mt-1 text-[10px] sm:text-xs uppercase tracking-wide text-gray-500 leading-tight">{metric.label}</p>
-                    </div>
-                  ))}
-                </div>
+
                 <a
                   href={`/services/${service.id}`}
-                  className="mt-6 sm:mt-7 md:mt-8 block w-full rounded-full bg-blue-600 px-4 sm:px-5 md:px-6 py-2.5 sm:py-2.5 md:py-3 text-center text-xs sm:text-sm font-semibold text-white shadow-lg hover:bg-blue-700 transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 hover:text-blue-600 transition-colors py-2"
                 >
-                  Explore {service.title}
+                  Explore Service
+                  <span className="w-4 h-[1px] bg-slate-900 group-hover:bg-blue-600 group-hover:w-8 transition-all" />
                 </a>
+              </div>
+
+              {/* Right: Metrics & Details */}
+              <div className="relative z-10 grid grid-cols-2 gap-6">
+                {service.metrics.map((metric) => (
+                  <div key={metric.label} className="p-6 rounded-3xl bg-slate-50 border border-slate-100 group-hover:bg-white transition-colors duration-500">
+                    <p className="text-2xl font-light text-slate-900 mb-1">{metric.value}</p>
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
+                      {metric.label}
+                    </p>
+                  </div>
+                ))}
+
+                {/* Visual Accent */}
+                <div className="col-span-2 p-6 rounded-3xl bg-blue-600 text-white relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl" />
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] mb-2 opacity-60">Status</p>
+                  <p className="text-sm font-medium">Enterprise Ready & Scalable</p>
+                </div>
               </div>
             </motion.div>
           ))}
