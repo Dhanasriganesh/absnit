@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, PenTool, Zap, BarChart, ArrowRight } from 'lucide-react';
 import phasesImage from '../../../assets/home-section/phases.webp';
@@ -38,36 +38,6 @@ const steps = [
 const VelocityProcessSection = () => {
   return (
     <section className="relative py-16 lg:py-24 overflow-hidden bg-white">
-      {/* Kinetic Velocity Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Rapid Horizontal Lines */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)`,
-          backgroundSize: '100% 40px',
-          opacity: '0.2'
-        }} />
-
-        {/* Pulsing Accelerator Orbs */}
-        <motion.div
-          animate={{
-            x: [-50, 50, -50],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-[1px] bg-gradient-to-r from-transparent via-blue-600 to-transparent shadow-[0_0_20px_blue]"
-        />
-        <motion.div
-          animate={{
-            x: [50, -50, 50],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: 1 }}
-          className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-96 h-[1px] bg-gradient-to-r from-transparent via-red-600 to-transparent shadow-[0_0_20px_red]"
-        />
-
-        {/* Depth Fog */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white" />
-      </div>
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         <div className="max-w-4xl mx-auto text-center mb-20">

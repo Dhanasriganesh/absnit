@@ -107,37 +107,7 @@ const ServiceCard = ({ service, index }) => (
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="relative bg-white py-16 lg:py-24 overflow-hidden">
-      {/* Precision Tech Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Fine Dot Grid */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(#e2e8f0 1px, transparent 1px)`,
-          backgroundSize: '32px 32px',
-          opacity: '0.6'
-        }} />
-
-        {/* Floating Accents */}
-        <motion.div
-          animate={{
-            y: [-20, 20, -20],
-            rotate: [0, 5, 0],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -right-10 w-96 h-96 bg-blue-50/50 rounded-full blur-[80px]"
-        />
-        <motion.div
-          animate={{
-            y: [20, -20, 20],
-            rotate: [0, -5, 0],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-1/4 -left-10 w-80 h-80 bg-slate-50 rounded-full blur-[100px]"
-        />
-
-        {/* Diagonal Light Burst */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-blue-100/50 via-transparent to-red-100/50 rotate-12 opacity-40" />
-      </div>
+    <section id="services" className="relative py-16 lg:py-24 overflow-hidden bg-white">
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         {/* Header Implementation */}

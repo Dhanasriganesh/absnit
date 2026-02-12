@@ -166,13 +166,13 @@ const ServiceDetailSections = () => {
                   ))}
                 </ul>
 
-                <a
+                {/* <a
                   href={`/services/${service.id}`}
                   className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-900 hover:text-blue-600 transition-colors py-2"
                 >
                   Explore Service
                   <span className="w-4 h-[1px] bg-slate-900 group-hover:bg-blue-600 group-hover:w-8 transition-all" />
-                </a>
+                </a> */}
               </div>
 
               {/* Right: Metrics & Details */}

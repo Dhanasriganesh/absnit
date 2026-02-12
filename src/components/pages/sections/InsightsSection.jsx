@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, BookOpen, Terminal, Sparkles } from 'lucide-react';
 import insightsImage from '../../../assets/home-section/insights.webp';
@@ -33,36 +33,7 @@ const insightsData = [
 
 const InsightsSection = () => {
   return (
-    <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      {/* Intellectual Background Architecture */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle Vertical Information Flow */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(to bottom, #1e40af 1px, transparent 1px)`,
-          backgroundSize: '100% 120px',
-        }} />
-
-        {/* Thought Bubbles / Orbs */}
-        <motion.div
-          animate={{
-            y: [-30, 30, -30],
-            rotate: [0, 10, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 left-0 w-80 h-80 bg-blue-50/50 rounded-full blur-[90px]"
-        />
-        <motion.div
-          animate={{
-            y: [30, -30, 30],
-            rotate: [0, -10, 0],
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-1/4 right-0 w-96 h-96 bg-red-50/30 rounded-full blur-[110px]"
-        />
-
-        {/* Global Focus Tint */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.8)_0%,transparent_100%)]" />
-      </div>
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-white">
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">

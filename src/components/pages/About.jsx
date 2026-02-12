@@ -12,9 +12,10 @@ const About = () => {
       <AboutHero />
       <MissionVisionSection />
       <CoreValuesSection />
-      <TimelineSection />
+      
       <CultureImpactSection />
       <AboutCTASection />
+      
     </div>
   );
 };

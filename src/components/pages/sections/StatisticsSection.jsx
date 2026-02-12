@@ -18,38 +18,8 @@ const StatisticsSection = () => {
     <section
       id="statistics"
       ref={ref}
-      className="relative bg-white py-16 lg:py-24 overflow-hidden"
+      className="relative py-16 lg:py-24 overflow-hidden bg-white"
     >
-      {/* Precision Metrics Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle Square Grid */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)`,
-          backgroundSize: '80px 80px',
-          opacity: '0.4'
-        }} />
-
-        {/* Pulsing Data Accents */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-600/10 to-transparent"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px]"
-        />
-
-        {/* Textured Overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,white_90%)]" />
-      </div>
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">

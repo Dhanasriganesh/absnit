@@ -1,42 +1,10 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import buildImage from '../../../assets/home-section/build.webp';
 import { Link } from 'react-router-dom';
 
 const HomeCTASection = () => (
-  <section className="relative bg-white py-16 lg:py-24 overflow-hidden">
-    {/* Final Impact Background */}
-    <div className="absolute inset-0 pointer-events-none">
-      {/* High-Contrast Dual Grid */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: `linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)`,
-        backgroundSize: '40px 40px',
-        opacity: '0.5'
-      }} />
-      <div className="absolute inset-0" style={{
-        backgroundImage: `linear-gradient(to right, #f1f5f9 1px, transparent 1px), linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)`,
-        backgroundSize: '160px 160px',
-        opacity: '0.8'
-      }} />
-
-      {/* Moving Energy Converters */}
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.3, 0.1],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-[120px]"
-      />
-      <motion.div
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.1, 0.2, 0.1],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-red-100/30 rounded-full blur-[100px]"
-      />
-    </div>
+  <section className="relative py-16 lg:py-24 overflow-hidden bg-white">
 
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <motion.div

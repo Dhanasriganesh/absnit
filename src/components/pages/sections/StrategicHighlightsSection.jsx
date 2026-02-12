@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Cpu, RefreshCcw, Sparkles, TrendingUp, Layers } from 'lucide-react';
 import whyImage from '../../../assets/home-section/why.webp';
@@ -32,38 +32,7 @@ const pillars = [
 
 const StrategicHighlightsSection = () => {
   return (
-    <section className="relative bg-white py-16 lg:py-24 overflow-hidden">
-      {/* Unique Background Architecture */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle Diagonal Tech Grid */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(135deg, #f1f5f9 1px, transparent 1px), linear-gradient(225deg, #f1f5f9 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-          opacity: '0.3'
-        }} />
-
-        {/* Moving Gradient Entities */}
-        <motion.div
-          animate={{
-            x: [-50, 50, -50],
-            y: [20, -20, 20],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-0 right-0 w-[600px] h-[600px] bg-red-50/40 rounded-full blur-[100px]"
-        />
-        <motion.div
-          animate={{
-            x: [50, -50, 50],
-            y: [-30, 30, -30],
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute -bottom-1/4 -left-1/4 w-[700px] h-[700px] bg-blue-50/50 rounded-full blur-[120px]"
-        />
-
-        {/* Textured Glass Layer */}
-        <div className="absolute inset-0 bg-white/40 backdrop-blur-[2px]" />
-      </div>
+    <section className="relative py-16 lg:py-24 overflow-hidden bg-white">
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

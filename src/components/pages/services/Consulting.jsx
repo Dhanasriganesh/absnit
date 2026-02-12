@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Target, Lightbulb, TrendingUp, Users, BarChart3, CheckCircle2, Rocket, Shield, Zap, Globe, Building2, MessageCircle, ArrowRight, Award, FileText, Brain, Network, Layers, Gauge } from 'lucide-react';
@@ -284,62 +284,62 @@ const deliverables = [
 
 const Consulting = () => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-red-50">
+    <div className="relative overflow-hidden bg-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 sm:pt-24 pb-12 sm:pb-16">
+      <section className="relative overflow-hidden pt-24 pb-16 border-b border-gray-100">
         <BackgroundImage
           src={consultingHero}
           className="absolute inset-0"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-800/60 to-red-900/70"></div>
-        <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="absolute inset-0 bg-slate-900/75"></div>
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto text-white"
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto text-center text-white"
           >
-            <span className="inline-block rounded-full bg-white/20 backdrop-blur-sm px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-6">
+            <span className="inline-block text-xs font-medium uppercase tracking-wider text-blue-300 mb-4">
               Strategic Consulting
             </span>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-4 sm:mb-6 px-2 sm:px-0">
+            <h1 className="text-3xl sm:text-4xl font-semibold leading-tight mb-4">
               Strategy That Moves Seamlessly Into Execution
             </h1>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 leading-relaxed max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm sm:text-base text-gray-200 leading-relaxed max-w-2xl mx-auto">
               Engagements are staffed with strategists, researchers, data scientists, and change partners who work side-by-side with your leaders to transform vision into reality.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* What We Deliver - Consulting Services */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-white/80 backdrop-blur-sm">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">What we deliver</p>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2 sm:px-0">
+      {/* Services Grid */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-2">What we deliver</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
               Comprehensive Consulting Services
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               From strategy to execution, we deliver end-to-end consulting solutions that drive measurable business outcomes.
             </p>
           </div>
-          <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {consultingServices.map((service, index) => {
               const serviceImages = [consulting16, consulting17];
               const hasImage = index < 2;
               return (
                 <motion.div
                   key={service.title}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
-                  className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg transition-all duration-300 hover:border-blue-200 overflow-hidden"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  whileHover={{ y: -4 }}
+                  className="group bg-white rounded-lg border border-gray-200 p-5 shadow-sm hover:shadow-md transition-all"
                 >
                   {hasImage && (
-                    <div className="relative h-32 sm:h-40 mb-3 sm:mb-4 rounded-lg sm:rounded-xl overflow-hidden">
+                    <div className="relative h-32 mb-4 rounded-md overflow-hidden">
                       <SkeletonImage
                         src={serviceImages[index]}
                         alt={service.title}
@@ -347,21 +347,21 @@ const Consulting = () => {
                       />
                     </div>
                   )}
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
-                    <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+                  <div className="w-9 h-9 rounded-md bg-blue-50 flex items-center justify-center mb-3 group-hover:bg-blue-100 transition-colors">
+                    <service.icon className="w-4 h-4 text-blue-600" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 group-hover:text-blue-700 transition-colors">
+                  <h3 className="text-base font-semibold text-gray-900 mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed">
+                  <p className="text-xs text-gray-600 mb-4 leading-relaxed">
                     {service.description}
                   </p>
-                  <div className="border-t border-gray-100 pt-3 sm:pt-4">
-                    <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2">Key Deliverables:</p>
-                    <ul className="space-y-1 sm:space-y-1.5">
+                  <div className="border-t border-gray-100 pt-3">
+                    <p className="text-[10px] font-medium uppercase tracking-wide text-gray-500 mb-2">Key Deliverables:</p>
+                    <ul className="space-y-1.5">
                       {service.deliverables.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-700">
-                          <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-600 flex-shrink-0" />
+                        <li key={idx} className="flex items-center gap-2 text-xs text-gray-700">
+                          <CheckCircle2 className="w-3 h-3 text-blue-600 flex-shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -374,100 +374,105 @@ const Consulting = () => {
         </div>
       </section>
 
-      {/* Our Consulting Process */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 via-white to-red-50">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Our Process</p>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2 sm:px-0">
+      {/* Process Timeline */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-2">Our Process</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
               How We Partner With You
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               A proven methodology that takes you from discovery to scale, ensuring every step delivers value.
             </p>
           </div>
-          <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8">
-            {consultingProcess.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, x: 0 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6"
-              >
-                {/* Number Circle */}
-                <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center text-white font-bold text-base sm:text-lg shadow-lg border-2 sm:border-4 border-white">
-                  {step.number}
-                </div>
-                {/* Content Card */}
-                <div className="flex-1 rounded-xl sm:rounded-2xl border-2 border-blue-200 bg-white p-4 sm:p-5 md:p-6 shadow-md w-full">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900">{step.title}</h3>
-                    <span className="text-[10px] sm:text-xs font-semibold text-blue-600 bg-blue-50 px-2 sm:px-3 py-1 rounded-full w-fit">
-                      {step.duration}
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4 leading-relaxed">
-                    {step.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                    {step.activities.map((activity, idx) => (
-                      <span
-                        key={idx}
-                        className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs bg-gray-50 text-gray-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-200"
-                      >
-                        <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600 flex-shrink-0" />
-                        <span className="whitespace-nowrap">{activity}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200 hidden md:block"></div>
+              <div className="space-y-8">
+                {consultingProcess.map((step, index) => (
+                  <motion.div
+                    key={step.number}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="relative flex gap-6"
+                  >
+                    <div className="flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-semibold shadow-md relative z-10">
+                        {step.number}
+                      </div>
+                    </div>
+                    <div className="flex-1 bg-gray-50 rounded-lg border border-gray-200 p-5">
+                      <div className="flex items-start justify-between mb-2">
+                        <h3 className="text-base font-semibold text-gray-900">{step.title}</h3>
+                        <span className="text-[10px] font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">
+                          {step.duration}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-600 mb-3 leading-relaxed">
+                        {step.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {step.activities.map((activity, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center gap-1 text-[10px] bg-white text-gray-700 px-2 py-1 rounded border border-gray-200"
+                          >
+                            <CheckCircle2 className="w-2.5 h-2.5 text-blue-600" />
+                            {activity}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Methodologies Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Our Methodologies</p>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2 sm:px-0">
+      {/* Methodologies */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-2">Our Methodologies</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
               Proven Frameworks for Success
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               We leverage industry-leading methodologies tailored to your unique challenges and goals.
             </p>
           </div>
-          <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
             {methodologies.map((method, index) => (
               <motion.div
                 key={method.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.1)' }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-gradient-to-br from-blue-50 to-red-50 p-4 sm:p-5 md:p-6 shadow-lg"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ y: -2 }}
+                className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm hover:shadow-md transition-all"
               >
-                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center flex-shrink-0">
-                    <method.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-md bg-blue-600 flex items-center justify-center flex-shrink-0">
+                    <method.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900">{method.name}</h3>
+                  <h3 className="text-base font-semibold text-gray-900">{method.name}</h3>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-700 mb-3 sm:mb-4 leading-relaxed">
+                <p className="text-xs text-gray-600 mb-4 leading-relaxed">
                   {method.description}
                 </p>
-                <div className="border-t border-gray-200 pt-3 sm:pt-4">
-                  <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-gray-500 mb-2 sm:mb-3">Key Phases:</p>
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                <div className="border-t border-gray-100 pt-3">
+                  <p className="text-[10px] font-medium uppercase tracking-wide text-gray-500 mb-2">Key Phases:</p>
+                  <div className="flex flex-wrap gap-1.5">
                     {method.phases.map((phase, idx) => (
                       <span
                         key={idx}
-                        className="text-[10px] sm:text-xs bg-white text-gray-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full border border-gray-200"
+                        className="text-[10px] bg-gray-50 text-gray-700 px-2 py-1 rounded border border-gray-200"
                       >
                         {phase}
                       </span>
@@ -481,126 +486,126 @@ const Consulting = () => {
       </section>
 
       {/* Industry Expertise */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 via-white to-red-50">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Industry Expertise</p>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2 sm:px-0">
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-2">Industry Expertise</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
               Deep Domain Knowledge Across Industries
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               Our consultants bring specialized expertise from years of working with leading organizations in your industry.
             </p>
           </div>
-          <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {expertiseAreas.map((area, index) => (
               <motion.div
                 key={area.title}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                whileHover={{ scale: 1.02, y: -4 }}
-                className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg text-center"
+                transition={{ duration: 0.3, delay: index * 0.03 }}
+                whileHover={{ scale: 1.02 }}
+                className="bg-gray-50 rounded-lg border border-gray-200 p-5 text-center hover:bg-white hover:shadow-sm transition-all"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-100 to-red-100 flex items-center justify-center mx-auto mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
-                  <area.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
+                <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center mx-auto mb-3">
+                  <area.icon className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">{area.title}</h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">{area.description}</p>
+                <h3 className="text-sm font-semibold text-gray-900 mb-2">{area.title}</h3>
+                <p className="text-xs text-gray-600 leading-relaxed">{area.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Strategic Frameworks */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Strategic Tools</p>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2 sm:px-0">
+      {/* Frameworks */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-2">Strategic Tools</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
               Industry-Leading Frameworks
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               We apply proven strategic frameworks to help you make better decisions and drive innovation.
             </p>
           </div>
-          <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+          <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto">
             {frameworks.map((framework, index) => (
               <motion.div
                 key={framework.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="rounded-lg sm:rounded-xl border border-gray-200 bg-gray-50 p-3 sm:p-4 hover:bg-white hover:shadow-md transition-all"
+                transition={{ duration: 0.3, delay: index * 0.03 }}
+                className="bg-white rounded-md border border-gray-200 p-4 hover:border-blue-200 hover:shadow-sm transition-all"
               >
-                <h4 className="text-sm sm:text-base font-semibold text-gray-900 mb-1.5 sm:mb-2">{framework.name}</h4>
-                <p className="text-[10px] sm:text-xs text-gray-600 leading-relaxed">{framework.description}</p>
+                <h4 className="text-sm font-semibold text-gray-900 mb-1.5">{framework.name}</h4>
+                <p className="text-xs text-gray-600 leading-relaxed">{framework.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Impact Stories - Enhanced */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-red-50 via-white to-blue-50">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">Impact</p>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2 sm:px-0">
+      {/* Impact Stories */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-2">Impact</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
               Proof From The Field
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               Real results from real engagements across industries and use cases.
             </p>
           </div>
-          <div className="grid gap-6 sm:gap-8 grid-cols-1 lg:grid-cols-3">
+          <div className="grid gap-6 grid-cols-1 lg:grid-cols-3">
             {impactStories.map((story, index) => {
               const storyImages = [consulting12, consulting13, consulting14];
               return (
                 <motion.div
                   key={story.industry}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(15,23,42,0.15)' }}
-                  className="group rounded-xl sm:rounded-2xl border border-gray-100 bg-white p-4 sm:p-5 md:p-6 shadow-lg overflow-hidden"
+                  whileHover={{ y: -2 }}
+                  className="bg-white rounded-lg border border-gray-200 p-5 shadow-sm hover:shadow-md transition-all"
                 >
-                  <div className="relative h-40 sm:h-48 rounded-lg sm:rounded-xl mb-3 sm:mb-4 overflow-hidden">
+                  <div className="relative h-36 rounded-md mb-4 overflow-hidden">
                     <SkeletonImage
                       src={storyImages[index]}
                       alt={`${story.client} - ${story.industry}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover"
                     />
                   </div>
 
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-                    <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-blue-600 bg-blue-50 px-2 sm:px-3 py-1 rounded-full w-fit">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[10px] font-medium uppercase tracking-wide text-blue-600 bg-blue-50 px-2 py-1 rounded">
                       {story.industry}
                     </span>
-                    <div className="text-left sm:text-right">
-                      <div className="text-xl sm:text-2xl font-bold text-blue-600">{story.metrics.primary}</div>
-                      <div className="text-[10px] sm:text-xs text-gray-500">{story.metrics.label}</div>
+                    <div className="text-right">
+                      <div className="text-lg font-semibold text-blue-600">{story.metrics.primary}</div>
+                      <div className="text-[10px] text-gray-500">{story.metrics.label}</div>
                     </div>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2">{story.client}</h3>
-                  <p className="text-[10px] sm:text-xs text-gray-600 mb-2 sm:mb-3">
-                    <span className="font-semibold">Challenge:</span> {story.challenge}
+                  <h3 className="text-sm font-semibold text-gray-900 mb-2">{story.client}</h3>
+                  <p className="text-xs text-gray-600 mb-2">
+                    <span className="font-medium">Challenge:</span> {story.challenge}
                   </p>
-                  <p className="text-[10px] sm:text-xs text-gray-600 mb-3 sm:mb-4">
-                    <span className="font-semibold">Solution:</span> {story.solution}
+                  <p className="text-xs text-gray-600 mb-3">
+                    <span className="font-medium">Solution:</span> {story.solution}
                   </p>
 
-                  <div className="border-t border-gray-100 pt-3 sm:pt-4">
-                    <p className="text-[10px] sm:text-xs font-semibold text-gray-500 mb-2">Key Results:</p>
-                    <ul className="space-y-1 sm:space-y-1.5">
+                  <div className="border-t border-gray-100 pt-3">
+                    <p className="text-[10px] font-medium text-gray-500 mb-2">Key Results:</p>
+                    <ul className="space-y-1.5">
                       {story.results.map((result, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-700">
-                          <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+                          <CheckCircle2 className="w-3 h-3 text-green-600 flex-shrink-0 mt-0.5" />
                           <span>{result}</span>
                         </li>
                       ))}
@@ -613,36 +618,36 @@ const Consulting = () => {
         </div>
       </section>
 
-      {/* Deliverables Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-blue-600">What You Get</p>
-            <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 px-2 sm:px-0">
+      {/* Deliverables */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs font-medium uppercase tracking-wider text-blue-600 mb-2">What You Get</p>
+            <h2 className="text-xl font-semibold text-gray-900 mb-3">
               Comprehensive Deliverables
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2 sm:px-0">
+            <p className="text-sm text-gray-600 max-w-2xl mx-auto">
               Every engagement includes detailed documentation, strategic artifacts, and implementation roadmaps.
             </p>
           </div>
-          <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+          <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
             {deliverables.map((category, index) => (
               <motion.div
                 key={category.category}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="rounded-xl sm:rounded-2xl border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-white p-4 sm:p-5 md:p-6"
+                className="bg-white rounded-lg border border-blue-100 p-5"
               >
-                <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
-                  <FileText className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0" />
+                <h3 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-blue-600" />
                   {category.category}
                 </h3>
-                <ul className="space-y-1.5 sm:space-y-2">
+                <ul className="space-y-2">
                   {category.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-700">
-                      <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start gap-2 text-xs text-gray-700">
+                      <ArrowRight className="w-3 h-3 text-blue-600 flex-shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -654,53 +659,50 @@ const Consulting = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 via-white to-red-50">
-        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            {/* Image */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5 }}
-              className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl order-2 lg:order-1"
+              className="relative rounded-lg overflow-hidden shadow-lg"
             >
               <SkeletonImage
                 src={consulting15}
                 alt="Strategy Meets Execution Excellence"
-                className="w-full h-64 sm:h-80 md:h-96 object-cover"
+                className="w-full h-64 sm:h-80 object-cover"
               />
             </motion.div>
 
-            {/* Content */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5 }}
-              className="order-1 lg:order-2"
             >
-              <span className="inline-block rounded-full bg-gradient-to-r from-blue-600 to-red-500 px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-bold text-white uppercase tracking-wide sm:tracking-widest shadow-md mb-4 sm:mb-6">
+              <span className="inline-block text-xs font-medium uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1.5 rounded mb-4">
                 Why ABSN IT Consulting
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
                 Strategy Meets Execution Excellence
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
+              <p className="text-sm text-gray-600 leading-relaxed mb-5">
                 Our consulting approach combines strategic thinking with hands-on execution. We don't just deliver reports—we work alongside your team to implement solutions that drive real business value.
               </p>
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3">
                 {[
                   'Cross-functional teams of strategists, designers, and technologists',
                   'Proven methodologies adapted to your unique context',
                   'Measurable outcomes tied to business KPIs',
                   'Ongoing support from strategy to scale',
                 ].map((point, idx) => (
-                  <div key={idx} className="flex items-start gap-2 sm:gap-3">
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-br from-blue-600 to-red-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-3 h-3 text-white" />
                     </div>
-                    <p className="text-sm sm:text-base text-gray-700">{point}</p>
+                    <p className="text-sm text-gray-700">{point}</p>
                   </div>
                 ))}
               </div>
@@ -709,47 +711,46 @@ const Consulting = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* CTA */}
       <motion.section
-        className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-gradient-to-r from-blue-600 via-purple-600 to-red-600"
-        initial={{ opacity: 0, y: 40 }}
+        className="relative py-16 overflow-hidden bg-slate-900"
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
       >
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
+            initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">
+            <h2 className="text-xl sm:text-2xl font-semibold mb-3">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto text-white/90 mb-6 sm:mb-8 px-2 sm:px-0">
+            <p className="text-sm text-gray-300 max-w-2xl mx-auto mb-8">
               Let's discuss how our consulting services can help you achieve your strategic objectives and drive measurable results.
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
               <Link to="/contact" className="w-full sm:w-auto">
                 <motion.button
-                  whileHover={{ scale: 1.05, boxShadow: '0 20px 45px rgba(15,23,42,0.45)' }}
-                  whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-auto rounded-full bg-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-blue-700 shadow-lg flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto rounded-md bg-white px-6 py-2.5 text-sm font-medium text-slate-900 shadow-md flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <MessageCircle className="w-4 h-4" />
                   Schedule a Consultation
                 </motion.button>
               </Link>
               <Link to="/services" className="w-full sm:w-auto">
                 <motion.button
-                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.14)' }}
-                  whileTap={{ scale: 0.97 }}
-                  className="w-full sm:w-auto rounded-full border-2 border-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white flex items-center justify-center gap-2"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto rounded-md border-2 border-white px-6 py-2.5 text-sm font-medium text-white flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
                 >
                   Explore All Services
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <ArrowRight className="w-4 h-4" />
                 </motion.button>
               </Link>
             </div>

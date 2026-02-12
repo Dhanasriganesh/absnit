@@ -11,22 +11,22 @@ export const menuItems = [
   {
     name: 'Services',
     path: '/services',
-    submenu: [
-      { name: 'Consulting', path: '/services/consulting' },
-      { name: 'Staffing', path: '/services/staffing' },
-      { name: 'Training', path: '/services/training' },
-      { name: 'IT Solutions', path: '/services/it-solutions' },
-      { name: 'Visa Sponsorship', path: '/services/visa-sponsorship' },
-    ],
+    // submenu: [
+    //   { name: 'Consulting', path: '/services/consulting' },
+    //   { name: 'Staffing', path: '/services/staffing' },
+    //   { name: 'Training', path: '/services/training' },
+    //   { name: 'IT Solutions', path: '/services/it-solutions' },
+    //   { name: 'Visa Sponsorship', path: '/services/visa-sponsorship' },
+    // ],
   },
   {
     name: 'Industries',
     path: '/industries',
   },
-  {
-    name: 'Clients',
-    path: '/clients',
-  },
+  // {
+  //   name: 'Clients',
+  //   path: '/clients',
+  // },
   {
     name: 'Careers',
     path: '/careers',

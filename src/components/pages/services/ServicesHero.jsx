@@ -1,7 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import backgroundImage from '../../../assets/about-section/10.webp';
-import BackgroundImage from '../../shared/BackgroundImage';
+import backgroundImage from '../../../assets/about-section/services.webp';
 
 const stats = [
   { label: 'AI builds delivered', value: '180+' },
@@ -16,51 +15,21 @@ const signals = [
   'Safety, privacy, and compliance baked in',
 ];
 
-const floaters = [
-  { top: '10%', left: '14%', size: 10, delay: 0, speed: 5.5 },
-  { top: '18%', left: '70%', size: 12, delay: 0.3, speed: 6.5 },
-  { top: '32%', left: '24%', size: 9, delay: 0.6, speed: 7 },
-  { top: '42%', left: '52%', size: 8, delay: 1, speed: 5.8 },
-  { top: '60%', left: '18%', size: 11, delay: 0.8, speed: 6.8 },
-  { top: '64%', left: '74%', size: 13, delay: 0.1, speed: 7.3 },
-  { top: '78%', left: '46%', size: 9, delay: 0.5, speed: 6.1 },
-  { top: '26%', left: '88%', size: 8, delay: 1.2, speed: 5.6 },
-];
-
 const ServicesHero = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-20 lg:py-28" data-header-theme="hero">
-      {/* Advanced Animated Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle Mesh Gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#f8fafc_0%,#ffffff_100%)]" />
-
-        {/* Advanced Moving Orbs */}
-        <motion.div
-          animate={{
-            x: [0, 80, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-24 left-1/4 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{
-            x: [0, -100, 0],
-            y: [0, 60, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute -bottom-48 right-1/4 w-[600px] h-[600px] bg-red-100/30 rounded-full blur-[140px]"
-        />
-
-        {/* Dynamic Grid Overlay */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(#1e40af 1px, transparent 1px), linear-gradient(90deg, #1e40af 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
-        }} />
-      </div>
+    <section 
+      className="relative overflow-hidden min-h-screen flex items-center py-20 lg:py-28" 
+      data-header-theme="hero"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Light Blue Overlay */}
+      <div className="absolute inset-0 bg-blue-500/40 z-0" />
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         <div className="grid lg:grid-cols-5 gap-16 items-center">
@@ -71,15 +40,15 @@ const ServicesHero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-xs font-bold uppercase tracking-[0.4em] text-blue-600 mb-6 flex items-center gap-3">
-                <span className="w-8 h-[1px] bg-blue-600" />
+              <p className="text-xs font-bold uppercase tracking-[0.4em] text-white mb-6 flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-white" />
                 Our Solutions
               </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-8 leading-[1.1]">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8 leading-[1.1]">
                 AI Built for <span className="italic">Production</span>, <br />
-                Not just <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">Prototypes</span>.
+                Not just <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-100 to-white font-normal">Prototypes</span>.
               </h1>
-              <p className="text-base md:text-lg text-slate-600 mb-12 max-w-xl leading-relaxed">
+              <p className="text-base md:text-lg text-white/95 mb-12 max-w-xl leading-relaxed">
                 One embedded pod—product, design, data, and engineering—shipping with observability, guardrails, and accelerators so you move faster without breaking things.
               </p>
 
@@ -90,9 +59,9 @@ const ServicesHero = () => {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 + idx * 0.1 }}
-                    className="flex items-center gap-3 py-2 px-4 rounded-full bg-slate-50 border border-slate-100 text-xs font-medium text-slate-700 hover:border-blue-200 transition-colors"
+                    className="flex items-center gap-3 py-2 px-4 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-xs font-medium text-white hover:border-white/50 transition-colors"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     {item}
                   </motion.div>
                 ))}
@@ -107,29 +76,29 @@ const ServicesHero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="lg:col-span-2"
           >
-            <div className="p-8 rounded-[32px] bg-white border border-slate-100 shadow-2xl relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-blue-600 to-red-600" />
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 mb-8">Proof of Delivery</p>
+            <div className="p-8 rounded-[32px] bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-white to-blue-100" />
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/90 mb-8">Proof of Delivery</p>
 
               <div className="grid grid-cols-2 gap-8">
                 {stats.map((stat, idx) => (
                   <div key={stat.label} className="relative group">
-                    <p className="text-2xl md:text-3xl font-light text-slate-900 mb-1">{stat.value}</p>
-                    <p className="text-[10px] uppercase tracking-widest font-bold text-slate-400 group-hover:text-blue-600 transition-colors">
+                    <p className="text-2xl md:text-3xl font-light text-white mb-1">{stat.value}</p>
+                    <p className="text-[10px] uppercase tracking-widest font-bold text-white/80 group-hover:text-white transition-colors">
                       {stat.label}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-10 pt-8 border-t border-slate-50">
+              <div className="mt-10 pt-8 border-t border-white/30">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center">
-                    <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
+                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                   </div>
                   <div>
-                    <p className="text-[11px] font-bold text-slate-900 uppercase tracking-wider">Production Focused</p>
-                    <p className="text-[10px] text-slate-500 italic">"Scaling from day zero."</p>
+                    <p className="text-[11px] font-bold text-white uppercase tracking-wider">Production Focused</p>
+                    <p className="text-[10px] text-white/80 italic">"Scaling from day zero."</p>
                   </div>
                 </div>
               </div>

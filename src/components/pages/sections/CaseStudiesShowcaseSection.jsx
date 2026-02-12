@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, ArrowUpRight } from 'lucide-react';
 
@@ -24,36 +24,7 @@ const studies = [
 ];
 
 const CaseStudiesShowcaseSection = () => (
-  <section className="relative bg-white py-16 lg:py-24 overflow-hidden">
-    {/* Proof & Success Background */}
-    <div className="absolute inset-0 pointer-events-none">
-      {/* Cinematic Horizontal Bars */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(to right, #1e40af 1px, transparent 1px)`,
-        backgroundSize: '80px 100%',
-      }} />
-
-      {/* Ascending Value Nodes */}
-      <motion.div
-        animate={{
-          y: [0, -100],
-          opacity: [0, 0.4, 0],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-0 left-1/4 w-[1px] h-64 bg-gradient-to-t from-blue-600 to-transparent"
-      />
-      <motion.div
-        animate={{
-          y: [0, -120],
-          opacity: [0, 0.4, 0],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 3 }}
-        className="absolute bottom-0 right-1/3 w-[1px] h-80 bg-gradient-to-t from-red-600 to-transparent"
-      />
-
-      {/* Soft Success Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(59,130,246,0.02)_0%,transparent_70%)]" />
-    </div>
+  <section className="relative py-16 lg:py-24 overflow-hidden bg-white">
     <div className="container relative z-10 mx-auto px-4 lg:px-12">
       <div className="text-center mb-16">
         <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-600 mb-4">Proof of excellence</p>

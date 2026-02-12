@@ -20,9 +20,9 @@ const Home = () => {
       <SolutionsShowcaseSection />
       <IndustriesSection />
       <VelocityProcessSection />
-      <CaseStudiesShowcaseSection />
+      
       <StatisticsSection />
-      <InsightsSection />
+    
       <HomeCTASection />
     </div>
   );

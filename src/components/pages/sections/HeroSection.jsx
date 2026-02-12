@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
 import heroVideo from '../../../assets/videos/absnit.mp4';
-import mobileVideo from '../../../assets/videos/mobile-video.mp4';
 import SkeletonVideo from '../../shared/SkeletonVideo';
 
 const stats = [
@@ -42,33 +41,8 @@ const HeroSection = () => {
       data-header-theme="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black w-full"
     >
-      {/* Mobile: Mobile Video Background (visible on small screens, hidden on md and up) */}
-      <div className="absolute inset-0 z-0 w-full h-full md:hidden">
-        <SkeletonVideo
-          src={mobileVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-          style={{
-            minWidth: '100%',
-            minHeight: '100%',
-            width: 'auto',
-            height: 'auto',
-          }}
-          onError={(e) => {
-            console.error('Mobile video loading error:', e);
-          }}
-        >
-          <source src={mobileVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </SkeletonVideo>
-      </div>
-
-      {/* Desktop: Desktop Video Background (hidden on small screens, visible on md and up) */}
-      <div className="absolute inset-0 z-0 w-full h-full hidden md:block">
+      {/* Main Video Background - Responsive for all screen sizes */}
+      <div className="absolute inset-0 z-0 w-full h-full">
         <SkeletonVideo
           src={heroVideo}
           autoPlay
@@ -84,7 +58,7 @@ const HeroSection = () => {
             height: 'auto',
           }}
           onError={(e) => {
-            console.error('Desktop video loading error:', e);
+            console.error('Video loading error:', e);
           }}
         >
           <source src={heroVideo} type="video/mp4" />

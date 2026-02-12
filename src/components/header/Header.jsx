@@ -59,24 +59,29 @@ function Header() {
       initial={{ y: -100 }}
       animate={{ y: isVisible ? 0 : -100 }}
       transition={{
-        duration: 0.2,
+        duration: 0.3,
         ease: [0.4, 0, 0.2, 1],
         type: "tween"
       }}
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white shadow-md border-b border-gray-200"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100/50"
     >
       <nav className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-        <div className="flex items-center justify-between h-14 sm:h-16 md:h-16 lg:h-20 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
+        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 lg:h-22 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <motion.div 
+            className="flex-shrink-0"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
             <Link to="/" className="block">
               <img
                 src={logonImage}
                 alt="ABSN IT Solutions Logo"
-                className="h-16 sm:h-12 md:h-16 lg:h-62 w-auto lg:w-44 object-contain"
+                className="h-26 sm:h-18 md:h-16 lg:h-38 w-auto object-contain transition-opacity hover:opacity-90"
               />
             </Link>
-          </div>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="flex-1 flex justify-center hidden lg:block">
@@ -87,8 +92,17 @@ function Header() {
           <div className="hidden lg:flex flex-shrink-0">
             <Link
               to="/contact"
-              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-4 lg:px-6 py-2 lg:py-2.5 text-xs lg:text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/50 hover:scale-105"
+              className="group relative overflow-hidden px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98]"
             >
+              {/* Shine effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: '100%' }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              />
+              
+              {/* Content */}
               <span className="relative z-10 flex items-center gap-2">
                 Get Started
                 <motion.svg
@@ -98,21 +112,18 @@ function Header() {
                   viewBox="0 0 24 24"
                   initial={{ x: 0 }}
                   whileHover={{ x: 4 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 20 }}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </motion.svg>
               </span>
+              
+              {/* Ripple effect on hover */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100"
-                initial={false}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.div
-                className="absolute inset-0 bg-white/20"
-                initial={{ x: '-100%' }}
-                whileHover={{ x: '100%' }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="absolute inset-0 bg-white/10 rounded-xl"
+                initial={{ scale: 0, opacity: 0 }}
+                whileHover={{ scale: 1.5, opacity: [0, 0.5, 0] }}
+                transition={{ duration: 0.6 }}
               />
             </Link>
           </div>

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Rocket, Network, Activity, ArrowUpRight } from 'lucide-react';
 import solutionsImage from '../../../assets/home-section/solutions.webp';
@@ -42,36 +42,6 @@ const solutions = [
 const SolutionsShowcaseSection = () => {
   return (
     <section className="relative py-16 lg:py-24 overflow-hidden bg-white">
-      {/* Elegance Pattern Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle Horizontal Tech Lines */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(to bottom, #f1f5f9 1px, transparent 1px)`,
-          backgroundSize: '100% 80px',
-          opacity: '0.4'
-        }} />
-
-        {/* Liquid Gradient Orbs */}
-        <motion.div
-          animate={{
-            x: [-100, 100, -100],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-blue-50/40 rounded-full blur-[120px]"
-        />
-        <motion.div
-          animate={{
-            x: [100, -100, 100],
-            y: [50, -50, 50],
-          }}
-          transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-red-50/30 rounded-full blur-[140px]"
-        />
-
-        {/* Global Blueprint Tint */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,white_80%)] opacity-80" />
-      </div>
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         <div className="max-w-4xl mx-auto text-center mb-20">

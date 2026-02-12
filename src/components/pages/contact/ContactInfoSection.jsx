@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import hydImage from '../../../assets/about-section/hyd.webp';
+import hydImage from '../../../assets/about-section/warangal.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
 const locations = [

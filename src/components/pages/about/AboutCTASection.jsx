@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import partnershipImage from '../../../assets/banners/fullstackbanner.webp';
 import SkeletonImage from '../../shared/SkeletonImage';
 
+import { Link } from 'react-router-dom';
 const commitments = [
   'Co-create a 90-day transformation roadmap',
   'Stand up a blended team in under 3 weeks',
@@ -50,12 +51,12 @@ const AboutCTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="px-10 py-4 rounded-full bg-white text-slate-900 font-bold text-sm uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-xl shadow-white/5">
-              Start a Conversation
-            </button>
-            <button className="px-10 py-4 rounded-full bg-transparent border border-white/20 text-white font-bold text-sm uppercase tracking-widest hover:bg-white/10 transition-all duration-300">
-              Our Methodology
-            </button>
+            <Link to="/contact">
+              <button className="px-10 py-4 rounded-full bg-white text-slate-900 font-bold text-sm uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-xl shadow-white/5">
+                Start a Conversation
+              </button>
+            </Link>
+          
           </div>
         </motion.div>
       </div>

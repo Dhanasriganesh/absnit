@@ -42,40 +42,8 @@ const IndustriesSection = () => {
     <section
       id="industries"
       ref={ref}
-      className="relative bg-white py-16 lg:py-24 overflow-hidden"
+      className="relative py-16 lg:py-24 overflow-hidden bg-white"
     >
-      {/* Industry Lattice Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Subtle Cross-Hatch Grid */}
-        <div className="absolute inset-0 opacity-[0.05]" style={{
-          backgroundImage: `
-            linear-gradient(45deg, #475569 1px, transparent 1px),
-            linear-gradient(-45deg, #475569 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px'
-        }} />
-
-        {/* Dynamic Vertical Accents */}
-        <motion.div
-          animate={{
-            y: [-100, 100],
-            opacity: [0.2, 0.5, 0.2]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 right-1/4 w-[1px] h-64 bg-gradient-to-b from-transparent via-blue-600 to-transparent"
-        />
-        <motion.div
-          animate={{
-            y: [100, -100],
-            opacity: [0.2, 0.5, 0.2]
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear", delay: 2 }}
-          className="absolute bottom-0 left-1/3 w-[1px] h-64 bg-gradient-to-b from-transparent via-red-600 to-transparent"
-        />
-
-        {/* Soft Radial Gradients */}
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(59,130,246,0.03)_0%,transparent_50%),radial-gradient(circle_at_100%_100%,rgba(239,68,68,0.03)_0%,transparent_50%)]" />
-      </div>
 
       <div className="container relative z-10 mx-auto px-4 lg:px-12">
         <div className="max-w-4xl mx-auto text-center mb-20">
