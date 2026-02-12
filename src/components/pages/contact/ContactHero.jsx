@@ -7,7 +7,7 @@ const contactStats = [
   { label: 'Global Response', value: '< 2hrs', icon: Mail },
   { label: 'Studio Network', value: '12+', icon: Globe },
   { label: 'Timezones', value: '24/7', icon: Phone },
-  { label: 'HQ Presence', value: 'Singapore', icon: MapPin },
+  { label: 'HQ Presence', value: 'India', icon: MapPin },
 ];
 
 const ContactHero = () => {
