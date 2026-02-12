@@ -137,7 +137,7 @@ const CareersHero = () => (
                 </div>
                 <div>
                   <p className="text-[10px] font-bold text-slate-900 uppercase tracking-widest">Growth First</p>
-                  <p className="text-[10px] text-slate-500 italic">"Scaling together."</p>
+                  <p className="text-[10px] text-slate-500 italic">"Scaling together"</p>
                 </div>
               </div>
             </div>
