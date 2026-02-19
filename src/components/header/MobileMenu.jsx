@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { menuItems } from './menuItems';
@@ -6,6 +6,18 @@ import { menuItems } from './menuItems';
 const MobileMenu = ({ isOpen, onClose }) => {
   const [expandedItems, setExpandedItems] = useState([]);
   const location = useLocation();
+
+  // Lock body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   const toggleItem = (index) => {
     setExpandedItems(prev =>
@@ -25,7 +37,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-black/60 z-[60] lg:hidden"
           />
           
           {/* Menu Panel */}
@@ -33,39 +45,45 @@ const MobileMenu = ({ isOpen, onClose }) => {
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-14 sm:top-16 md:top-16 lg:top-20 right-0 bottom-0 w-full sm:w-80 sm:max-w-[85vw] bg-white shadow-2xl z-50 lg:hidden overflow-y-auto"
+            transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+            className="fixed top-16 right-0 bottom-0 w-full bg-white shadow-2xl z-[70] lg:hidden overflow-y-auto"
+            style={{ 
+              minHeight: 'calc(100vh - 4rem)',
+              WebkitOverflowScrolling: 'touch',
+              transform: 'translateX(0)'
+            }}
           >
-            <div className="p-4 sm:p-6 md:p-8 space-y-2 sm:space-y-3 md:space-y-4">
-              {menuItems.map((item, index) => {
+            <div className="p-6 space-y-1 min-h-full">
+              {menuItems && menuItems.length > 0 ? (
+                menuItems.map((item, index) => {
                 const hasSubmenu = item.submenu && item.submenu.length > 0;
                 const isExpanded = expandedItems.includes(index);
                 const isActive = location.pathname === item.path ||
                   (hasSubmenu && item.submenu.some(subItem => location.pathname === subItem.path));
 
                 return (
-                  <div key={index} className="border-b border-gray-100 last:border-0 pb-3 sm:pb-3.5 md:pb-4">
+                  <div key={index} className="border-b border-gray-200 last:border-0 pb-2">
                     {/* Main Menu Item */}
                     <Link
                       to={item.path || '#'}
-                      onClick={() => {
-                        if (!hasSubmenu) {
-                          onClose();
-                        } else {
+                      onClick={(e) => {
+                        if (hasSubmenu) {
+                          e.preventDefault();
                           toggleItem(index);
+                        } else {
+                          onClose();
                         }
                       }}
-                      className={`flex items-center justify-between px-4 sm:px-5 md:px-6 py-3 sm:py-3.5 md:py-4 rounded-lg transition-all duration-200 group ${
+                      className={`flex items-center justify-between px-4 py-4 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? 'bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 font-semibold'
-                          : 'text-gray-700 hover:bg-gray-50'
+                          ? 'bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-600 font-semibold'
+                          : 'text-gray-800 hover:bg-gray-50'
                       }`}
-                      style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
                     >
-                      <span className="font-medium text-sm sm:text-base tracking-wide">{item.name}</span>
+                      <span className="font-semibold text-base">{item.name}</span>
                       {hasSubmenu && (
                         <motion.svg
-                          className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0"
+                          className="w-5 h-5 text-gray-500 flex-shrink-0"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -85,41 +103,43 @@ const MobileMenu = ({ isOpen, onClose }) => {
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="pl-4 sm:pl-6 md:pl-8 pr-2 sm:pr-4 py-2 sm:py-3 md:py-4 space-y-1.5 sm:space-y-2"
+                          className="overflow-hidden"
                         >
-                          {item.submenu.map((subItem, subIndex) => {
-                            const isSubActive = location.pathname === subItem.path;
-                            return (
-                              <Link
-                                key={subIndex}
-                                to={subItem.path}
-                                onClick={onClose}
-                                className={`block px-4 sm:px-5 md:px-6 py-2.5 sm:py-3 md:py-3.5 rounded-lg text-xs sm:text-sm transition-all duration-200 ${
-                                  isSubActive
-                                    ? 'bg-blue-50 text-blue-600 font-semibold'
-                                    : 'text-gray-600 hover:bg-gray-50 hover:text-blue-600'
-                                }`}
-                                style={{ fontFamily: 'Inter, system-ui, sans-serif', letterSpacing: '0.01em' }}
-                              >
-                                {subItem.name}
-                              </Link>
-                            );
-                          })}
+                          <div className="pl-6 pr-2 py-2 space-y-1">
+                            {item.submenu.map((subItem, subIndex) => {
+                              const isSubActive = location.pathname === subItem.path;
+                              return (
+                                <Link
+                                  key={subIndex}
+                                  to={subItem.path}
+                                  onClick={onClose}
+                                  className={`block px-4 py-3 rounded-lg text-sm transition-all duration-200 ${
+                                    isSubActive
+                                      ? 'bg-blue-50 text-blue-600 font-semibold'
+                                      : 'text-gray-700 hover:bg-gray-50 hover:text-blue-600'
+                                  }`}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              );
+                            })}
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
                   </div>
                 );
-              })}
+              })) : (
+                <div className="text-center py-8 text-gray-500">No menu items available</div>
+              )}
             </div>
 
             {/* CTA Button */}
-            <div className="p-4 sm:p-6 md:p-8 border-t border-gray-200 mt-4 sm:mt-5 md:mt-6">
+            <div className="p-5 border-t border-gray-200 mt-4 sticky bottom-0 bg-white">
               <Link
                 to="/contact"
                 onClick={onClose}
-                className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center py-3 sm:py-3.5 md:py-4 rounded-lg font-semibold text-sm sm:text-base hover:shadow-lg transform hover:scale-105 transition-all duration-200 tracking-wide"
-                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+                className="block w-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white text-center py-4 rounded-lg font-semibold text-base hover:shadow-lg transition-all duration-200"
               >
                 Get Started
               </Link>

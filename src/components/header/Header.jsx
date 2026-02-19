@@ -64,9 +64,10 @@ function Header() {
         type: "tween"
       }}
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100/50"
+      style={{ zIndex: 50 }}
     >
-      <nav className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 lg:h-22 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8">
+      <nav className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20 gap-2 sm:gap-3 md:gap-4 lg:gap-6">
           {/* Logo */}
           <motion.div 
             className="flex-shrink-0"
@@ -78,7 +79,7 @@ function Header() {
               <img
                 src={logonImage}
                 alt="ABSN IT Solutions Logo"
-                className="h-26 sm:h-18 md:h-16 lg:h-38 w-auto object-contain transition-opacity hover:opacity-90"
+                className="h-24 sm:h-16 md:h-16 lg:h-36 w-auto object-contain transition-opacity hover:opacity-90"
               />
             </Link>
           </motion.div>

@@ -5,7 +5,7 @@ const MobileMenuButton = ({ isOpen, onClick, isTextWhite = false }) => {
   return (
     <button
       onClick={onClick}
-      className={`lg:hidden relative w-11 h-11 flex items-center justify-center rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+      className={`lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
         isTextWhite
           ? 'bg-white/20 hover:bg-white/30 backdrop-blur-sm'
           : 'bg-gray-100 hover:bg-gray-200'

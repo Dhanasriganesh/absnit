@@ -36,125 +36,180 @@ const AnimatedNumber = ({ value, suffix = '+' }) => {
 
 const HeroSection = () => {
   return (
-    <section
-      id="hero"
-      data-header-theme="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black w-full"
-    >
-      {/* Main Video Background - Responsive for all screen sizes */}
-      <div className="absolute inset-0 z-0 w-full h-full">
-        <SkeletonVideo
-          src={heroVideo}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
-          style={{
-            minWidth: '100%',
-            minHeight: '100%',
-            width: 'auto',
-            height: 'auto',
-          }}
-          onError={(e) => {
-            console.error('Video loading error:', e);
-          }}
-        >
-          <source src={heroVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </SkeletonVideo>
-      </div>
+    <>
+      {/* Mobile Hero Section - Optimized for mobile screens */}
+      <section
+        id="hero-mobile"
+        data-header-theme="hero"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 md:hidden w-full"
+      >
+        {/* Mobile Background - Gradient with subtle pattern */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/95 via-blue-900/90 to-slate-900/95"></div>
+          <div 
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 1px, transparent 1px)',
+              backgroundSize: '30px 30px'
+            }}
+          ></div>
+        </div>
 
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 z-0 pointer-events-none"></div>
-
-      {/* Content - Centered in middle of page */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 relative z-10 w-full pointer-events-none">
-        <div className="flex items-center justify-center min-h-screen py-8 sm:py-12 md:py-16">
-          <div className="text-center max-w-5xl mx-auto w-full px-2 sm:px-4">
-            {/* Subtitle */}
-            {/* <motion.div
+        {/* Mobile Content */}
+        <div className="container mx-auto px-4 relative z-10 w-full">
+          <div className="flex flex-col items-center justify-center min-h-screen py-12 text-center">
+            {/* Mobile Subtitle */}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-6 flex justify-center"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-6"
             >
-              <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-[9px] font-medium border border-white/20">
+              <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-xs font-medium border border-white/20">
                 Next-Generation AI Solutions
               </span>
-            </motion.div> */}
+            </motion.div>
 
-            {/* Main Heading */}
-            {/* <motion.h1
+            {/* Mobile Main Heading */}
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-8 text-white leading-tight"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-2xl font-bold mb-6 text-white leading-tight px-2"
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 letterSpacing: '-0.01em',
-                lineHeight: '1.2',
+                lineHeight: '1.3',
               }}
             >
               <span className="block mb-2">Shaping the Future of</span>
-              <span className="block mb-2 bg-gradient-to-r from-blue-600 via-blue-500 to-red-600 bg-clip-text text-transparent">
+              <span className="block mb-2 bg-gradient-to-r from-blue-400 via-blue-300 to-red-400 bg-clip-text text-transparent">
                 Business Through
               </span>
               <span className="block text-white">Innovation and Excellence</span>
-            </motion.h1> */}
+            </motion.h1>
 
-            {/* Description */}
-
-
-            {/* Stats Preview */}
-            {/* <motion.div
+            {/* Mobile Description */}
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto pt-8 border-t border-white/20"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-sm text-white/90 mb-8 px-4 leading-relaxed max-w-md mx-auto"
+            >
+              Transforming businesses with cutting-edge technology solutions and strategic innovation.
+            </motion.p>
+
+            {/* Mobile Stats - Compact Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="grid grid-cols-2 gap-4 w-full max-w-sm mx-auto pt-6 border-t border-white/20"
             >
               {stats.map((stat) => (
-                <div key={stat.label} className="text-center flex flex-col items-center justify-center">
-                  <div className="text-sm md:text-base lg:text-lg font-bold text-white mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <div key={stat.label} className="text-center">
+                  <div className="text-lg font-bold text-white mb-1" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     <AnimatedNumber value={stat.value} suffix={stat.suffix} />
                   </div>
-                  <div className="text-[9px] text-white/80 font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <div className="text-[10px] text-white/80 font-medium" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     {stat.label}
                   </div>
                 </div>
               ))}
-            </motion.div> */}
+            </motion.div>
           </div>
         </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-6 sm:bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10 pointer-events-auto"
+        {/* Mobile Scroll Indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-white/70 text-[10px] font-medium uppercase tracking-wider">
+              Scroll
+            </span>
+            <motion.svg
+              className="w-5 h-5 text-white/70"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </motion.svg>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Desktop Hero Section - Video background for larger screens */}
+      <section
+        id="hero-desktop"
+        data-header-theme="hero"
+        className="relative min-h-screen hidden md:flex items-center justify-center overflow-hidden bg-black w-full"
       >
-        <div className="flex flex-col items-center gap-1.5 sm:gap-2">
-          <span
-            className="text-white/70 text-[8px] sm:text-[9px] md:text-[10px] font-medium uppercase tracking-wider"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
+        {/* Main Video Background - Desktop only */}
+        <div className="absolute inset-0 z-0 w-full h-full">
+          <SkeletonVideo
+            src={heroVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+            style={{
+              minWidth: '100%',
+              minHeight: '100%',
+              width: 'auto',
+              height: 'auto',
+            }}
+            onError={(e) => {
+              console.error('Video loading error:', e);
+            }}
           >
-            Scroll
-          </span>
-          <motion.svg
-            className="w-4 h-4 sm:w-5 sm:h-5 text-white/70"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </motion.svg>
+            <source src={heroVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </SkeletonVideo>
         </div>
-      </motion.div>
 
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 z-0 pointer-events-none"></div>
 
-    </section>
+        {/* Desktop Content - Centered */}
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-8 relative z-10 w-full pointer-events-none">
+          <div className="flex items-center justify-center min-h-screen py-8 sm:py-12 md:py-16">
+            <div className="text-center max-w-5xl mx-auto w-full px-2 sm:px-4">
+              {/* Desktop content can be added here if needed */}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-8 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10 pointer-events-auto"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <span
+              className="text-white/70 text-[10px] font-medium uppercase tracking-wider"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
+              Scroll
+            </span>
+            <motion.svg
+              className="w-5 h-5 text-white/70"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </motion.svg>
+          </div>
+        </motion.div>
+      </section>
+    </>
   );
 };
 
